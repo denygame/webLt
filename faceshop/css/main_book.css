@@ -1,0 +1,238 @@
+#noidung{
+    width:100%;
+    min-height:400px;
+    margin-top:25px;
+    margin-bottom:35px;}
+#left{
+    width:30%;
+    float:left;
+    min-height:200px;
+    margin: auto;}
+#left img{
+    width: 250px;
+    margin-left: 40px;}
+#right{
+    width:69%;
+    min-height:100px;
+    float:left;}
+#name_book{
+    width:100%;
+    height:50px;
+    font-size:32px;
+    text-align:left;
+    color:#000;clear:both;
+    padding: 10px;}
+#detail{
+    width:48%;
+    min-height:100px;
+    float:left;}
+#detail p{
+    margin-bottom: 5px;
+    font-size: 14px;}
+#khac{
+    width:46%;
+    float:left;
+    border-left: 1px solid #999999;
+    margin-bottom: 10px;}
+#gia{
+    width:100%;
+    min-height:80px; clear:both;}
+
+#div_chon_sach a{
+    color: white;
+    width: 150px;
+    float: left;
+    margin-left: 15px;
+    text-decoration: none;
+    padding-left: 15px;
+}
+#div_chon_sach a:hover{
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+
+#gt_tg{
+    width:100%;
+    min-height:400px;}
+#gt{
+    width: 100px;
+    height: 30px;
+    float: left;
+    font-size: 20px;
+    border-style:none;
+    background-color: white;
+}
+#gt:hover{
+    color: orangered;
+}
+#gt:focus{
+    color: blue;
+}
+#tg{
+    width: 100px;
+    height: 30px;
+    float: left;
+    font-size: 20px;
+    border-style:none;
+    background-color: white;
+}
+#tg:hover{
+    color: orangered;
+}
+#tg:focus{
+    color: blue;
+}
+#nd_gt{
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+#nd_tg{
+    background-color:#FFFFFF;
+    display: none;
+    padding: 10px;
+}
+
+#danhgia{
+    width:100%;
+    height:550px;
+    margin-top:25px;
+    border: 1px solid #999999;
+}
+
+#danhgia table h2{
+    font-size: 25px;
+    background-color: #0e90d2;
+    color: white;
+    text-align: left;
+    padding: 10px;
+}
+#danhgia table{
+    width: 100%;
+}
+#td{
+    width: 50px;
+}
+#gui_nhan_xet{
+    margin-top: 10px;
+    height: 60px;
+}
+#danhgia #gui_nhan_xet a{
+    padding: 10px;
+    font-size: 20px;
+    background-color: orangered;
+    color: white;
+}
+#danhgia #gui_nhan_xet a:hover{
+    opacity: 0.8;
+}
+
+
+
+
+#sach_cungloai2{
+    margin-top: 30px;
+    min-height: 200px;
+}
+
+*{ margin:0; padding:0;}
+hr{ width:90%; margin:auto; margin-bottom: 25px;}
+
+
+#tieude2{
+    width:100%;
+    height:50px;
+    font-size:30px;
+    padding-top:20px;
+    text-align:center;
+    color:#000;clear:both;
+    background-color:#CCC;}
+#sach_cungloai2{ width:100%; min-height:300px; margin-bottom:100px; }
+
+#sach2{
+    width:163px;
+    height:300px;
+    border:1px solid;
+    border-color:#CCC;
+    margin:5px;
+    margin-top:25px;
+    float:left; }
+
+#dathang2 a{
+    width: 100px;
+    height: 25px;
+    font-size: 16px;
+    margin: auto;
+    background-color: #39F;
+    position: absolute;
+    display: none;
+    text-align: center;
+    border: #999 1px solid;
+    margin-left: 32px;
+    margin-top: 8px;
+    text-decoration: none;
+    border-radius: 8px;
+    color: #FFF;
+}
+
+#dathang2:hover a{ color:#F00;}
+#sach2:hover{
+    border-color: #39F;
+}
+#sach2:hover #dathang2 a{
+    display: block;
+}
+#hinhsach2 {
+    width: 120px;
+    margin: auto;
+    margin-top:10px;
+
+}
+#hinhsach2 a{
+    width: 120px;
+    text-align: center;
+}
+#hinhsach2 a img{
+    width:120px;
+    height: 160px;
+}
+#tensach2{
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    color: #000;
+    margin-top:3px;
+}
+#tensach2 p{
+    height: 50px;
+    overflow: hidden;
+}
+#mota2{
+    height: 20px;
+    width: 100%;
+    margin-left: 15px;
+    padding-top: 5px;
+    margin-top:5px;
+}
+#gia2{
+    width: 100%;
+    height: 10px;
+    margin-left: 15px;
+    padding-top: 2px;
+    margin-top:5px;
+}
+#km2{
+    width: 50px;
+    height:35px;
+    float: left;
+    font-size: 20px;
+    text-align:center;
+    color: #FFF;
+    margin-top: -260px;
+    padding-top:10px;
+    background-color:#F03;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+#sach2 a{
+    text-decoration:none;}

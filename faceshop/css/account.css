@@ -1,0 +1,34 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0; padding:0;}
+
+#div_small_account{
+	width:100%;
+	min-height:220px;
+	margin:auto;
+	margin-left:5px; }
+#div_small_account table {
+	border-collapse: collapse;
+}
+
+#div_small_account table, td, th {
+	margin:15px;
+	width:250px;
+	height:40px;
+	text-align:left;
+	color:#000;
+	margin-left:5px;
+}
+#login{
+	background-color:#F03;
+	border-style:none;
+	font-size:15px;
+	width:120px;
+	padding:5px;
+	color:#FFF;
+	padding-left:14px;
+	padding-right:14px;
+}
+a{
+	text-decoration:none;}

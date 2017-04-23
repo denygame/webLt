@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0; padding:0;}
+
+
+#foot{ width:100%; height:400px; background-color:#333; bottom:0px;}
+#thong_tin{
+	width: 1100px;
+	height: 250px;
+	margin: auto;
+	color: #FFF;
+}
+#ho_tro{
+	margin-left: 24px;
+	margin-top: 20px;
+	width: 250px;
+	float: left;
+	height: 250px;
+	color: #999;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 25px;
+}
+#hoi_dap{
+	width: 250px;
+	float: left;
+	margin-top: 20px;
+	height: 250px;
+}
+#foot #thong_tin #hoi_dap a {
+	color: #999;
+	text-decoration: none;
+	line-height: 30px;
+}
+#foot #thong_tin #tro_giup a {
+	color: #999;
+	text-decoration: none;
+	line-height: 30px;
+}
+#lien_ket{
+	width: 250px;
+	float: left;
+	margin-top: 20px;
+	height: 250px;
+}
+#tro_giup{
+	width: 250px;
+	float: left;
+	margin-top: 20px;
+	height: 250px;
+}
+#end{margin:auto;;color:#FFF;width:1100px;margin-top:10px;}
+#add{
+	margin: auto;
+	width: 600px;
+	text-align: center;
+	vertical-align: middle;
+}
+#foot #thong_tin #hoi_dap a:hover{color:#F00;}
+#foot #thong_tin #tro_giup a:hover {color:#F00;}

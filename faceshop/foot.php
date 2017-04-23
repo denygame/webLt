@@ -3,67 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<style type="text/css">
-*{ margin:0; padding:0;}
-#foot{ width:100%; height:400px; background-color:#333; bottom:0px;}
-#thong_tin{
-	width: 1100px;
-	height: 270px;
-	margin: auto;
-	color: #FFF;
-}
-#ho_tro{
-	margin-left: 24px;
-	margin-top: 20px;
-	width: 250px;
-	float: left;
-	height: 250px;
-	color: #999;
-	font-size: 14px;
-	font-family: Arial, Helvetica, sans-serif;
-	line-height: 25px;
-}
-#hoi_dap{
-	width: 250px;
-	float: left;
-	margin-top: 20px;
-	height: 250px;		
-}
-#foot #thong_tin #hoi_dap a {
-	color: #999;
-	text-decoration: none;
-	line-height: 30px;
-}
-#foot #thong_tin #tro_giup a {
-	color: #999;
-	text-decoration: none;
-	line-height: 30px;
-}
-#lien_ket{
-	width: 250px;
-	float: left;
-	margin-top: 20px;
-	height: 250px;
-}
-#tro_giup{
-	width: 250px;
-	float: left;
-	margin-top: 20px;
-	height: 250px;
-}
-#end{margin:auto;;color:#FFF;width:1100px;margin-top:30px;}
-#add{
-	margin: auto;	
-	width: 600px;
-	text-align: center;
-	vertical-align: middle;
-}
-#foot #thong_tin #hoi_dap a:hover{color:#F00;}
-#foot #thong_tin #tro_giup a:hover {color:#F00;}
-
-</style>
-
-
+    <link href="css/foot.css" type="text/css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -98,11 +38,12 @@
     </div>
     <div id="lien_ket">Fanpage</div>
 </div>
-<div id="end"><hr /><br /><div id="add">
-<p>Anybooks.vn © 2011 - Giao hàng tận nhà Toàn quốc</p>
-<p>VP Hà Nội: Tầng 4, Số 23 Hoàng Văn Thái - Thanh Xuân - Hà Nội</p>
-<p>VP HCM: 29/15A Đường Bùi Thị Xuân - Phường 2 - Quận Tân Bình - Tp.HCM</p>
-</div>
+<div id="end"><hr /><br />
+    <div id="add">
+        <p>Anybooks.vn © 2011 - Giao hàng tận nhà Toàn quốc</p>
+        <p>VP Hà Nội: Tầng 4, Số 23 Hoàng Văn Thái - Thanh Xuân - Hà Nội</p>
+        <p>VP HCM: 29/15A Đường Bùi Thị Xuân - Phường 2 - Quận Tân Bình - Tp.HCM</p>
+    </div>
 </div>
 
 </div>
