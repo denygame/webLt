@@ -7,7 +7,8 @@
 </head>
 
 <body>
-<?php require_once 'controller/BookController.php'; $bookController = new BookController();?>
+<?php require_once 'controller/DB_Connect.php'; $con = new DB_Connect(); $con->connect(); 
+	  require_once 'controller/BookController.php'; $bookController = new BookController();?>
 
 <div id="container">
 	<div id="header"> <?php include 'view/head.php' ?></div>
@@ -22,8 +23,8 @@
 				switch($id)
 				{
 					case'trangchu': include 'view/main_home.php'; break;
-					case'sach': if($bookController->showMainBook()==false) include 'view/main_home.php'; break;
-					case'danhmuc':include'main_category.php'; break;
+					case'sach': $bookController->showMainBook(); break;
+					case'danhmuc':$bookController->showMainCategory(); break;
 					default : echo'<div style="text-align:center; font-size:50px; height:63px;">Không có thông tin về trang này.</div>'; break;
 				}
 			}

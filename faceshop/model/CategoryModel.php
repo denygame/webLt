@@ -1,13 +1,17 @@
 <?php
 require_once 'DataProvider.php';
+require_once 'others/TestResult.php';
 class CategoryModel
 {
     public function getListCategory()
     {
         $result = DataProvider::executeQuery('select * from `category`');
-        if(!$result) return false;
-        if (mysql_num_rows($result) > 0) return $result;
-        return null;
+        return TestResult::testResultModel($result);
+    }
+
+    public function getName($idcategory){
+    	$result = DataProvider::executeQuery('select `name` from `category` WHERE idcategory='.$idcategory);
+        return TestResult::testResultModel($result);
     }
 }
 ?>

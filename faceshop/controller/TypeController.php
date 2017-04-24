@@ -1,6 +1,6 @@
 <?php
 require_once 'model/TypeModel.php';
-
+require_once 'others/TestResult.php';
 class TypeController
 {
     private $model;
@@ -13,9 +13,12 @@ class TypeController
     public function loadTypeOfCategory($idCategory)
     {
         $result = $this->model->getListTypeByIdCategory($idCategory);
-        if(!$result) echo 'Lỗi truy vấn';
-        if ($result == null) return null;
-        else return $result;
+        return TestResult::testResultController($result);
+    }
+
+     public function getNameType($idtype){
+         $result = $this->model->getName($idtype);
+        if ($result == null) return null; else return mysql_fetch_assoc($result);
     }
 }
 ?>

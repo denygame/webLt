@@ -16,7 +16,7 @@
     <div id="slide"></div>
     <div id="sach_noibat">
         <div id="tieude"><p>Sách nổi bật</p></div>
-        <div id="sach_cungloai2">
+        <div style="min-height: 1100px;">
             <?php  $result=$bController->load6BookHighlight(); if ($result!=null) while ($d = mysql_fetch_array($result)) { ?>
                     <div id="sach">
                         <div id="hinhsach"><a href="index.php?id=sach&idbook=<?php echo $d['idbook']; ?>" ?><img width="300px" src="img/<?php echo $d['imgbg']; ?>"/></a></div>
@@ -38,7 +38,7 @@
                             <a href="#">&#9758 Chọn mua</a>
                         </div>
                     </div>
-                    <?php } else echo 'Lỗi không load sách nổi bật!'; ?>
+                    <?php } else echo 'Lỗi truy vẩn!'; ?>
         </div>
     </div>
     <hr/>
@@ -59,7 +59,7 @@
                         <div id="km2"><?php echo $d['saleoff']; ?>%</div>
                         <div id="dathang2"><a href="#">&#9758 Đặt hàng</a></div>
                     </div>
-                    <?php } else echo 'Lỗi không load sách mới!'; ?>
+                    <?php } else echo 'Lỗi truy vẩn!'; ?>
         </div>
     </div>
     <hr/>
@@ -80,7 +80,7 @@
                         <div id="km2"><?php echo $d['saleoff']; ?>%</div>
                         <div id="dathang2"><a href="#">&#9758 Đặt hàng</a></div>
                     </div>
-            <?php } else echo 'Lỗi không load sách sắp ra mắt!'; ?>
+            <?php } else echo 'Lỗi truy vẩn!'; ?>
         </div>
     </div>
 </div>

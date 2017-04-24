@@ -41,7 +41,6 @@ require_once 'controller/TypeController.php'; $typeController = new TypeControll
                                     <?php }else echo 'Lỗi không có thể loại'?>
                                 </div>
                             <?php } ?>
-
                     </div>
 
             </div>

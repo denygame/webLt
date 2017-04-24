@@ -100,39 +100,50 @@
     border: 1px solid #999999;
 }
 
-#danhgia table h2{
-    font-size: 25px;
+#tieude_danhgia{
     background-color: #0e90d2;
+    font-size: 30px;
     color: white;
-    text-align: left;
+    height: 30px;
     padding: 10px;
 }
-#danhgia table{
-    width: 100%;
-}
-#td{
-    width: 50px;
-}
-#gui_nhan_xet{
+
+#danhgia_right{
     margin-top: 10px;
-    height: 60px;
+    width: 65%;
+    float: left;
+    padding: 10px;
 }
-#danhgia #gui_nhan_xet a{
+#danhgia_right table{
+    width: 650px;
+    background-color: #CCCCCC;
+    padding: 10px;
+    font-size: 20px;
+}
+#danhgia_right form input{
+    font-size: 20px;
+}
+#danhgia_left{
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+#danhgia #danhgia_right form a{
     padding: 10px;
     font-size: 20px;
     background-color: orangered;
     color: white;
 }
-#danhgia #gui_nhan_xet a:hover{
+#danhgia #danhgia_right a:hover{
     opacity: 0.8;
 }
 
-
-
-
-#sach_cungloai2{
-    margin-top: 30px;
-    min-height: 200px;
+#danhgia_left{
+    margin: 15px;
+    border: 1px solid;
+    border-color: darkgreen;
+    border-radius: 5%;
+    background-color: blanchedalmond;
 }
 
 *{ margin:0; padding:0;}

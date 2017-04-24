@@ -65,7 +65,7 @@ require_once 'controller/AuthorController.php'; $authorController = new AuthorCo
                                 </div>
                                 <div style="float: left;" id="div_chon_sach">
                                     <a href="#" style=" background-color: #CC6600;" > + | Thêm vào giỏ hàng <br/> (Và tiếp tục mua)</a>
-                                    <a href="#"  style="background-color: #0e90d2;"><img src="../img/icon_giohang.png" width="15px;" alt=""/> | Chọn cuốn này <br> (Và đi đến giỏ hàng)</a>
+                                    <a href="#"  style="background-color: #0e90d2;"><img src="img/icon_giohang.png" width="15px;" alt=""/> | Chọn cuốn này <br> (Và đi đến giỏ hàng)</a>
                                 </div>
                             </div>
                         </div>
@@ -88,78 +88,70 @@ require_once 'controller/AuthorController.php'; $authorController = new AuthorCo
 		<?php }?>
     <hr />
     <div id="danhgia">
-            <table >
-                <tr><td colspan="2"><h2>Gửi đánh giá của bạn</h2></td> </tr>
-                <tr>
-                    <td width="400px">
-                        <table>
-                            <form>
-                            <tr>
-                                <td colspan="2" style="color: red">Điểm thưởng cho nhận xét được duyệt sẽ được cộng vào tài khoản ứng với email của bạn.</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><a href="#"> >> Tham khảo bí quyết để comment dễ được duyệt đăng tại đây!</a></td>
-                            </tr>
-                            <tr >
-                                    <td id="td"> Email (<font color="red">*</font>)</td>
-                                    <td><input type="email" id="" name="" size="30" style="font-size: 20px;"/></td>
-                            </tr>
-                            <tr>
-                                    <td id="td"> Đánh giá (<font color="red">*</font>)</td>
-                                    <td><input type="email" id="" name="" size="30" style="font-size: 20px;"/></td>
-                            </tr>
-                            <tr>
-                                    <td id="td" > Câu hỏi chống spam: </td>
-                                    <td> câu hỏi: </td>
-                            </tr>
-                            <tr>
-                                    <td id="td"> Câu trả lời (<font color="red">*</font>)</td>
-                                    <td><input type="email" id="" name="" size="30" style="font-size: 20px;"/></td>
-                            </tr>
-                            <tr>
-                                    <td colspan="2" style="width: 190px;"> Nhập xét của bạn (<font color="red">*</font>)</td>
-                            </tr>
-                            <tr>
-                                    <td colspan="2">
-                                        <form action="" >
-                                            <textarea rows="6" cols="101"></textarea>
-                                        </form>
-                                    </td>
-                            </tr>
-                            <tr>
-                                    <td></td>
-                                    <td id="gui_nhan_xet"><a href="#" >Gửi nhận xét</a> </td>
-                            </tr>
-                            </form>
-                        </table>
-                    </td>
-                    <td>
-                        <div>
-                            <p>Nhận ngay điểm thưởng khi chia sẻ</p>
-                                <br>
-                            <p>Là hệ thống điểm thưởng (giá trị quy đổi 1 điểm tương ứng 5 đồng) được dùng khi mua hàng tại Anybooks</p>
-                                <br>
-                            <ul>
-                                Điều kiện để được cộng điểm:
-                                    <ul style="margin-left: 15px;">
-                                        <li>Trước khi gửi nhận xét bạn phải đăng nhập tài khoản tại Anybooks.</li>
-                                        <li>Sau khi gửi nhận xét, ban quản trị sẽ duyệt nhận xét của bạn, nếu nhận xét hợp lệ hệ thống sẽ gửi email báo lại cho bạn, tài khoản của bạn sẽ được hiển thị và cộng điểm.
-                                        </li>
-                                    </ul>
-                            </ul>
-                            <br>
-                            <ul>
-                                Mỗi nhận xét được duyệt sẽ được tặng:
-                                    <ul style="margin-left: 15px;">
-                                        <li>200 điểm cho khách hàng đã từng mua hàng thành công tại Anybooks</li>
-                                        <li>100 điểm cho khách hàng chưa từng mua hàng thành công.</li>
-                                    </ul>
-                            </ul>
-                            <p>Tham khảo thêm mẹo viết comment hay tại đây!</p>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+        <div id="tieude_danhgia">GỬI ĐÁNH GIÁ CỦA BẠN</div>
+        <div id="danhgia_right">
+            <p>Điểm thưởng cho nhận xét được duyệt sẽ được cộng vào tài khoản ứng với email của bạn.</p>
+            <p><a> >> Tham khảo bí quyết để comment dễ được duyệt đăng tại đây!</a></p>
+            <br>
+            <form>
+                <table>
+                    <tr>
+                        <td>Email (<font color="red">*</font>)</td>
+                        <td><input type="email" size="30"/></td>
+                    </tr>
+                    <tr>
+                        <td>Đánh giá (<font color="red">*</font>)</td>
+                        <td><input type="text" size="30"/></td>
+                    </tr>
+                    <tr>
+                        <td>Câu hỏi chống spam </td>
+                        <td> ????</td>
+                    </tr>
+                    <tr>
+                        <td>Nhập câu trả lời (<font color="red">*</font>)</td>
+                        <td><input type="text" size="30"/></td>
+                    </tr>
+                    <tr>
+                        <td>Nhận xét của bạn</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><textarea rows="6" cols="85"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center"><a href="" >Gửi nhận xét</a></td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+        <div id="danhgia_left">
+            <p>Nhận ngay điểm thưởng khi chia sẻ</p>
+            <br>
+            <p>Là hệ thống điểm thưởng (giá trị quy đổi 1 điểm tương ứng 5 đồng) được dùng khi mua hàng tại Anybooks</p>
+            <br>
+            <ul>
+                Điều kiện để được cộng điểm:
+                <ul style="margin-left: 15px;">
+                    <li>Trước khi gửi nhận xét bạn phải đăng nhập tài khoản tại Anybooks.</li>
+                    <li>Sau khi gửi nhận xét, ban quản trị sẽ duyệt nhận xét của bạn, nếu nhận xét hợp lệ hệ thống sẽ gửi email báo lại cho bạn, tài khoản của bạn sẽ được hiển thị và cộng điểm.
+                    </li>
+                </ul>
+
+            </ul>
+            <br>
+            <ul>
+                Mỗi nhận xét được duyệt sẽ được tặng:
+                <ul style="margin-left: 15px;">
+                    <li>200 điểm cho khách hàng đã từng mua hàng thành công tại Anybooks</li>
+                    <li>100 điểm cho khách hàng chưa từng mua hàng thành công.</li>
+                </ul>
+            </ul>
+            <p>Tham khảo thêm mẹo viết comment hay tại đây!</p>
+        </div>
+
     </div>
     <hr />
     <div id="tieude2">Sách cùng thể loại</div>
@@ -178,7 +170,7 @@ require_once 'controller/AuthorController.php'; $authorController = new AuthorCo
                     <div id="km2"><?php echo $d['saleoff']; ?>%</div>
                     <div id="dathang2"><a href="#">&#9758 Đặt hàng</a></div>
                 </div>
-            <?php }?>
+            <?php }else echo 'Không có sách nào cùng thể loại';?>
     </div>
 </body>
 </html>
