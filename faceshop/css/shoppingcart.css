@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#title{
+    font-size: 25px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#shopingcart_left{
+    width: 70%;
+    min-height: 800px;
+    border-top: 5px solid #CCCCCC;
+    margin-bottom: 100px;
+    float: left;
+}
+#list{
+    min-height: 200px;
+    max-height: 600px;
+    overflow: scroll;
+    border: 1px solid #CCCCCC;
+    padding-left: 10px;
+}
+#list table td{
+    border-bottom: 1px solid #CCCCCC;
+    padding-top:5px;
+    padding-bottom: 10px;
+}
+#list table tr{
+    margin-bottom: 15px;
+}
+#hinhsach{
+    width: 50px;
+    height: 80px;
+}
+#hinhsach img{
+    width: 50px;
+    height: 80px;
+}
+#tensach {
+    width: 350px;
+    font-size: 16px;
+    float: left;
+    margin-top: -10px;
+    margin-bottom: 2px;
+    height: 40px;
+}
+#delete{
+    width: 50px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    border-radius: 10%;
+    margin-top: 30px;
+    border: 1px solid #FFFFFF;
+}
+#delete:hover{
+    border: 1px solid #FF0033;
+}
+#delete img{
+    width: 30px;
+    margin-top: 0px;
+    margin-left: -3px;
+
+}
+#giaban{
+    width: 100px;
+    color: #CC6600;
+    font-size: 20px;
+}
+#giabia{
+    width: 100px;
+    text-decoration: line-through;
+}
+#total{
+
+}
+#total table{
+    width: 100%;
+    border: 1px solid #CCCCCC;
+}
+#total td{
+    text-align: right;
+    width: 100px;
+    padding: 10px;
+    line-height: 30px;
+}
+#shoppingcart_right{
+    border: 1px solid #CCCCCC;
+    width: 26%;
+    margin-left: 10px;
+    border-top: 5px solid #CCCCCC;
+    min-height: 300px;
+    float: left;
+}
+
+
+
+

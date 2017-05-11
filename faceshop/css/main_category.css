@@ -14,7 +14,8 @@ hr{ width:90%; margin:auto; margin-bottom: 25px;}
 	color:#000;clear:both;
 	background-color:#CCC;}
 #sach_cungloai2{
-	min-height: 500px;
+	height: 1000px;
+
 }
 
 #sach2{
@@ -24,12 +25,13 @@ hr{ width:90%; margin:auto; margin-bottom: 25px;}
 	border-color:#CCC;
 	margin:5px;
 	margin-top:25px;
+	margin-bottom: 25px;
 	float:left; }
 #tensach2 p{
 	height: 50px;
 	overflow: hidden;
 }
-#dathang2 a{
+#dathang2 .btn{
 	width: 100px;
 	height: 25px;
 	font-size: 16px;
@@ -46,11 +48,11 @@ hr{ width:90%; margin:auto; margin-bottom: 25px;}
 	color: #FFF;
 }
 
-#dathang2:hover a{ color:#F00;}
+#dathang2:hover .btn{ color:#F00;}
 #sach2:hover{
 	border-color: #39F;
 }
-#sach2:hover #dathang2 a{
+#sach2:hover #dathang2 .btn{
 	display: block;
 }
 #hinhsach2 {
@@ -104,9 +106,74 @@ hr{ width:90%; margin:auto; margin-bottom: 25px;}
 	padding-top:10px;
 	background-color:#F03;
 	clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+	position: absolute;
+	border-radius: 50%;
 }
 #sach2 a{
 	text-decoration:none;}
+
+#phantrang{
+	line-height: 20px;
+	margin: auto;
+	width: 420px;
+	height: 100px;
+}
+#phantrang a{
+	font-size: 18px;
+	padding-left: 7px;
+	padding-right: 7px;
+	color: #CCCCCC;
+	background-color:#333333;
+	text-decoration: none;
+	display: inline-block;
+	width: 30px;
+	text-align: center;
+	border-radius: 20%;
+	margin-left: 5px;
+}
+#phantrang a:hover{
+	background-color: #999999;
+}
+
+#selective{
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+
+#selective select{
+	font-size: 20px;
+	padding: 5px;
+	background-color: aliceblue;
+	float: left;
+}
+#selective a{
+	width: 190px;
+	padding: 5px;
+	font-size: 22px;
+	display: block;
+	border: 1px solid #999999;
+	float: left;
+	margin-left: 7px;
+	border-radius: 5%;
+	text-align: center;
+	background-color: aliceblue;
+}
+#selective a:hover{
+	background-color: #CCCCCC;
+	color: #333333;
+}
+#selective button{
+	margin-left: 7px;
+	border-style: none;
+	width: 35px;
+	height: 20px;
+}
+#selective button:hover{
+	opacity: 0.7;
+}
+#selective button img {
+	width: 35px;
+}
 
 
 

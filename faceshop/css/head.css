@@ -62,12 +62,12 @@ a:active{
 
 #test{
 	width: 847px;
-	height:3px;
+	height:13px;
 	border:3px solid #C60;
 	border-top: none;
 	border-left: none;
 	border-right: none;
-	margin-top: 30px;
+	margin-top: 20px;
 	margin-left: 200px;
 	display: none;
 }
@@ -128,35 +128,14 @@ a:active{
 #giohang:hover{
 	box-shadow:2px 2px 4px 2px #000000;
 	background-color:#6CC;}
-#tk{
-	width: 270px;
-	padding-top:5px;
-	min-height: 230px;
-	font-size: 14px;
-	text-decoration: none;
-	display:none;
-	margin-left:-270px;
-	margin-top:-71px;
-	background-image:url(../img/div_account.png);
-	background-repeat:no-repeat;
-}
 
-.gh{
-	width: 270px;
-	padding-top:5px;
-	min-height: 240px;
-	font-size: 14px;
-	text-decoration: none;
-	display:none;
-	margin-left:-270px;
-	margin-top:-173.5px;
-	background-image:url(../img/div_shoppingcart.png);
-	background-repeat:no-repeat;}
-#taikhoan:hover #tk{
-	display:block;
-
-}
-
-#giohang:hover .gh{
-	display:block;
+#count_book{
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #000;
+	color: #FFF;
+	margin-top: 80px;
+	position: fixed;
+	right:0;
 }

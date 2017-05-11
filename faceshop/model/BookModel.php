@@ -37,14 +37,62 @@ class BookModel
         return TestResult::testResultModel($result);
     }
 
-    public function getListBookInType($idtype,$start){
-        $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype LIMIT $start,".constants::page_book);
+    public function getListBookInType($idtype,$start,$sort){
+        switch ($sort) {
+            case 'normal':
+                $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype LIMIT $start,".constants::page_book);
+                break;
+            case 'gia_giam':
+                $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype ORDER BY (price - (price*saleoff/100)) DESC LIMIT $start,".constants::page_book);
+                break;
+            case 'gia_tang':
+                $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype ORDER BY (price - (price*saleoff/100)) LIMIT $start,".constants::page_book);
+                break;
+            case 'ban_chay':
+                $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype ORDER BY (highlights) DESC LIMIT $start,".constants::page_book);
+                break;
+            case 'giam_gia':
+                $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype ORDER BY (saleoff) DESC LIMIT $start,".constants::page_book);
+                break;
+            case 'ten':
+                $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype ORDER BY (name) LIMIT $start,".constants::page_book);
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
         return TestResult::testResultModel($result);
     }
 
-    public function getListBookInCate($listIdType,$start){
-        //dùng implode cắt dấu phẩu hay sao á - thanh huy
-        $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') LIMIT '.$start.','.constants::page_book);
+    public function getListBookInCate($listIdType,$start,$sort){
+        switch ($sort) {
+             case 'normal':
+                $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') LIMIT '.$start.','.constants::page_book);
+                break;
+            case 'gia_giam':
+                $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') ORDER BY (price - (price*saleoff/100)) DESC LIMIT '.$start.','.constants::page_book);
+                break;
+            case 'gia_tang':
+                $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') ORDER BY (price - (price*saleoff/100)) LIMIT '.$start.','.constants::page_book);
+                break;
+            case 'ban_chay':
+                $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') ORDER BY (highlights) DESC LIMIT '.$start.','.constants::page_book);
+                break;
+            case 'giam_gia':
+                $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') ORDER BY (saleoff) DESC LIMIT '.$start.','.constants::page_book);
+                break;
+            case 'ten':
+                $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') ORDER BY (name) LIMIT '.$start.','.constants::page_book);
+                break;
+
+            default:
+                # code...
+                break;
+        }
+        //dùng implode cắt dấu phẩu hay sao á - huy
+        
         return TestResult::testResultModel($result);
     }
 //0 là category

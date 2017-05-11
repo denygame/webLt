@@ -11,11 +11,12 @@
 <body>
 
 <?php require_once 'controller/CategoryController.php'; $cateController = new CategoryController();
-require_once 'controller/TypeController.php'; $typeController = new TypeController();?>
+require_once 'controller/TypeController.php'; $typeController = new TypeController();
+require_once'controller/ScController.php'; $sc = new ScController();?>
 
     <div id="head">
         <div id="h1">
-            <div id="logo"><a href="index.php"><img src="img/logo_anybooks.png"/></a></div>
+            <div id="logo"><a href="index.php"><img src="img/logo/logo_anybooks.png"/></a></div>
             <div id="lienhe">
                 <div style="width:250px; float:left; margin-top: 20px; font-size: 18px;">
                     <p>Hà Nội: <a href="#">0965. 196. 801</a></p>
@@ -35,9 +36,9 @@ require_once 'controller/TypeController.php'; $typeController = new TypeControll
                     <?php  $resultCate=$cateController->loadCategory(); if ($resultCate != null) while ($d = mysql_fetch_array($resultCate)) {
                         $idCategory=$d['idcategory']; ?>
                                 <div id="muc">
-                                    <a href="index.php?id=danhmuc&idcategory=<?php echo $d['idcategory'] ?>"><b><?php echo $d['name']?></b></a>
+                                    <a href="index.php?id=category&idcategory=<?php echo $d['idcategory'] ?>"><b><?php echo $d['name']?></b></a>
                                     <?php  $resultType=$typeController->loadTypeOfCategory($idCategory); if ($resultType != null) while ($d2 = mysql_fetch_array($resultType)) {?>
-                                        <p style="margin-top: 5px;"><a  href="index.php?id=danhmuc&idtype=<?php echo $d2['idtype'];?>"><?php echo $d2['name'];?></a></p>
+                                        <p style="margin-top: 5px;"><a  href="index.php?id=category&idtype=<?php echo $d2['idtype'];?>"><?php echo $d2['name'];?></a></p>
                                     <?php }else echo 'Lỗi không có thể loại'?>
                                 </div>
                             <?php } ?>
@@ -53,17 +54,20 @@ require_once 'controller/TypeController.php'; $typeController = new TypeControll
             </div>
         </div>
 
-        <div id="taikhoan"><center><img src="img/icon_taikhoan.png" width="25px"/><br />Tài<br /> khoản</center>
-            <div id="tk">
-            	<?php include('account.php');?>
-            </div>
-        </div>
+            <a href="index.php?id=login">
+                <div id="taikhoan">
+                    <center><img src="img/logo/icon_taikhoan.png" width="25px"/><br />Tài<br /> khoản</center>
+                </div>
+            </a>
+
         
-        <div id="giohang"><center><img src="img/icon_giohang.png" width="40px" /><br />Giỏ<br /> hàng</center>
-            <div class="gh">
-            	
+        <a href="index.php?id=shoppingcart">
+            <div id="giohang">
+                <center><img src="img/logo/icon_giohang.png" width="40px" /><br />Giỏ<br /> hàng</center>
             </div>
-        </div>
+            
+            <div id="count_book"><center><?php $sc->writeCountBook(); ?></center></div>
+        </a>
     </div>
 </body>
 </html>

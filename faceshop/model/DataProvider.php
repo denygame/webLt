@@ -6,7 +6,7 @@ class DataProvider
         $result = mysql_query($query);
         if (!$result) {
             die('Lỗi query: ' . mysql_error());
-            return false;
+            return null;
         }
         return $result;
     }
