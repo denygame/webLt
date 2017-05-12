@@ -6,6 +6,23 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Untitled Document</title>
 <link rel="stylesheet" type="text/css" href="css/head.css"/>
+
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+      function submitForm(){
+       var val=document.getElementById('search').value;
+       //no words
+       if((jQuery.trim( val )).length==0){
+        alert("Nhập từ khóa!!!")
+        $('#form').submit(function(e){
+               e.preventDefault();
+            });
+       }
+      }
+  </script>
+
+
+
 </head>
 
 <body>
@@ -46,10 +63,10 @@ require_once'controller/ScController.php'; $sc = new ScController();?>
 
             </div>
             <div id="timkiem">
-                <form action="" method="" style="margin-top:12px;">
+                <form id="form" action="index.php" method="get" style="margin-top:12px;">
                     <label style="font-size:20px; margin-left:25px;">Bạn muốn tìm sách gì?</label>
-                    <input name="" type="text" id=" " style="font-size:20px; width:400px; margin-left:25px;"/>
-                    <input type="submit" value="Tìm kiếm"  style=" font-size:20px; float:right; margin-top:-12px; height:50px; background-color:#F03; color:#FFF; width:120px; border-style:none;"/>
+                    <input id="search" name="search" type="text" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>" style="font-size:20px; width:400px; margin-left:25px;"/>
+                    <input type="submit" value="Tìm kiếm" onclick="submitForm();" style=" font-size:20px; float:right; margin-top:-12px; height:50px; background-color:#F03; color:#FFF; width:120px; border-style:none;"/>
                 </form>
             </div>
         </div>

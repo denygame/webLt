@@ -20,8 +20,8 @@ class ScController
     	echo $r;
     }
 
-    public function addBook($idbook,$count){
-        $this->model->addBook();
+    public function addBookToSc($idbook,$count){
+        $this->model->addBook($idbook,$count);
     }
 }
 ?>

@@ -17,6 +17,11 @@ class IndexController
 	}
 
 	public function showMain(){
+		if(isset($_GET['search'])) {
+			include 'view/main_category.php';
+			return;
+		}
+
 		if(!isset($_GET['id'])) include 'view/main_home.php';
 		else{
 			$id=$_GET['id'];

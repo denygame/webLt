@@ -1,3 +1,20 @@
+button{
+    border-style: none;
+    background-color: #FF0033;
+    color: #FFFFFF;
+    font-size: 14px;
+    text-align: center;
+    height: 40px;
+    cursor: pointer;
+
+}
+
+button:hover{
+    opacity: 0.5px;
+}
+input{
+    width: 60%;
+}
 #profile{
     width: 750px;
     min-height: 250px;
@@ -11,9 +28,12 @@
 #profile table, form {
     width: 100%;
 }
+#values{
+    margin-right: ; 
+    padding-left: 10px;
+}
 #profile input{
     line-height: 20px;
-    font-style: 18px;
 }
 #label{
     width: 150px;
@@ -29,22 +49,36 @@
 #update{
     width: 150px;
 }
+#update:hover{
+    opacity: 0.5;
+}
 #save{
     width: 150px;
+    background-color:#0e90d2;
+}
+#save:hover{
+    opacity: 0.5;
 }
 #change_pass{
-    display: block;
     background-color: #0e90d2;
     width: 150px;
     color: #FFFFFF;
-    float: left;
-    text-align: center;
+}
+#change_pass:hover{
+    opacity: 0.5;
+}
+#update_info{
+    width: 200px;
+}
+#update_info:hover{
+    opacity: 0.5;
 }
 #logout{
     width: 150px;
     display: block;
     background-color: #CC6600;
     color: #FFFFFF;
-    float: left;
-    text-align: center;
+}
+#logout:hover{
+    opacity: 0.5;
 }

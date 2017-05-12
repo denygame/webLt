@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#title{
+    font-size: 25px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#list_bill{
+    width: 70%;
+    min-height: 700px;
+    margin-bottom: 200px;
+    border-top: 5px solid #CCCCCC;
+    margin: auto;
+}
+#list_bill table{
+    border: 1px solid #CCCCCC;
+    width: 100%;
+    line-height: 40px;
+}
+#list_bill td{
+    border-bottom: 1px solid #CCCCCC; 
+}
+#list_bill table td{
+    text-align: center;
+}
+
+#stt{
+    width: 10%;
+}
+#date_bill{
+    width: 20%;
+}
+#totalprice{
+    width: 20%;
+    color: ;
+}
+#shoư_detail{
+    width: 20%;
+    font-style: ;
+}

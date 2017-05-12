@@ -6,78 +6,32 @@
     <link rel="stylesheet" type="text/css" href="css/shoppingcart.css"/>
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
-        function deleteBook(idbook){
-            $.ajax({
-                method: 'get',
-                url: 'phpFile/deleteBookSC.php',
-                data: { idbook: idbook },
-               success: function() {
-                     changeDivSc();
-                }
-            });
-
-        }
-
-        function changeDivSc(){
-            $.ajax({
-             url: 'phpFile/countSCforJs.php',
-             success: function(data) {
-                 $('#count_book').html('<center>'+data+'</center>');
-                 changeDivList();
-                 changeDivTotal();
-             }
-         });
-        }
-
-        function changeDivList(){
-            $.ajax({
-                url: "phpFile/loadDivListSC.php",
-                async: true
-            }).done(function(result) {
-                $("#list").html(result);
-            });
-        }
-        function changeDivTotal(){
-            $.ajax({
-                url: "phpFile/loadDivTotalSC.php",
-                async: true
-            }).done(function(result) {
-                $("#total").html(result);
-            });
-        }      
-    </script>
+    <script src="js/updateDeleteSC.js"></script>
 
     <?php require_once 'controller/ScController.php'; $sc=new ScController(); 
-    require_once 'controller/BookController.php'; $bController = new BookController();?>
+    require_once 'controller/BookController.php'; $bController = new BookController(); ?>
 
 
 </head>
 <body>
+
+
+
+
     <div>
         <div id="title" ><b>Giỏ hàng</b></div>
 
         <div id="shopingcart_left">
             <div id="list">
                 <table>
-                    <?php
-                    $kq=$sc->getSC();
-                    if($kq==null)
-                        {?>
-                    <tr>
-                        <td>Không có sản phẩm nào trong giỏ hàng</td>
-                    </tr>
-                    <?php
-                }
-                else{
-                    while ($d=mysql_fetch_array($kq))
-                    {
-                        $idbook= $d['idbook'];?>
+                    <?php $kq=$sc->getSC(); if($kq==null) { ?>
+                    <tr><td>Không có sản phẩm nào trong giỏ hàng</td></tr>
+                    <?php } else {
+                    while ($d=mysql_fetch_array($kq)) {
+                        $idbook= $d['idbook']; ?>
                         <tr>
-                            <?php
-                            $kq_book=$bController->getBookById($idbook);
-                            if($kq_book!=null) $d_book=$kq_book;
-                            ?>
+                            <?php $kq_book=$bController->getBookById($idbook);
+                                  if($kq_book!=null) $d_book=$kq_book; ?>
                             <td>
                                 <div id="hinhsach"><a href="index.php?id=book&idbook=<?php echo $d_book['idbook'];?>"><img src="img/<?php echo $d_book['imgdetail']?>" /></a></div>
                             </td>
@@ -90,14 +44,14 @@
                                 <div id="giabia"><?php echo number_format($d_book['price'])?> đ</div>
                             </td>
 
-                            <form action="#" method="post">
                                 <td>
-                                    <input type="number" value="<?php echo $d['count_book'] ?>" name="soluong" style="width: 38px; text-align: center"/>
+                                    <input type="number" min="0" value="<?php echo $d['count_book'] ?>" id="soluong" name="soluong" style="width: 38px; text-align: center"/>
                                 </td>
                                 <td>
-                                    <button type="submit"><img src="img/logo/icon_update.png" width="17px;" /></button>
+                                    <button onclick="updateCountBook('<?php echo $idbook; ?>');"><img src="img/logo/icon_update.png" width="17px;" /></button>
                                 </td>
-                            </form>
+
+
                         </td>
                         <td>
                             <div style="width: 100px; text-align: center; color: #CC6600; font-size: 20px;">
@@ -105,12 +59,7 @@
                             </div>
                         </td>
                     </tr>
-
-
-                    <?php
-                }
-            }
-            ?>
+                    <?php } } ?>
         </table>
     </div>
     <div id="total">

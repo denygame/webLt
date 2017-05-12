@@ -8,12 +8,12 @@
 
 
 <?php //khởi tạo
-    require_once 'controller/BookController.php'; $bController = new BookController();
-    require_once 'controller/AuthorController.php'; $authorController = new AuthorController();
-    require_once 'controller/CategoryController.php'; $cateController = new CategoryController();
-    require_once 'controller/TypeController.php'; $typeController = new TypeController();
-    
-    if(!isset($_GET['sort'])) $sort = "normal"; else $sort=$_GET['sort'];
+require_once 'controller/BookController.php'; $bController = new BookController();
+require_once 'controller/AuthorController.php'; $authorController = new AuthorController();
+require_once 'controller/CategoryController.php'; $cateController = new CategoryController();
+require_once 'controller/TypeController.php'; $typeController = new TypeController();
+
+if(!isset($_GET['sort'])) $sort = "normal"; else $sort=$_GET['sort'];
 
     if (isset($_GET['idtype'])) {
         $idtype = $_GET['idtype'];
@@ -22,6 +22,7 @@
         $listBook = $bController->getListBookInType($idtype, $start, $sort);
         $str='idtype='.$_GET["idtype"].''; //dùng gán cho sort
     }
+
     if (isset($_GET['idcategory'])) {
         $idcategory = $_GET['idcategory'];
         $listInfoPage = $bController->getInfoPageBook($idcategory, 0);
@@ -30,33 +31,42 @@
         $str='idcategory='.$_GET["idcategory"].'';
     }
 
-    $current_page = $listInfoPage['current_page'];
-    $total_page = $listInfoPage['total_page'];
-    if ($current_page > $total_page) { $current_page = $total_page; } else if ($current_page < 1) { $current_page = 1; }
-?>
-    
+    if(isset($_GET['search'])) {
+      $search=$_GET['search'];
+      $listInfoPage = $bController->getInfoPageBook($search, 2);   
+      $start = $listInfoPage['start'];           
+      $listBook=$bController->getListBookInSearch($search,$sort,$start);
+      $str='search='.$search;
+  }
+
+
+  $current_page = $listInfoPage['current_page'];
+  $total_page = $listInfoPage['total_page'];
+  if ($current_page > $total_page) { $current_page = $total_page; } else if ($current_page < 1) { $current_page = 1; }
+  ?>
 
 
 
-<script type="text/javascript">
+
+  <script type="text/javascript">
     function showPage(){
         var sel = document.getElementById('dk');
         switch(sel.selectedIndex){
             case 0: document.getElementById("frmSort").action="index.php?id=category&<?php echo $str ?>&sort=ten";
-                    document.getElementById("frmSort").submit();
-                    break;
+            document.getElementById("frmSort").submit();
+            break;
             case 1: document.getElementById("frmSort").action="index.php?id=category&<?php echo $str ?>&sort=ban_chay";
-                    document.getElementById("frmSort").submit();
-                    break;
+            document.getElementById("frmSort").submit();
+            break;
             case 2: document.getElementById("frmSort").action="index.php?id=category&<?php echo $str ?>&sort=giam_gia";
-                    document.getElementById("frmSort").submit();
-                    break;
+            document.getElementById("frmSort").submit();
+            break;
             case 3: document.getElementById("frmSort").action="index.php?id=category&<?php echo $str ?>&sort=gia_tang";
-                    document.getElementById("frmSort").submit();
-                    break;
+            document.getElementById("frmSort").submit();
+            break;
             case 4: document.getElementById("frmSort").action="index.php?id=category&<?php echo $str ?>&sort=gia_giam";
-                    document.getElementById("frmSort").submit();
-                    break;
+            document.getElementById("frmSort").submit();
+            break;
         }
     }
 </script>
@@ -77,15 +87,20 @@
                 <option value="gia_tang"<?php if (isset($sort) && $sort=="gia_tang") echo "selected";?> >Giá từ thấp đến cao</option>
                 <option value="gia_giam"<?php if (isset($sort) && $sort=="gia_giam") echo "selected";?> >Giá từ cao đến thấp</option>
             </select>
-            <a href="index.php?id=category&<?php echo $str ?>&sort=giam_gia" id="a_giam_gia_nhieu">Giảm giá nhiều nhất</a>
-            <a href="index.php?id=category&<?php echo $str ?>&sort=ban_chay" id="a_ban_chay_nhat"> Bán chạy nhất</a>
-            <a href="index.php?id=category&<?php echo $str ?>&sort=gia_tang" id="a_giam_thap_cao">Giá từ thấp đến cao</a>
-            <button type="submit" onclick="showPage()" ><img src="img/logo/icon_select.png" alt=""/></button>
+            
+                <a href="index.php?<?php if(!isset($search)) echo'id=category&';?><?php echo $str ?>&sort=giam_gia" id="a_giam_gia_nhieu">Giảm giá nhiều nhất</a>
+                <a href="index.php?<?php if(!isset($search)) echo'id=category&';?><?php echo $str ?>&sort=ban_chay" id="a_ban_chay_nhat"> Bán chạy nhất</a>
+                <a href="index.php?<?php if(!isset($search)) echo'id=category&';?><?php echo $str ?>&sort=gia_tang" id="a_giam_thap_cao">Giá từ thấp đến cao</a>
+                <button type="submit" onclick="showPage()" ><img src="img/logo/icon_select.png" alt=""/></button>
+            
         </form>
     </div>
 
-
+<?php   if(!isset($search)){ ?>
     <div id="tieude2"> <?php if (isset($_GET['idcategory'])) echo $cateController->getNameCate($idcategory)['name']; else echo $typeController->getNameType($idtype)['name']; ?></div>
+ <?php } ?>  
+
+
     <div id="sach_cungloai2">
 
         <?php if ($listBook != null) {
@@ -96,43 +111,34 @@
                     <div id="tensach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>">
                         <p><?php echo $d['name']; ?></p></a>
                     </div>
-                        <div id="mota2"><?php $idAuthor = $d['idauthor'];
-                            $nameAuthor = $authorController->getNameAuthorById($idAuthor);
-                            if ($nameAuthor != null) { ?><p><?php echo $nameAuthor['name'] ?></p><?php } ?>
+                    <div id="mota2"><?php $idAuthor = $d['idauthor'];
+                        $nameAuthor = $authorController->getNameAuthorById($idAuthor);
+                        if ($nameAuthor != null) { ?><p><?php echo $nameAuthor['name'] ?></p><?php } ?>
+                    </div>
+                    <div id="gia2">
+                        <p>Giá bán: <font
+                            style="color:#C60"><?php echo number_format($d['price'] * (1 - (($d['saleoff']) / 100))); ?>đ</font></p>
+                            <p>Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']); ?>đ</font></p>
                         </div>
-                <div id="gia2">
-                    <p>Giá bán: <font
-                                style="color:#C60"><?php echo number_format($d['price'] * (1 - (($d['saleoff']) / 100))); ?>đ</font></p>
-                    <p>Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']); ?>đ</font></p>
-                </div>
-                <div id="km2"><?php echo $d['saleoff']; ?>%</div>
-                <?php
-                if(isset($_GET['idcategory']))
-                {?>
-                     <div id="dathang2"><button class="btn" onclick="doSomething('<?php echo $d['idbook'];?>');">&#9758 Chọn mua</button></div>
-                <?php
-                }
-                if(isset($_GET['idtype']))
-                {?>
-                    <div id="dathang2"><button class="btn" onclick="doSomething('<?php echo $d['idbook'];?>');">&#9758 Chọn mua</button></div>
-                <?php
-                }?>
-            </div>
-            <?php }
-        } else echo 'Không có sách nào!'; ?>
-    </div>
-        <center><div id="phantrang">
-            <?php
-            if (isset($idcategory)) $str = 'idcategory=' . $idcategory.'&sort='.$sort.'';
-            if (isset($idtype)) $str = 'idtype=' . $idtype.'&sort='.$sort.'';
-            $bController->pageBook($str,$current_page,$total_page);
-            ?>
-        </div></center>
+                        <div id="km2"><?php echo $d['saleoff']; ?>%</div>
 
-<?php
-unset($_GET['sort']);
-unset($_GET['idtype']);
-unset($_GET['idcategory']);
-unset($_GET['order']);?>
+                        <div id="dathang2"><button class="btn" onclick="doSomething('<?php echo $d['idbook'];?>');">&#9758 Chọn mua</button></div> 
+            </div>
+            <?php } } else echo 'Không có sách nào!'; ?>
+    </div>
+    
+    <center><div id="phantrang">
+        <?php
+        if (isset($search))$str='search='.$search.'&sort='. $sort.'';
+        if (isset($idcategory)) $str = 'idcategory=' . $idcategory.'&sort='.$sort.'';
+        if (isset($idtype)) $str = 'idtype=' . $idtype.'&sort='.$sort.'';
+        $bController->pageBook($str,$current_page,$total_page);
+        ?>
+    </div></center>
+
+    <?php
+    unset($_GET['sort']);
+    unset($_GET['idtype']);
+    unset($_GET['idcategory']);?>
 </body>
 </html>

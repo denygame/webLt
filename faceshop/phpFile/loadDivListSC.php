@@ -27,22 +27,21 @@ if(mysql_num_rows($data)<=0){
 			<div id="delete" onclick="deleteBook('.$idbook.');" ><img src="img/logo/icon_delete.png" /></div>
 		</td>
 		<td>
-			<div id="giaban">'.number_format($d_book['price'] * (1-$d_book['saleoff']/100)).'đ</div>
-			<div id="giabia">'.number_format($d_book['price']).'đ</div>
+			<div id="giaban">'.number_format($d_book['price'] * (1-$d_book['saleoff']/100)).' đ</div>
+			<div id="giabia">'.number_format($d_book['price']).' đ</div>
 		</td>
 
-		<form action="#" method="post">
 			<td>
-				<input type="number" value="'.$d['count_book'] .'" name="soluong" style="width: 38px; text-align: center"/>
+				<input type="number" num="0" value="'.$d['count_book'] .'" id="soluong" name="soluong" style="width: 38px; text-align: center"/>
 			</td>
 			<td>
-				<button type="submit"><img src="img/logo/icon_update.png" width="17px;" /></button>
+				<button onclick="updateCountBook('.$idbook.');"><img src="img/logo/icon_update.png" width="17px;" /></button>
 			</td>
-		</form>
+
 	</td>
 	<td>
 		<div style="width: 100px; text-align: center; color: #CC6600; font-size: 20px;">';
-			echo number_format(($d_book['price'] * (1-$d_book['saleoff']/100))*$d['count_book']).'đ
+			echo number_format(($d_book['price'] * (1-$d_book['saleoff']/100))*$d['count_book']).' đ
 		</div>
 	</td>
 </tr>';

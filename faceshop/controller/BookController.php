@@ -83,9 +83,19 @@ class BookController
         }
     }
 
-//lấy theo Cate là 0, type là 1
-    public function getInfoPageBook($id,$typeOrCate){
-        $total_books =$this->model->getTotalBook($id,$typeOrCate);
+    // hàm tìm kiếm !!!!!!!!!!!!!!!
+    public function getListBookInSearch($search,$sort,$start){
+        $result = $this->model->getListBookSearch($search,$start,$sort);
+        return TestResult::testResultController($result);
+
+    }
+
+
+
+
+//lấy theo Cate là 0, type là 1, search 2
+    public function getInfoPageBook($id,$typeCateSearch){
+        $total_books =$this->model->getTotalBook($id,$typeCateSearch);
 //return null?
 
         $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -101,63 +111,85 @@ class BookController
 
 //#Region - Page Book - //
     private function printPrevious($str,$current_page){
+        if(isset($_GET['search'])){
+          if($current_page == 1) { echo '<a>Prev</a>'; return; }
+          echo '<a href="index.php?' . $str . '&page=' . ($current_page - 1) . '">Prev</a>  ';
+      }else{
         if($current_page == 1) { echo '<a>Prev</a>'; return; }
         echo '<a href="index.php?id=category&' . $str . '&page=' . ($current_page - 1) . '">Prev</a>  ';
     }
+}
 
-    private function printNext($str,$current_page,$total_page){
-        if($current_page == $total_page) { echo '<a>Next</a>'; return; }
-        echo '<a href="index.php?id=category&' . $str . '&page=' . ($current_page + 1) . '">Next</a>  ';
-    }
+private function printNext($str,$current_page,$total_page){
+  if(isset($_GET['search'])){
+      if($current_page == $total_page) { echo '<a>Next</a>'; return; }
+      echo '<a href="index.php?' . $str . '&page=' . ($current_page + 1) . '">Next</a>  ';
+  }else{
+    if($current_page == $total_page) { echo '<a>Next</a>'; return; }
+    echo '<a href="index.php?id=category&' . $str . '&page=' . ($current_page + 1) . '">Next</a>  ';
+}
+}
 
-    private function printSpanCurent($pageName){
-        echo '<a style="color: #FF0000">' . $pageName . '</a>  ';
-    }
+private function printSpanCurent($pageName){
+    echo '<a style="color: #FF0000">' . $pageName . '</a>  ';
+}
 
-    private function printOthersPage($str,$pageName){
-        echo '<a href="index.php?id=category&' . $str . '&page=' . $pageName . '">' . $pageName . '</a>  ';
-    }
+private function printOthersPage($str,$pageName){
+    if(isset($_GET['search'])){
+        echo '<a href="index.php?' . $str . '&page=' . $pageName . '">' . $pageName . '</a>  ';
+    } else echo '<a href="index.php?id=category&' . $str . '&page=' . $pageName . '">' . $pageName . '</a>  ';
+}
 
-    private function printLast($str,$current_page,$total_page){
+private function printLast($str,$current_page,$total_page){
+    if(isset($_GET['search'])) {
+        if($current_page == $total_page) { echo '<a>Last</a>'; return; }
+        echo '<a href="index.php?' . $str . '&page=' . $total_page . '">Last</a>  ';
+    } else {
         if($current_page == $total_page) { echo '<a>Last</a>'; return; }
         echo '<a href="index.php?id=category&' . $str . '&page=' . $total_page . '">Last</a>';
     }
+}
 
-    private function printFirst($str,$current_page){
+private function printFirst($str,$current_page){
+    if(isset($_GET['search'])) {
+        if($current_page == 1) { echo '<a>First</a>'; return; }
+        echo '<a href="index.php?' . $str . '&page=1">First</a>';
+    } else {
         if($current_page == 1) { echo '<a>First</a>'; return; }
         echo '<a href="index.php?id=category&' . $str . '&page=1">First</a>';
     }
+}
 
-    public function pageBook($str,$current_page,$total_page){
-        $this->printFirst($str,$current_page);
-        $this->printPrevious($str,$current_page);
+public function pageBook($str,$current_page,$total_page){
+    $this->printFirst($str,$current_page);
+    $this->printPrevious($str,$current_page);
         //total bé hơn 4 k cần chấm chấm
-        if($total_page <= 4) {
-            for($i = 1; $i <= $total_page; $i++) {
-                if ($i == $current_page) $this->printSpanCurent($i); else $this->printOthersPage($str,$i); 
-            }  
-            $this->printNext($str,$current_page,$total_page);
-            $this->printLast($str,$current_page,$total_page);
-            return;
-        }
-        //total >4 
-        if ($current_page < 3) {
-                // Lặp khoảng giữa là 4 trang
-            for ($i = 1; $i <= 4; $i++) {
-                if ($i == $current_page) $this->printSpanCurent($i); else $this->printOthersPage($str,$i);
-            }
-            $this->printNext($str,$current_page,$total_page);
-            $this->printLast($str,$current_page,$total_page);
-        }
-        else {
-            for ($i = $current_page - 1; $i <= $current_page + 2; $i++) {
-                if($i==$total_page+1) break;
-                if ($i == $current_page) $this->printSpanCurent($i);  else $this->printOthersPage($str,$i);
-            }
-            $this->printNext($str,$current_page,$total_page);
-            $this->printLast($str,$current_page,$total_page);
-        } 
+    if($total_page <= 4) {
+        for($i = 1; $i <= $total_page; $i++) {
+            if ($i == $current_page) $this->printSpanCurent($i); else $this->printOthersPage($str,$i); 
+        }  
+        $this->printNext($str,$current_page,$total_page);
+        $this->printLast($str,$current_page,$total_page);
+        return;
     }
+        //total >4 
+    if ($current_page < 3) {
+                // Lặp khoảng giữa là 4 trang
+        for ($i = 1; $i <= 4; $i++) {
+            if ($i == $current_page) $this->printSpanCurent($i); else $this->printOthersPage($str,$i);
+        }
+        $this->printNext($str,$current_page,$total_page);
+        $this->printLast($str,$current_page,$total_page);
+    }
+    else {
+        for ($i = $current_page - 1; $i <= $current_page + 2; $i++) {
+            if($i==$total_page+1) break;
+            if ($i == $current_page) $this->printSpanCurent($i);  else $this->printOthersPage($str,$i);
+        }
+        $this->printNext($str,$current_page,$total_page);
+        $this->printLast($str,$current_page,$total_page);
+    } 
+}
 //#End Region - Page Book - //
 }
 ?>

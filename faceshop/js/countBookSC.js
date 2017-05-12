@@ -18,3 +18,12 @@ function doSomething(idbook) {
    }
  });
 }
+
+function loadDivSc(){
+  $.ajax({
+    url: 'phpFile/countSCforJs.php',
+    success: function(data) {
+     $('#count_book').html('<center>'+data+'</center>');
+   }
+ });
+}

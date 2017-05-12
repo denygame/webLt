@@ -194,7 +194,7 @@ require_once 'controller/AuthorController.php'; $authorController = new AuthorCo
         <p>Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']); ?>đ</font></p>
       </div>
       <div id="km2"><?php echo $d['saleoff']; ?>%</div>
-      <div id="dathang2"> <button class="btn" onclick="doSomething('<?php echo $d['idbook'];?>');">&#9758 Chọn mua</button></div>
+      <div id="dathang2"> <button class="btn" onclick="doSomething('<?php echo $d['idbook']; ?>');">&#9758 Chọn mua</button></div>
     </div>
     <?php } else echo 'Lỗi truy vẩn!'; ?>
   </div>

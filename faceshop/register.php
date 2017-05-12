@@ -52,13 +52,13 @@
                 </tr>
                 <tr>
                     <td id="k">
-                        <label><Giới tính (*)</label>
+                        <label>Giới tính (*)</label>
                     </td>
                     <td>
                         <select name="gioitinh">
                             <option>Lựa chọn giới tính</option>
-                            <option value="nam">Nam</option>
-                            <option value="nu">Nữ</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </td>
                 </tr>
@@ -82,7 +82,7 @@
                             $kq=mysql_query($sql);
                             while ($d=mysql_fetch_array(($kq)))
                             {?>
-                                <option value="<?php echo $d['name'];?>"> <?php echo $d['name'];?> </option>
+                                <option value="<?php echo $d['idcity'];?>"> <?php echo $d['name'];?> </option>
                                 <?php
                             }
                             ?>

@@ -19,218 +19,185 @@
         $kq1=mysql_query($sql1);
         while ($d1=mysql_fetch_array($kq1))
         {?>
-            <table>
+            <table id="info" style="display: none">
                 <tr>
                     <td  align="left"><img src="img/logo/icon_taikhoan.png" height="70px;"> </td>
-                    <td>
+                    <th>
                         <div  id="change_pass">
-                            <a id="change_pass" style="border-style: none" id="t8">Thay đổi mật khẩu</a>
+                            <button id="change_pass" id="t8">Thay đổi mật khẩu</button> 
                         </div>
-                    </td>
-                    <td>
+                    </th>
+
+                    <th>
+                        <div id="update_info">
+                            <button id="update_info">Cập nhật thông tin cá nhân</button>
+                        </div>
+                    </th>
+
+                    <th>
                         <div id="logout">
                             <form action="index.php?id=login" method="post">
-                                <input style="border-style: none; height: 40px; font-size: 18px;" type="submit" name="logout" value="Đăng Xuất" id="logout" />
+                                <button type="submit" name="logout" id="logout">Đăng Xuất</button>
                             </form>
                         </div>
-                    </td>
+                    </th>
                 </tr>
-                <form action="" method="" >
 
+                <tr>
+                    <td id="label"><label>Tên đăng nhập: </label></td>
+                    <td id="values" colspan="3"><label><?php echo $d1['name']; ?></label></td>
+                </tr>
+
+                <tr>
+                    <td id="label"><label>Email: </label></td>
+                    <td id="values" colspan="3" ><label><?php echo $d1['email'];?></label></td>
+                </tr>
+
+                <tr>
+                    <td id="label"><label>Giới tính: </label></td>
+                    <td id="values" colspan="3"><label><?php echo $d1['sex']?></label></td>
+                </tr>
+
+                <tr>
+                    <td id="label"><label>Số điện thoại: </label></td>
+                    <td id="values"colspan="3"><label><?php echo $d1['tel']; ?></label></td>
+                </tr>
+
+                <tr>
+                    <td id="label"><label>Địa chỉ: </label></td>
+                    <td id="values"colspan="3"> <label><?php echo $d1['address']?></label></td>
+                </tr>
+
+                <tr>
+                    <td id="label"><label>Quận/ Huyện: </label></td>
+                    <td id="values"colspan="3"><label><?php echo $d1['district'] ?></label></td>
+                </tr>
+
+                <tr>
+                    <td id="label"><label>Tỉnh/ Thành phố: </label></td>
+                    <td id="values"colspan="3"><label>
+                            <?php
+                            $sql_city="select * from city WHERE idcity=".$d1['idcity'];
+                            $kq_city=mysql_query($sql_city);
+                            while ($d_city=mysql_fetch_array($kq_city))
+                            { echo $d_city['name'];} ?></label></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><a href="index.php?id=list_bill"> << Xem danh sách các đơn hàng >> </a></td>
+                </tr>
+            </table>
+
+            <table id="change_pass_ac" style="display: none">
+                <form action="index.php?id=login" method="post">
                     <tr>
-                        <td id="label"><label>Tên đăng nhập: </label></td>
-                        <td id="values"><label><?php echo $d1['name']; ?></label></td>
-                        <td id="update"> <a id="c1"><img src="img/logo/icon_update.png" height="30px"></a></td>
+                        <th colspan="3">Thay đổi mật khẩu</th>
                     </tr>
-                    <tr id="t1" style="display: none">
-                        <td></td>
-                        <td><input type="text" size="30" name="name" id="name"/></td>
-                        <td id="save"><a class="save">Lưu</a></td>
-                    </tr>
-                    <script type="text/javascript">
-                        $(document).ready(function(){
-                            $("#c1").click(function(){
-                                $("#t1").show();
-                            });
-                            $(".save").click(function(){
-                                $("#t1").hide();
-                            });
-                        });
-                    </script>
-
-                    <tr>
-                        <td id="label"><label>Email: </label></td>
-                        <td id="values" ><label><?php echo $d1['email'];?></label></td>
-                        <td id="update"> <a id="c2"><img src="img/logo/icon_update.png" height="30px"></a> </td>
-                    </tr>
-                    <tr id="t2" style="display: none">
-                        <td></td>
-                        <td><input type="text" size="30" name="email" id="email"/></td>
-                        <td id="save"><a class="save">Lưu</a></td>
-                    </tr>
-                    <script type="text/javascript">
-                        $(document).ready(function(){
-                            $("#c2").click(function(){
-                                $("#t2").show();
-                            });
-                            $(".save").click(function(){
-                                $("#t2").hide();
-                            });
-                        });
-                    </script>
-
-                    <tr>
-                        <td id="label"><label>Giới tính: </label></td>
-                        <td id="values"><label><?php echo $d1['sex']?></label></td>
-                        <td id="update"> <a id="c3"><img src="img/logo/icon_update.png" height="30px"></a> </td>
-                    </tr>
-                    <tr id="t3" style="display: none">
-                        <td></td>
-                        <td><input type="text" size="30" name="email" id="email"/></td>
-                        <td id="save"><a class="save">Lưu</a></td>
-                    </tr>
-                    <script type="text/javascript">
-                        $(document).ready(function(){
-                            $("#c3").click(function(){
-                                $("#t3").show();
-                            });
-                            $(".save").click(function(){
-                                $("#t3").hide();
-                            });
-                        });
-                    </script>
-
-                    <tr>
-                        <td id="label"><label>Số điện thoại: </label></td>
-                        <td id="values"><label><?php echo $d1['tel']; ?></label></td>
-                        <td id="update"> <a id="c4"><img src="img/logo/icon_update.png" height="30px"></a> </td>
-                    </tr>
-                    <tr id="t4" style="display: none">
-                        <td></td>
-                        <td><input type="text" size="30" name="email" id="email"/></td>
-                        <td id="save"><a class="save">Lưu</a></td>
-                    </tr>
-                    <script type="text/javascript">
-                        $(document).ready(function(){
-                            $("#c4").click(function(){
-                                $("#t4").show();
-                            });
-                            $(".save").click(function(){
-                                $("#t4").hide();
-                            });
-                        });
-                    </script>
-
-                    <tr>
-                        <td id="label"><label>Địa chỉ: </label></td>
-                        <td id="values"> <label><?php echo $d1['address']?></label></td>
-                        <td id="update"> <a id="c5"><img src="img/logo/icon_update.png" height="30px"></a> </td>
-                    </tr>
-                    <tr id="t5" style="display: none">
-                        <td></td>
-                        <td><input type="text" size="30" name="email" id="email"/></td>
-                        <td id="save"><a class="save">Lưu</a></td>
-                    </tr>
-                    <script type="text/javascript">
-                        $(document).ready(function(){
-                            $("#c5").click(function(){
-                                $("#t5").show();
-                            });
-                            $(".save").click(function(){
-                                $("#t5").hide();
-                            });
-                        });
-                    </script>
-
-                    <tr>
-                        <td id="label"><label>Quận/ Huyện: </label></td>
-                        <td id="values"><label><?php echo $d1['district'] ?></label></td>
-                        <td id="update"> <a id="c6"><img src="img/logo/icon_update.png" height="30px"></a> </td>
-                    </tr>
-                    <tr id="t6" style="display: none">
-                        <td></td>
-                        <td><input type="text" size="30" name="email" id="email"/></td>
-                        <td id="save"><a class="save">Lưu</a></td>
-                    </tr>
-                    <script type="text/javascript">
-                        $(document).ready(function(){
-                            $("#c6").click(function(){
-                                $("#t6").show();
-                            });
-                            $(".save").click(function(){
-                                $("#t6").hide();
-                            });
-                        });
-                    </script>
-
-                    <tr>
-                        <td id="label"><label>Tỉnh/ Thành phố: </label></td>
-                        <td id="values"><label><?php echo $d1['city'] ?></label></td>
-                        <td id="update"> <a id="c7"><img src="img/logo/icon_update.png" height="30px"></a> </td>
-                    </tr>
-                    <tr id="t7" style="display: none">
-                        <td></td>
-                        <td><select name="city">
-                                <option>--Chọn tỉnh/thành phố--</option>
-                                <?php
-                                $sql="select * from city";
-                                $kq=mysql_query($sql);
-                                while ($d=mysql_fetch_array(($kq)))
-                                {?>
-                                    <option value="<?php echo $d['name'];?>"> <?php echo $d['name'];?> </option>
-                                    <?php
-                                }
-                                ?>
-                            </select></td>
-                        <td id="save"><a class="save">Lưu</a></td>
-                    </tr>
-                    <script type="text/javascript">
-                        $(document).ready(function(){
-                            $("#c7").click(function(){
-                                $("#t7").show();
-                            });
-                            $(".save").click(function(){
-                                $("#t7").hide();
-                            });
-                        });
-                    </script>
-
-                    <tr id="c8" style="display: none">
+                    <tr >
                         <td id="label"><label>Nhập mật khẩu cũ: </label></td>
-                        <td id="values"><input type="password" size="30" value="<?php echo $d1['pass']; ?>"/></td>
+                        <td id="values" colspan="3"><input type="password" size="30" value="<?php echo $d1['pass']; ?>"/></td>
                         <td></td>
                     </tr>
-                    <tr id="c9" style="display: none">
+                    <tr>
                         <td id="label"><label>Nhập mật khẩu mới: </label></td>
-                        <td id="values"><input type="password" size="30" name="new_pass" id="new_pass"/></td>
+                        <td id="values" colspan="3"><input type="password" size="30" name="new_pass" id="new_pass"/></td>
                         <td></td>
                     </tr>
-                    <tr id="c10" style="display: none">
+                    <tr>
                         <td id="label"><label>Nhập lại mật khẩu mới: </label></td>
-                        <td id="values"><input type="password" size="30" name="re_new_pass" id="re_new_pass"/></td>
+                        <td id="values" colspan="3"><input type="password" size="30" name="re_new_pass" id="re_new_pass"/></td>
                         <td></td>
                     </tr>
-                    <tr id="c11" style="display: none">
+                    <tr>
                         <td></td>
-                        <td><a id="t9">Lưu</a></td>
+                        <td>
+                            <button id="save" >Lưu thay đổi</button>
+                            <a href="index.php?id=login"><button>Hủy</button></a>
+                        </td>
+                        <td> </td>
+                    </tr>
+                </form>
+            </table>
+
+            <table id="update_info_ac" style="display: none">
+                <form action="index.php?id=login" method="post">
+                    <tr>
+                        <th colspan="3">Cập nhật thông tin cá nhân</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="left"><img src="img/logo/icon_taikhoan.png" height="70px;"> </td>
+                    </tr>
+                    <tr>
+                        <td><label>Tên đăng nhập</label></td>
+                        <td colspan="2"><input type="text" value="<?php echo $d1['name']; ?>"/></td>
                     </tr>
 
-                    <script type="text/javascript">
-                        $(document).ready(function(){
-                            $("#t8").click(function(){
-                                $("#c8").show();
-                                $("#c9").show();
-                                $("#c10").show();
-                                $("#c11").show();
-                            });
-                            $("#t9").click(function () {
-                                $("#c8").hide();
-                                $("#c9").hide();
-                                $("#c10").hide();
-                                $("#c11").hide();
-                            })
-                        });
-                    </script>
+                    <tr>
+                        <td><label>Email</label></td>
+                        <td colspan="2"><input type="text" value="<?php echo $d1['email']; ?>"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Giới tính</label></td>
+                        <td colspan="2">
+                            <select name="sex">
+                                <option value="<?php echo $d1['sex'];?>"><?php echo $d1['sex'];?></option>
+                                <?php
+                                $sql_sex="select * from sex";
+                                $kq_sex=mysql_query($sql_sex);
+                                while ($d_sex=mysql_fetch_array($kq_sex)){
+                                    if($d_sex['sex']!=$d1['sex']){ ?>
+                                <option value="<?php echo $d_sex['sex'];?>"> <?php echo $d_sex['sex'];?></option>
+                                    <?php } }?>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Số điện thoại</label></td>
+                        <td colspan="2"><input type="text" value="<?php echo $d1['tel']; ?>"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Địa chỉ</label></td>
+                        <td colspan="2"><input type="text" value="<?php echo $d1['address']; ?>"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Quận/ Huyện</label></td>
+                        <td colspan="2"><input type="text" value="<?php echo $d1['district']; ?>"/></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Tỉnh/ Thành phố</label></td>
+                        <td>
+                            <select name="sex">
+                                <option value="<?php echo $d1['idcity'];?>">
+                                    <?php
+                                    $sql_city="select * from city WHERE idcity=".$d1['idcity'];
+                                    $kq_city=mysql_query($sql_city);
+                                    while ($d_city=mysql_fetch_array($kq_city)){ echo $d_city['name'];}?>
+                                </option>
+                                <?php
+                                $sql_city="select * from city";
+                                $kq_city=mysql_query($sql_city);
+                                while ($d_city=mysql_fetch_array($kq_city)){
+                                    if($d_city['idcity']!=$d1['idcity']){ ?>
+                                        <option value="<?php echo $d_city['idcity'];?>"> <?php echo $d_city['name'];?></option>
+                                    <?php } }?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button id="save">Lưu thay đổi</button>
+                            <button id="reset" type="reset">Làm lại</button>
+                            <a href="index.php?id=login"><button>Hủy</button></a>
+                        </td>
+                    </tr>
                 </form>
             </table>
             <?php
@@ -239,6 +206,27 @@
     ?>
 
 </div>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#info").show();
+        $("#change_pass").click(function () {
+            $("#info").hide();
+            $("#change_pass_ac").show();
+        })
+        $("#change_pass_ac #save").click(function () {
+            alert("Đổi mật khẩu thành công!!!");
+        })
+        $("#update_info").click(function () {
+            $("#info").hide();
+            $("#update_info_ac").show();
+        })
+        $("#update_info_ac #save").click(function () {
+            alert("Lưu thay đổi thành công!!!");
+        })
+        $("#update_info_ac #reset").click(function () {
+            $("#update_info_ac").show();
+        })
+    })
+</script>
 </body>
 </html>
