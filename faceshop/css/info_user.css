@@ -1,0 +1,21 @@
+
+#info_user_show{
+    width: 100%;
+    padding-left: 10px;
+    min-height: 500px;
+}
+#info_user_show table{
+    width: 100%;
+    line-height: 40px;
+}
+#info_user_show td{
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 20px;
+}
+#label{
+    width: 200px;
+}
+#values{
+    color: #999999;
+    font-style: oblique;
+}

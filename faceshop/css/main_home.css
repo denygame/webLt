@@ -4,6 +4,7 @@
 
 *{ margin:0; padding:0;}
 hr{ width:90%; margin:auto; margin-top: 50px; margin-bottom: 50px;}
+
 #main_home{ width:100%;}
 
 #slide{ 
@@ -19,9 +20,30 @@ hr{ width:90%; margin:auto; margin-top: 50px; margin-bottom: 50px;}
 	width:100%;
 	min-height:1200px;
 	margin-bottom:50px;}
+#show_all_new{
+	width: 170px;
+	margin: auto;
+}
+#show_all_new a{
+	padding: 5px;
+	background-color: darkgreen;
+	color: #FFFFFF;
+	margin: auto;
+}
 #sach_sapra{
 	width:100%;
 	min-height:100px;
+}
+#show_all_sapra{
+	width: 190px;
+	margin: auto;
+	margin-bottom: 100px;
+}
+#show_all_sapra a{
+	padding: 5px;
+	background-color: darkgreen;
+	color: #FFFFFF;
+	margin: auto;
 }
 #tieude{
 	width:100%;
@@ -40,12 +62,14 @@ hr{ width:90%; margin:auto; margin-top: 50px; margin-bottom: 50px;}
 	border-color:#CCC;
 	margin:5px;
 	margin-top:25px;
-	float:left; }
+	float:left;
+}
 
 .btn{
 	width: 120px;
-	height: 30px;
-	font-size: 18px;
+	height: 27px;
+	line-height: 27px;
+	font-size: 15px;
 	margin: auto;
 	background-color: #39F;
 	position: absolute;
@@ -53,15 +77,20 @@ hr{ width:90%; margin:auto; margin-top: 50px; margin-bottom: 50px;}
 	text-align: center;
 	border: #999 1px solid;
 	margin-left: 100px;
-	margin-top: -45px;
+	margin-top: -36px;
 	text-decoration: none;
 	color: #FFF;
 	border-style: none;
+	cursor: pointer;
 }
-#dathang:hover .btn{ color:#F00;}
+
 #sach:hover #dathang .btn{
 	display: block;
 }
+#sach:hover #dathang .btn{
+	display: block;
+}
+
 
 
 #sach:hover{

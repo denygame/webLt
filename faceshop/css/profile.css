@@ -1,84 +1,128 @@
-button{
-    border-style: none;
-    background-color: #FF0033;
-    color: #FFFFFF;
-    font-size: 14px;
-    text-align: center;
-    height: 40px;
-    cursor: pointer;
 
-}
-
-button:hover{
-    opacity: 0.5px;
-}
-input{
-    width: 60%;
-}
 #profile{
-    width: 750px;
-    min-height: 250px;
-    border: 1px solid #CCCCCC;
-    border-top: 4px solid #CCCCCC;
-    line-height: 40px;
-    margin: auto;
-    margin-bottom: 200px;
-    padding: 10px;
-}
-#profile table, form {
     width: 100%;
+    min-height: 450px;
+    margin-top: 10px;
+    margin-bottom: 200px;
 }
-#values{
-    margin-right: ; 
-    padding-left: 10px;
+
+#profile_left{
+    float: left;
+    width: 30%;
 }
-#profile input{
-    line-height: 20px;
+#icon img{
+    width: 30px;
+    float: left;
+    margin-left: 0px;
 }
-#label{
-    width: 150px;
-    font-size: 18px;
+#feature{
+    float: left;
+    margin-left: 10px;
+}
+
+#info_login{
+    height: 40px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    display: block;
+    border: 1px solid #999999;
+    border-left: 5px solid #999999;
+    border-right: 5px solid #999999;
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    cursor: pointer;
+}
+#info_login:hover{
     color: #000000;
 }
-#values{
-    width: 300px;
-    font-size: 20px;
-    color: #333333;
-    font-style: oblique;
-}
-#update{
-    width: 150px;
-}
-#update:hover{
-    opacity: 0.5;
-}
-#save{
-    width: 150px;
-    background-color:#0e90d2;
-}
-#save:hover{
-    opacity: 0.5;
-}
-#change_pass{
-    background-color: #0e90d2;
-    width: 150px;
-    color: #FFFFFF;
-}
-#change_pass:hover{
-    opacity: 0.5;
-}
-#update_info{
-    width: 200px;
-}
-#update_info:hover{
-    opacity: 0.5;
-}
-#logout{
-    width: 150px;
+
+
+#info_user{
+    height: 40px;
+    background-color: #f2f2f2;
+    padding: 10px;
     display: block;
-    background-color: #CC6600;
-    color: #FFFFFF;
+    border: 1px solid #999999;
+    border-left: 5px solid #999999 ;
+    border-right: 5px solid #999999;
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    cursor: pointer;
+}
+#info_user:hover{
+    color: #000000;
+}
+
+
+#change_pw {
+    height: 40px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    display: block;
+    border: 1px solid #999999;
+    border-left: 5px solid #999999;
+    border-right: 5px solid #999999;
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    cursor: pointer;
+}
+#change_pw:hover{
+    color: #000000;
+}
+
+#bill{
+     height: 40px;
+     background-color: #f2f2f2;
+     padding: 10px;
+     display: block;
+     border: 1px solid #999999;
+     border-left: 5px solid #999999 ;
+     border-right: 5px solid #999999;
+     user-select: none;
+     -webkit-touch-callout: none; /* iOS Safari */
+     -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+     -moz-user-select: none; /* Firefox */
+     -ms-user-select: none; /* Internet Explorer/Edge */
+     cursor: pointer;
+ }
+#bill:hover{
+    color: #000000;
+}
+
+#logout{
+    height: 40px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    display: block;
+    border: 1px solid #999999;
+    border-left: 5px solid #999999 ;
+    border-right: 5px solid #999999;
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    cursor: pointer;
 }
 #logout:hover{
-    opacity: 0.5;
+    color: #000000;
+}
+
+#profile_right{
+    width: 70%;
+    float: left;
 }

@@ -4,7 +4,9 @@
 *{ margin:0; padding:0;}
 hr{ width:90%; margin:auto; margin-bottom: 25px;}
 
+#category{
 
+}
 #tieude2{
 	width:100%;
 	height:50px;
@@ -12,10 +14,13 @@ hr{ width:90%; margin:auto; margin-bottom: 25px;}
 	padding-top:20px;
 	text-align:center;
 	color:#000;clear:both;
-	background-color:#CCC;}
-#sach_cungloai2{
-	height: 1000px;
+	background-color:#CCC;
+}
 
+#sach_cungloai2{
+	max-height: 1800px;
+	margin-bottom: 50px;
+	width: 100%;
 }
 
 #sach2{
@@ -31,10 +36,13 @@ hr{ width:90%; margin:auto; margin-bottom: 25px;}
 	height: 50px;
 	overflow: hidden;
 }
+
+
 #dathang2 .btn{
 	width: 100px;
-	height: 25px;
-	font-size: 16px;
+	height: 27px;
+	line-height: 27px;
+	font-size: 12px;
 	margin: auto;
 	background-color: #39F;
 	position: absolute;
@@ -42,13 +50,13 @@ hr{ width:90%; margin:auto; margin-bottom: 25px;}
 	text-align: center;
 	border: #999 1px solid;
 	margin-left: 32px;
-	margin-top: 8px;
+	margin-top: 11px;
 	text-decoration: none;
-	border-radius: 8px;
 	color: #FFF;
+	border-style: none;
+	cursor: pointer;
 }
 
-#dathang2:hover .btn{ color:#F00;}
 #sach2:hover{
 	border-color: #39F;
 }
@@ -116,8 +124,10 @@ hr{ width:90%; margin:auto; margin-bottom: 25px;}
 	line-height: 20px;
 	margin: auto;
 	width: 420px;
-	height: 100px;
+	height: 200px;
+	clear: both;
 }
+
 #phantrang a{
 	font-size: 18px;
 	padding-left: 7px;

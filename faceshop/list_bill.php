@@ -11,13 +11,13 @@
 	
 <div id="list_bill">
 	<table>
-		<tr><td colspan="5" align="center" style="text-align: center;">Danh sách đơn đặt hàng</td></tr>
+        <tr id="title"><td colspan="5" style="text-align: left; font-size: 20px;"><b>DANH SÁCH ĐƠN ĐẶT HÀNG</b></td></tr>
 		<tr>
-			<td id="stt">STT</td>
-			<td id="data_bill">Ngày đặt hàng</td>
-			<td id="totalprice">Tổng tiền</td>
-			<td width="20%">Trạng thái</td>
-			<td id="show_detail"></td>
+			<th id="stt">STT</th>
+			<th id="data_bill">Ngày đặt hàng</th>
+			<th id="totalprice">Tổng tiền</th>
+			<th id="status">Trạng thái</th>
+			<th id="show_detail"></th>
 		</tr>
 		<?php 
 			$sql="select * from bill";
@@ -26,10 +26,10 @@
 			while ($d=mysql_fetch_array($kq)) {?>
 				<tr>
 					<td id="stt"><?php echo $stt+1?></td>
-					<td id="data_bill"><?php echo $d['date_bill']; ?></td>
-					<td id="totalprice"><?php echo $d['totalprice'] ?></td>
-					<td ></td>
-					<td id="show_detail"><a href="">Xem chi tiết </a></td>
+					<td id="date_bill"><?php $date=$d['date_bill']; $date_bill=date_create($date); echo date_format($date_bill,"d/m/Y ") ?></td>
+					<td id="totalprice"><?php  echo $d['totalprice'] ?></td>
+					<td id="status"><?php echo $d['status'];?> </td>
+					<td id="show_detail"><a href="index.php?id=login&idlogin=bill_detail&idbill=<?php echo $d['idbill'];?>">Xem chi tiết </a></td>
 				</tr>
 			<?php }
 		?>

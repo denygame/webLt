@@ -10,18 +10,17 @@
     margin-bottom: 10px;
 }
 #list_bill{
-    width: 70%;
+    width: 100%;
     min-height: 700px;
     margin-bottom: 200px;
-    border-top: 5px solid #CCCCCC;
     margin: auto;
+    padding-left: 10px;
 }
 #list_bill table{
-    border: 1px solid #CCCCCC;
     width: 100%;
     line-height: 40px;
 }
-#list_bill td{
+#list_bill td, th{
     border-bottom: 1px solid #CCCCCC; 
 }
 #list_bill table td{
@@ -36,9 +35,17 @@
 }
 #totalprice{
     width: 20%;
-    color: ;
 }
-#shoư_detail{
+#status{
+    width: 10%;
+}
+#show_detail{
     width: 20%;
-    font-style: ;
+}
+#show_detail a{
+    color: blue;
+}
+#show_detail a:hover{
+    color: red;
+    font-style: oblique;
 }

@@ -24,8 +24,8 @@ class AccountController
 				echo "Email hoặc Password bạn không được để trống!";
 			}
 			else{
-				/*$passMD5 = md5($pass);*/
-				$kq = $this->model->checkLogin($email,$password);
+				$passEn = sha1($password);
+				$kq = $this->model->checkLogin($email,$passEn);
 				if($kq!=null){
             		//tiến hành lưu tên đăng nhập vào session để tiện xử lý sau này
 					$_SESSION['email'] = $email;

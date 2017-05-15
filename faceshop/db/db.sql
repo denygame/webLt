@@ -2,10 +2,10 @@
 -- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 12, 2017 lúc 02:46 SA
--- Phiên bản máy phục vụ: 10.1.21-MariaDB
--- Phiên bản PHP: 5.6.30
+-- Host: 127.0.0.1
+-- Generation Time: May 14, 2017 at 02:41 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,38 +17,39 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `db`
+-- Database: `db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `account`
+-- Table structure for table `account`
 --
 
 CREATE TABLE `account` (
   `email` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `pass` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'họ tên',
-  `sex` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'giới tính',
+  `sex` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT ' giới tính',
   `tel` int(11) NOT NULL COMMENT 'sdt',
-  `idcity` int(200) NOT NULL COMMENT 'tỉnh thành',
+  `idcity` int(200) NOT NULL COMMENT 'id tỉnh thành',
   `district` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'quận huyện',
   `address` varchar(1000) COLLATE utf8_unicode_ci NOT NULL COMMENT 'địa chỉ',
   `checkDelete` int(11) NOT NULL DEFAULT '0' COMMENT 'xóa thì thành 1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `account`
+-- Dumping data for table `account`
 --
 
 INSERT INTO `account` (`email`, `pass`, `name`, `sex`, `tel`, `idcity`, `district`, `address`, `checkDelete`) VALUES
-('abc@gmail.com', '123456', 'tuan', 'Male', 123, 2, 'Tan Phu', '86 nguyen van yen', 0);
+('1@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'tuan', 'Nam', 123, 19, 'tan phu', '123', 0),
+('abc@gmail.com', '123456', 'tuan', 'Male', 123, 3, 'Tân Phú', '86 Nguyễn Văn yến', 0);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `author`
+-- Table structure for table `author`
 --
 
 CREATE TABLE `author` (
@@ -59,7 +60,7 @@ CREATE TABLE `author` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='tác giả';
 
 --
--- Đang đổ dữ liệu cho bảng `author`
+-- Dumping data for table `author`
 --
 
 INSERT INTO `author` (`idauthor`, `name`, `info`, `checkDelete`) VALUES
@@ -125,7 +126,7 @@ INSERT INTO `author` (`idauthor`, `name`, `info`, `checkDelete`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `bill`
+-- Table structure for table `bill`
 --
 
 CREATE TABLE `bill` (
@@ -133,17 +134,26 @@ CREATE TABLE `bill` (
   `totalprice` double NOT NULL,
   `email` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'họ tên khách',
+  `date_bill` date NOT NULL,
   `sex` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `district` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `checkDelete` int(11) NOT NULL DEFAULT '0' COMMENT 'xóa thì thành 1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `bill`
+--
+
+INSERT INTO `bill` (`idbill`, `totalprice`, `email`, `name`, `date_bill`, `sex`, `city`, `district`, `address`, `status`, `checkDelete`) VALUES
+(1, 20000, 'abc@gmail.com', 'tuan', '2017-05-17', 'nam', '', '', '', 'Mới', 0);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `billinfo`
+-- Table structure for table `billinfo`
 --
 
 CREATE TABLE `billinfo` (
@@ -154,10 +164,18 @@ CREATE TABLE `billinfo` (
   `checkDelete` int(11) NOT NULL DEFAULT '0' COMMENT 'xóa thì thành 1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='chi tiết hóa đơn';
 
+--
+-- Dumping data for table `billinfo`
+--
+
+INSERT INTO `billinfo` (`idbillinfo`, `idbill`, `idbook`, `count`, `checkDelete`) VALUES
+(1, 1, 22, 2, 0),
+(2, 1, 50, 3, 0);
+
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `book`
+-- Table structure for table `book`
 --
 
 CREATE TABLE `book` (
@@ -184,7 +202,7 @@ CREATE TABLE `book` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `book`
+-- Dumping data for table `book`
 --
 
 INSERT INTO `book` (`idbook`, `name`, `imgdetail`, `imgbg`, `idauthor`, `ngayxb`, `nhaxb`, `nhaph`, `dangbia`, `size`, `weight`, `totalpages`, `saleoff`, `price`, `info`, `idtype`, `highlights`, `status`, `sold`, `checkDelete`) VALUES
@@ -380,7 +398,7 @@ INSERT INTO `book` (`idbook`, `name`, `imgdetail`, `imgbg`, `idauthor`, `ngayxb`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -390,7 +408,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='thể loại';
 
 --
--- Đang đổ dữ liệu cho bảng `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`idcategory`, `name`, `checkDelete`) VALUES
@@ -406,7 +424,7 @@ INSERT INTO `category` (`idcategory`, `name`, `checkDelete`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `city`
+-- Table structure for table `city`
 --
 
 CREATE TABLE `city` (
@@ -415,7 +433,7 @@ CREATE TABLE `city` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `city`
+-- Dumping data for table `city`
 --
 
 INSERT INTO `city` (`idcity`, `name`) VALUES
@@ -485,7 +503,7 @@ INSERT INTO `city` (`idcity`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_type`
+-- Table structure for table `db_type`
 --
 
 CREATE TABLE `db_type` (
@@ -496,7 +514,7 @@ CREATE TABLE `db_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='loại' ROW_FORMAT=COMPACT;
 
 --
--- Đang đổ dữ liệu cho bảng `db_type`
+-- Dumping data for table `db_type`
 --
 
 INSERT INTO `db_type` (`idtype`, `name`, `idcategory`, `checkDelete`) VALUES
@@ -568,25 +586,7 @@ INSERT INTO `db_type` (`idtype`, `name`, `idcategory`, `checkDelete`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `sex`
---
-
-CREATE TABLE `sex` (
-  `sex` varchar(10) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `sex`
---
-
-INSERT INTO `sex` (`sex`) VALUES
-('Male'),
-('Female');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `shoppingcart`
+-- Table structure for table `shoppingcart`
 --
 
 CREATE TABLE `shoppingcart` (
@@ -595,63 +595,63 @@ CREATE TABLE `shoppingcart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='giỏ hàng';
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `account`
+-- Indexes for table `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`email`);
 
 --
--- Chỉ mục cho bảng `bill`
+-- Indexes for table `bill`
 --
 ALTER TABLE `bill`
   ADD PRIMARY KEY (`idbill`);
 
 --
--- Chỉ mục cho bảng `billinfo`
+-- Indexes for table `billinfo`
 --
 ALTER TABLE `billinfo`
   ADD PRIMARY KEY (`idbillinfo`);
 
 --
--- Chỉ mục cho bảng `book`
+-- Indexes for table `book`
 --
 ALTER TABLE `book`
   ADD PRIMARY KEY (`idbook`);
 
 --
--- Chỉ mục cho bảng `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`idcategory`);
 
 --
--- Chỉ mục cho bảng `city`
+-- Indexes for table `city`
 --
 ALTER TABLE `city`
   ADD PRIMARY KEY (`idcity`);
 
 --
--- Chỉ mục cho bảng `db_type`
+-- Indexes for table `db_type`
 --
 ALTER TABLE `db_type`
   ADD PRIMARY KEY (`idtype`);
 
 --
--- Chỉ mục cho bảng `shoppingcart`
+-- Indexes for table `shoppingcart`
 --
 ALTER TABLE `shoppingcart`
   ADD PRIMARY KEY (`idbook`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `city`
+-- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
   MODIFY `idcity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;

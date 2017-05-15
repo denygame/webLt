@@ -117,108 +117,110 @@ require_once 'controller/BookController.php'; $bController = new BookController(
 require_once 'controller/AuthorController.php'; $authorController = new AuthorController(); ?>
 <div id="main_home">
 
- <div class="slideshow-container">
+    <div class="slideshow-container">
 
-   <div class="mySlides fade">
-     <div class="numbertext">1 / 3</div>
-     <img src="view/img1.jpg" style="width:100%; height:200px;">
-     <div class="text">Caption Text</div>
-   </div>
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="view/img1.jpg" style="width:100%; height:200px;">
+            <div class="text">Caption Text</div>
+        </div>
 
-   <div class="mySlides fade">
-     <div class="numbertext">2 / 3</div>
-     <img src="view/img2.jpg" style="width:100% ; height:200px;">
-     <div class="text">Caption Two</div>
-   </div>
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="view/img2.jpg" style="width:100% ; height:200px;">
+            <div class="text">Caption Two</div>
+        </div>
 
-   <div class="mySlides fade">
-     <div class="numbertext">3 / 3</div>
-     <img src="view/img3.jpg" style="width:100% ; height:200px;">
-     <div class="text">Caption Three</div>
-   </div>
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="view/img3.jpg" style="width:100% ; height:200px;">
+            <div class="text">Caption Three</div>
+        </div>
 
-   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-   <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
- </div>
- <br>
+    </div>
+    <br>
 
- <div style="text-align:center">
-   <span class="dot" onclick="currentSlide(1)"></span>
-   <span class="dot" onclick="currentSlide(2)"></span>
-   <span class="dot" onclick="currentSlide(3)"></span>
- </div>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
 </div>
 
 <div id="sach_noibat">
-  <div id="tieude"><p>Sách nổi bật</p></div>
-  <div style="min-height: 1100px;">
-    <?php  $result=$bController->load6BookHighlight(); if ($result!=null) while ($d = mysql_fetch_array($result)) { ?>
-    <div id="sach">
-      <div id="hinhsach"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>" ?><img width="300px" src="img/<?php echo $d['imgbg']; ?>"/></a></div>
-      <div id="tensach"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>" ?><p><?php echo $d['name']; ?></p></a></div>
-      <hr/>
-      <div id="mota">
-        <?php $idAuthor = $d['idauthor'];$nameAuthor = $authorController->getNameAuthorById($idAuthor); if($nameAuthor!=null){ ?><p><?php echo $nameAuthor['name'] ?></p><?php } ?>
-        <p style="overflow: hidden; width: 90%; height: 50px;"><?php echo $d['info']; ?></p>
-      </div>
-      <hr/>
-      <div id="gia">
-        <div id="gia1">
-          <p>Giá bán: <font style="color:#C60"><?php echo number_format($d['price'] * (1 - (($d['saleoff']) / 100))); ?>đ</font></p>
-          <p>Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']); ?>đ</font></p>
-        </div>
-        <div id="km"><?php echo $d['saleoff']; ?>%</div>
-      </div>
-      <div id="dathang">
-        <button class="btn" onclick="doSomething('<?php echo $d['idbook'];?>');">&#9758 CHỌN MUA</button>
-      </div>
+    <div id="tieude"><p>Sách nổi bật</p></div>
+    <div style="min-height: 1000px;">
+        <?php  $result=$bController->load6BookHighlight(); if ($result!=null) while ($d = mysql_fetch_array($result)) { ?>
+            <div id="sach">
+                <div id="hinhsach"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>" ?><img width="300px" src="img/<?php echo $d['imgbg']; ?>"/></a></div>
+                <div id="tensach"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>" ?><p><?php echo $d['name']; ?></p></a></div>
+                <hr/>
+                <div id="mota">
+                    <?php $idAuthor = $d['idauthor'];$nameAuthor = $authorController->getNameAuthorById($idAuthor); if($nameAuthor!=null){ ?><p><?php echo $nameAuthor['name'] ?></p><?php } ?>
+                    <p style="overflow: hidden; width: 90%; height: 50px;"><?php echo $d['info']; ?></p>
+                </div>
+                <hr/>
+                <div id="gia">
+                    <div id="gia1">
+                        <p>Giá bán: <font style="color:#C60"><?php echo number_format($d['price'] * (1 - (($d['saleoff']) / 100))); ?>đ</font></p>
+                        <p>Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']); ?>đ</font></p>
+                    </div>
+                    <div id="km"><?php echo $d['saleoff']; ?>%</div>
+                </div>
+                <div id="dathang">
+                    <button class="btn" onclick="doSomething('<?php echo $d['idbook'];?>');"> &#9758 <b>CHỌN MUA</b></button>
+                </div>
+            </div>
+        <?php } else echo 'Lỗi truy vẩn!'; ?>
     </div>
-    <?php } else echo 'Lỗi truy vẩn!'; ?>
-  </div>
 </div>
 
 <hr/>
 <div id="sach_moi">
-  <div id="tieude"><p>Sách mới</p></div>
-  <div id="sach_cungloai2">
-    <?php $result=$bController->load12BookNew(); if ($result!=null) while ($d = mysql_fetch_array($result)) { ?>
-    <div id="sach2">
-      <div id="hinhsach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>"><img src="img/<?php echo $d['imgdetail']; ?>"/></a></div>
-      <div id="tensach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>"><p><?php echo $d['name']; ?></a></div>
-      <div id="mota2">
-        <?php $idAuthor = $d['idauthor'];$nameAuthor = $authorController->getNameAuthorById($idAuthor);  if($nameAuthor!=null){ ?><p><?php echo $nameAuthor['name'] ?></p><?php } ?>
-      </div>
-      <div id="gia2">
-        <p>Giá bán: <font style="color:#C60"><?php echo number_format($d['price'] * (1 - (($d['saleoff']) / 100))); ?>đ</font></p>
-        <p>Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']); ?>đ</font></p>
-      </div>
-      <div id="km2"><?php echo $d['saleoff']; ?>%</div>
-      <div id="dathang2"> <button class="btn" onclick="doSomething('<?php echo $d['idbook']; ?>');">&#9758 Chọn mua</button></div>
+    <div id="tieude"><p>Sách mới</p></div>
+    <div id="sach_cungloai2">
+        <?php $result=$bController->load12BookNew(); if ($result!=null) while ($d = mysql_fetch_array($result)) { ?>
+            <div id="sach2">
+                <div id="hinhsach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>"><img src="img/<?php echo $d['imgdetail']; ?>"/></a></div>
+                <div id="tensach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>"><p><?php echo $d['name']; ?></a></div>
+                <div id="mota2">
+                    <?php $idAuthor = $d['idauthor'];$nameAuthor = $authorController->getNameAuthorById($idAuthor);  if($nameAuthor!=null){ ?><p><?php echo $nameAuthor['name'] ?></p><?php } ?>
+                </div>
+                <div id="gia2">
+                    <p>Giá bán: <font style="color:#C60"><?php echo number_format($d['price'] * (1 - (($d['saleoff']) / 100))); ?>đ</font></p>
+                    <p>Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']); ?>đ</font></p>
+                </div>
+                <div id="km2"><?php echo $d['saleoff']; ?>%</div>
+                <div id="dathang2"> <button class="btn" onclick="doSomething('<?php echo $d['idbook']; ?>');">&#9758 <b>CHỌN MUA </b></button></div>
+            </div>
+        <?php } else echo 'Lỗi truy vẩn!'; ?>
     </div>
-    <?php } else echo 'Lỗi truy vẩn!'; ?>
-  </div>
+    <div id="show_all_new"><a href="#"> &#9758 <b>Xem tất cả sách mới</b></a></div>
 </div>
 <hr/>
 <div id="sach_sapra">
-  <div id="tieude"><p>Sách sắp ra mắt</p></div>
-  <div style="min-height: 400px;">
-    <?php $result=$bController->load6BookFuture(); if ($result!= null) while ($d= mysql_fetch_array($result)) { ?>
-    <div id="sach2">
-      <div id="hinhsach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>"><img src="img/<?php echo $d['imgdetail']; ?>"/></a></div>
-      <div id="tensach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>"><p><?php echo $d['name']; ?></a></div>
-      <div id="mota2">
-        <?php $idAuthor = $d['idauthor'];$nameAuthor = $authorController->getNameAuthorById($idAuthor);  if($nameAuthor!=null){ ?><p><?php echo $nameAuthor['name'] ?></p><?php } ?>
-      </div>
-      <div id="gia2">
-        <p>Giá bán: <font style="color:#C60"><?php echo number_format($d['price'] * (1 - (($d['saleoff']) / 100))); ?>đ</font></p>
-        <p>Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']); ?>đ</font></p>
-      </div>
-      <div id="km2"><?php echo $d['saleoff']; ?>%</div>
-      <div id="dathang2"><button class="btn" onclick="doSomething('<?php echo $d['idbook'];?>');">&#9758 Chọn mua</button></div>
+    <div id="tieude"><p>Sách sắp ra mắt</p></div>
+    <div style="min-height: 300px;">
+        <?php $result=$bController->load6BookFuture(); if ($result!= null) while ($d= mysql_fetch_array($result)) { ?>
+            <div id="sach2">
+                <div id="hinhsach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>"><img src="img/<?php echo $d['imgdetail']; ?>"/></a></div>
+                <div id="tensach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>"><p><?php echo $d['name']; ?></a></div>
+                <div id="mota2">
+                    <?php $idAuthor = $d['idauthor'];$nameAuthor = $authorController->getNameAuthorById($idAuthor);  if($nameAuthor!=null){ ?><p><?php echo $nameAuthor['name'] ?></p><?php } ?>
+                </div>
+                <div id="gia2">
+                    <p>Giá bán: <font style="color:#C60"><?php echo number_format($d['price'] * (1 - (($d['saleoff']) / 100))); ?>đ</font></p>
+                    <p>Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']); ?>đ</font></p>
+                </div>
+                <div id="km2"><?php echo $d['saleoff']; ?>%</div>
+                <div id="dathang2"><button class="btn" onclick="doSomething('<?php echo $d['idbook'];?>');">&#9758 <b>CHỌN MUA </b></button></div>
+            </div>
+        <?php } else echo 'Lỗi truy vẩn!'; ?>
     </div>
-    <?php } else echo 'Lỗi truy vẩn!'; ?>
-  </div>
+    <div id="show_all_sapra"><a href="#"> &#9758 <b>Xem tất cả sách sắp ra</b></a></div>
 </div>
 </div>
 

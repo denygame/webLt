@@ -10,17 +10,18 @@ function deleteBook(idbook){
 
 }
 
-function updateCountBook(idbook){
+//không thể unset các control giống nhau ??? slove control unset input but no form
+/*function updateCountBook(idbook, count){
     $.ajax({
         method: 'get',
         url: 'phpFile/updateCountBookSC.php',
-        data: { idbook: idbook, count: document.getElementById('soluong').value },
+        data: { idbook: idbook, count: count },
         success: function(data) {
             changeDivSc();
         }
     });
     
-}
+}*/
 
 function changeDivSc(){
     $.ajax({

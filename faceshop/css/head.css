@@ -12,14 +12,25 @@ a:hover{
 a:active{
 	color: black;
 }
+a, p , h1 ,h2, h3 ,h4, h5, h6{
+	user-select: none;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Chrome/Safari/Opera */
+	-khtml-user-select: none; /* Konqueror */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+}
 #head{
 	width:100%;
-	min-height:150px;}
+	min-height:150px;
+
+}
 #h1{
 	width:1150px;
 	margin:auto;
 	min-height:75px;
-	margin-bottom:5px; }
+	margin-bottom:5px;
+}
 #logo{
 	width:180px;
 	float:left;

@@ -1,0 +1,41 @@
+
+#user_update{
+    width: 100%;
+    padding-left: 10px;
+    height: 500px;
+}
+#user_update table{
+    width: 100%;
+    line-height: 40px;
+}
+#user_update td{
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 20px;
+}
+#label{
+    width: 200px;
+}
+#values{
+    color: #999999;
+    font-style: oblique;
+}
+#values input{
+    width: 300px;
+    height: 30px;
+    font-size: 25px;
+    border-radius:5px;
+    border: 1px solid #999999;
+}
+#values select{
+    height: 30px;
+    font-size: 25px;
+    border-radius:5px;
+    border: 1px solid #999999;
+}
+#values button{
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+    border-style: none;
+    background-color: #3399FF;
+}

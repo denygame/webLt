@@ -1,0 +1,32 @@
+a, p , h1 ,h2, h3 ,h4, h5, h6{
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+#info_login_show{
+    width: 100%;
+    padding-left: 10px;
+    height: 500px;
+}
+#info_login_show table{
+    width: 100%;
+    line-height: 40px;
+}
+#info_login_show td{
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 20px;
+}
+#label{
+    width: 200px;
+}
+#values{
+    color: #999999;
+    font-style: oblique;
+}
+#values label{
+    -webkit-text-security: disc;
+    color: #999999;
+}

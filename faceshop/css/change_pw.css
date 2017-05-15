@@ -1,0 +1,50 @@
+a, p , h1 ,h2, h3 ,h4, h5, h6{
+    user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+#change_pw_show{
+    width: 100%;
+    padding-left: 10px;
+    height: 500px;
+}
+#change_pw_show table{
+    width: 100%;
+    line-height: 50px;
+}
+#change_pw_show td{
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 20px;
+}
+#label{
+    width: 200px;
+}
+#values{
+    color: #999999;
+    font-style: oblique;
+}
+#values input{
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #999999;
+}
+#save{
+    border-style: none;
+    background-color: #CC6600;
+    color: #FFFFFF;
+    width: 50px;
+    padding: 5px;
+    font-size: 18px;
+}
+#huy{
+    border-style: none;
+    background-color: #FF0033;
+    color: #FFFFFF;
+    width: 50px;
+    padding: 5px;
+    font-size: 18px;
+}

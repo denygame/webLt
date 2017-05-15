@@ -9,11 +9,10 @@
 
 
 <?php
-if(isset($_POST['logout'])){
+if(isset($_GET['logout'])){
     if(isset($_SESSION['email'])){
         session_unset();
         session_destroy();
-        //echo "<script> alert('Đăng xuất thành công!!!');</script>";
     }
 }
 ?>
@@ -24,12 +23,12 @@ if(isset($_POST['logout'])){
 
     <div id="login">
         <div id="login_left">
-            <div id="title">Đăng nhập</div>
+            <div id="title"><b>ĐĂNG NHẬP</b></div>
             <form action="index.php?id=login" method="post">
                 <table>
                     <tr>
                         <td id="k"><label>Email <font color="red">*</font> </label></td>
-                        <td><input type="text" name="email" id="email"/></td>
+                        <td><input type="text" name="email" id="email" placeholder="example@gmail.com"/></td>
                     </tr>
                     <tr>
                         <td id="k"><label>Mật khẩu <font color="red">*</font></label></td>
@@ -39,7 +38,7 @@ if(isset($_POST['logout'])){
                         <td id="sub" colspan="2" align="center"><input type="submit" name="btn_submit" value="Đăng nhập"/></td>
                     </tr>
                     <tr>
-                        <td colspan="2"align="center"><a href="index.php?id=forgot_password" style="padding-right:15px; ">Quên mật khẩu</a> | <a href="index.php?id=register">Đăng ký tài khoản</a> </td>
+                        <td colspan="2"align="center"><a href="index.php?id=forgot_password" style="padding-right:15px; ">Quên mật khẩu</a>| <a href="index.php?id=register" style="margin-left: 7px;">Đăng ký tài khoản</a> </td>
                     </tr>
                 </table>
             </form>

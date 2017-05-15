@@ -65,11 +65,6 @@
             <p>Số trang: <?php echo $d['totalpages']?></p>
         </div>
         <div id="khac">
-            <div style="margin: auto; width: 200px;">
-                <div id="update" style=""><a href=""> <img src="img/logo/icon_update.png "><p>Update</p></a></div>
-                <div id="delete"><a href=""> <img src="img/logo/icon_delete.png" ><p> Delete</p></a></div>
-            </div>
-
             <div style="clear:both;">
                 <ul style="margin-left: 30px;">
                     <li>Xem thêm các tác phẩm của <?php $d['idauthor'] ?>tuyển chọn</li>
@@ -86,16 +81,13 @@
                 </ul>
             </div>
         </div>
+
         <hr/>
+
         <div id="gia">
             <pre style=" font-family: Arial, Helvetica, sans-serif">Giá bán: <font style="font-size: 25px; color: orangered;" ><?php echo number_format($d['price']*(1-(($d['saleoff'])/100)));?> đ</font>     Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']);?> đ</font>   <font style=" padding: 5px; background-color: darkgreen; color: white;">Tiết kiệm: <?php echo $d['saleoff']?>%</font> </pre>
             <p style="margin-top: 10px;">( Bạn nhận được <font style=" color: #CC6600">243</font>  điểm thưởng khi mua cuốn sách này)</p>
             <div style="margin-top: 10px; float: left; margin-right: 15px;">
-
-
-
-
-
                 <form id="lalala" method="post">
                     <div style=" border: 1px solid #999999; padding: 10px; width: 120px; float: left;">
                         <label>Số lượng</label>
@@ -140,36 +132,25 @@
     <div id="danhgia_left">
         <p>Điểm thưởng cho nhận xét được duyệt sẽ được cộng vào tài khoản ứng với email của bạn.</p>
         <p><a> >> Tham khảo bí quyết để comment dễ được duyệt đăng tại đây!</a></p>
-        <br>
         <form action="" method="post">
             <table>
                 <tr>
-                    <td width="100px;">Email (<font color="red">*</font>)</td>
-                    <td><input type="email" size="30"/></td>
+                    <td id="label">Email (<font color="red">*</font>)</td>
+                    <td id="values"><input type="email" size="30"/></td>
                 </tr>
                 <tr>
-                    <td>Đánh giá (<font color="red">*</font>)</td>
-                    <td><input type="text" size="30"/></td>
+                    <td id="label">Đánh giá (<font color="red">*</font>)</td>
+                    <td id="values"><input type="text" size="30"/></td>
                 </tr>
                 <tr>
-                    <td>Câu hỏi chống spam </td>
-                    <td> ????</td>
+                    <td id="label">Nhận xét của bạn</td>
                 </tr>
                 <tr>
-                    <td>Nhập câu trả lời (<font color="red">*</font>)</td>
-                    <td><input type="text" size="30"/></td>
+                    <td colspan="2"><textarea rows="6" cols="66"></textarea></td>
                 </tr>
                 <tr>
-                    <td>Nhận xét của bạn</td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <td colspan="2" style="margin: auto"><textarea rows="6" cols="66"></textarea></td>
-                </tr>
-                <tr><d></d><td></td></tr>
-                <tr>
-                    <td colspan="2" style="text-align: center; margin: auto"><button type="submit">Gửi nhận xét</button></td>
+                    <td id="label"></td>
+                    <td id="values"><button type="submit">Gửi nhận xét</button></td>
                 </tr>
             </table>
         </form>

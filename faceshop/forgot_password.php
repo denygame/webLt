@@ -4,43 +4,35 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
     <link rel="stylesheet" type="text/css" href="css/forgot_password.css"/>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
 </head>
 
 <body>
 <div id="forgot_password">
-    <div id="forgot_password_left">
-        <div id="title">Lấy lại mật khẩu</div>
-        <form action="" method="post">
-            <table>
-                <tr>
-                    <td id="k">
-                        <label>Email <font color="red">*</font></label>
-                    </td>
-                    <td><input type="text" name="email" id="email"/></td>
-                </tr>
-                <tr>
-                    <td id="k">
-                        <label>Câu hỏi chống spam <font color="red">*</font> </label>
-                    </td>
-                    <td> <input type="text" /> <br> <a style=" margin-left: 15px; color: #0e90d2" href="#"> Tải lại hình ảnh</a></td>
-                </tr>
-                <tr>
-                    <td id="k">
-                        <label>Nhập câu trả lời <font color="red">*</font></label>
-                    </td>
-                    <td><input type="text" name="answer" id="answer"/></td>
-                </tr>
-                <tr>
-                    <td id="k"></td>
-                    <td id="sub"><input type="submit" value="Lấy lại mật khẩu"/></td>
-                </tr>
-            </table>
+    <div id="title">QUÊN MẬT KHẨU</div>
+    <table>
+        <form action="index.php?id=forgot_password" method="post">
+            <tr>
+                <td id="label"><label>Email <font color="red">*</font> </label></td>
+                <td id="values"><input type="text" name="email" id="email" placeholder="example@gmail.com"/></td>
+            </tr>
+            <tr id="1" style="display: none">
+                <td id="label">Mã xác nhận  <font color="red">*</font></td>
+                <td id="values"><input type="text"  name="password"/></td>
+            </tr>
+            <tr id="2" style="display: none">
+                <td id="label"></td>
+                <td id="values"><a href="">Gửi lại mã xác nhận</a> </td>
+            </tr>
+            <tr id="3">
+                <td colspan="2" align="center"><button>Gửi mã</button> <a href="index.php?id=login" >Hủy</a></td>
+            </tr>
+            <tr id="4" style="display: none">
+                <td colspan="2" align="center"><button>Xác nhận</button> <a href="index.php?id=login">Hủy</a></td>
+            </tr>
         </form>
-    </div>
-
-    <div id="forgot_password_right">
-
-    </div>
+    </table>
 </div>
 
 </body>

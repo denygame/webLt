@@ -11,7 +11,8 @@ class ScModel
 	public function addBook($idbook,$count){
 		$existsBook = DataProvider::executeQuery('select * from `shoppingcart` where idbook='.$idbook);
 		if(mysql_num_rows($existsBook)>0){
-			DataProvider::executeQuery('update shoppingcart set count_book=count_book+'.$count.' where idbook='.$idbook);
+			if($count==0) DataProvider::executeQuery("delete from `shoppingcart` where idbook = $idbook");
+			else DataProvider::executeQuery('update shoppingcart set count_book='.$count.' where idbook='.$idbook);
 		}else{
 			DataProvider::executeQuery("insert into shoppingcart(idbook, count_book) VALUE ($idbook,$count)");			
 		}

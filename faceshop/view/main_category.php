@@ -78,38 +78,37 @@ if(!isset($_GET['sort'])) $sort = "normal"; else $sort=$_GET['sort'];
 </head>
 
 <body>
+<div id="category">
     <div id="selective">
         <form name="frmSort" id="frmSort" method="post" action="">
             <select name="dk" id="dk" style=" float: left" ">
-                <option value="ten"<?php if (isset($sort) && $sort=="ten") echo "selected";?> >Theo tên</option>
-                <option value="ban_chay"<?php if (isset($sort) && $sort=="ban_chay") echo "selected";?> >Bán chạy nhất</option>
-                <option value="giam_gia"<?php if (isset($sort) && $sort=="giam_gia") echo "selected";?> >Giảm giá nhiều nhất</option>
-                <option value="gia_tang"<?php if (isset($sort) && $sort=="gia_tang") echo "selected";?> >Giá từ thấp đến cao</option>
-                <option value="gia_giam"<?php if (isset($sort) && $sort=="gia_giam") echo "selected";?> >Giá từ cao đến thấp</option>
+            <option value="ten"<?php if (isset($sort) && $sort=="ten") echo "selected";?> >Theo tên</option>
+            <option value="ban_chay"<?php if (isset($sort) && $sort=="ban_chay") echo "selected";?> >Bán chạy nhất</option>
+            <option value="giam_gia"<?php if (isset($sort) && $sort=="giam_gia") echo "selected";?> >Giảm giá nhiều nhất</option>
+            <option value="gia_tang"<?php if (isset($sort) && $sort=="gia_tang") echo "selected";?> >Giá từ thấp đến cao</option>
+            <option value="gia_giam"<?php if (isset($sort) && $sort=="gia_giam") echo "selected";?> >Giá từ cao đến thấp</option>
             </select>
-            
-                <a href="index.php?<?php if(!isset($search)) echo'id=category&';?><?php echo $str ?>&sort=giam_gia" id="a_giam_gia_nhieu">Giảm giá nhiều nhất</a>
-                <a href="index.php?<?php if(!isset($search)) echo'id=category&';?><?php echo $str ?>&sort=ban_chay" id="a_ban_chay_nhat"> Bán chạy nhất</a>
-                <a href="index.php?<?php if(!isset($search)) echo'id=category&';?><?php echo $str ?>&sort=gia_tang" id="a_giam_thap_cao">Giá từ thấp đến cao</a>
-                <button type="submit" onclick="showPage()" ><img src="img/logo/icon_select.png" alt=""/></button>
-            
+
+            <a href="index.php?<?php if(!isset($search)) echo'id=category&';?><?php echo $str ?>&sort=giam_gia" id="a_giam_gia_nhieu">Giảm giá nhiều nhất</a>
+            <a href="index.php?<?php if(!isset($search)) echo'id=category&';?><?php echo $str ?>&sort=ban_chay" id="a_ban_chay_nhat"> Bán chạy nhất</a>
+            <a href="index.php?<?php if(!isset($search)) echo'id=category&';?><?php echo $str ?>&sort=gia_tang" id="a_giam_thap_cao">Giá từ thấp đến cao</a>
+            <button type="submit" onclick="showPage()" ><img src="img/logo/icon_select.png" alt=""/></button>
+
         </form>
     </div>
 
-<?php   if(!isset($search)){ ?>
-    <div id="tieude2"> <?php if (isset($_GET['idcategory'])) echo $cateController->getNameCate($idcategory)['name']; else echo $typeController->getNameType($idtype)['name']; ?></div>
- <?php } ?>  
-
+    <?php   if(!isset($search)){ ?>
+        <div id="tieude2"> <?php if (isset($_GET['idcategory'])) echo $cateController->getNameCate($idcategory)['name']; else echo $typeController->getNameType($idtype)['name']; ?></div>
+    <?php } ?>
 
     <div id="sach_cungloai2">
-
         <?php if ($listBook != null) {
             while ($d = mysql_fetch_array($listBook)) { ?>
-            <div id="sach2">
-                <div id="hinhsach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>"><img
-                    src="img/<?php echo $d['imgdetail']; ?>"/></a></div>
+                <div id="sach2">
+                    <div id="hinhsach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>"><img
+                                    src="img/<?php echo $d['imgdetail']; ?>"/></a></div>
                     <div id="tensach2"><a href="index.php?id=book&idbook=<?php echo $d['idbook']; ?>">
-                        <p><?php echo $d['name']; ?></p></a>
+                            <p><?php echo $d['name']; ?></p></a>
                     </div>
                     <div id="mota2"><?php $idAuthor = $d['idauthor'];
                         $nameAuthor = $authorController->getNameAuthorById($idAuthor);
@@ -117,24 +116,28 @@ if(!isset($_GET['sort'])) $sort = "normal"; else $sort=$_GET['sort'];
                     </div>
                     <div id="gia2">
                         <p>Giá bán: <font
-                            style="color:#C60"><?php echo number_format($d['price'] * (1 - (($d['saleoff']) / 100))); ?>đ</font></p>
-                            <p>Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']); ?>đ</font></p>
-                        </div>
-                        <div id="km2"><?php echo $d['saleoff']; ?>%</div>
+                                    style="color:#C60"><?php echo number_format($d['price'] * (1 - (($d['saleoff']) / 100))); ?>đ</font></p>
+                        <p>Giá bìa: <font style="text-decoration:line-through"><?php echo number_format($d['price']); ?>đ</font></p>
+                    </div>
+                    <div id="km2"><?php echo $d['saleoff']; ?>%</div>
 
-                        <div id="dathang2"><button class="btn" onclick="doSomething('<?php echo $d['idbook'];?>');">&#9758 Chọn mua</button></div> 
-            </div>
+                    <div id="dathang2"><button class="btn" onclick="doSomething('<?php echo $d['idbook'];?>');">&#9758 Chọn mua</button></div>
+                </div>
             <?php } } else echo 'Không có sách nào!'; ?>
     </div>
-    
-    <center><div id="phantrang">
-        <?php
-        if (isset($search))$str='search='.$search.'&sort='. $sort.'';
-        if (isset($idcategory)) $str = 'idcategory=' . $idcategory.'&sort='.$sort.'';
-        if (isset($idtype)) $str = 'idtype=' . $idtype.'&sort='.$sort.'';
-        $bController->pageBook($str,$current_page,$total_page);
-        ?>
-    </div></center>
+
+   <div id="phantrang">
+       <center>
+            <?php
+            if (isset($search))$str='search='.$search.'&sort='. $sort.'';
+            if (isset($idcategory)) $str = 'idcategory=' . $idcategory.'&sort='.$sort.'';
+            if (isset($idtype)) $str = 'idtype=' . $idtype.'&sort='.$sort.'';
+            $bController->pageBook($str,$current_page,$total_page);
+            ?>
+       </center>
+        </div>
+</div>
+
 
     <?php
     unset($_GET['sort']);
