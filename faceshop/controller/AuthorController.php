@@ -1,5 +1,7 @@
 <?php
-require_once 'model/AuthorModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/model/AuthorModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/phpFile/connect.php';
+
 class AuthorController
 {
     private $model;

@@ -35,21 +35,17 @@ if(isset($_GET['logout'])){
                         <td><input type="password" id="password" name="password"/></td>
                     </tr>
                     <tr>
-                        <td id="sub" colspan="2" align="center"><input type="submit" name="btn_submit" value="Đăng nhập"/></td>
+                        <td id="sub" colspan="2"><input type="submit" name="btn_submit" value="Đăng nhập"/></td>
                     </tr>
                     <tr>
-                        <td colspan="2"align="center"><a href="index.php?id=forgot_password" style="padding-right:15px; ">Quên mật khẩu</a>| <a href="index.php?id=register" style="margin-left: 7px;">Đăng ký tài khoản</a> </td>
+                        <td colspan="2" align="center"><a href="index.php?id=forgot_password" style="padding-right:20px; ">Quên mật khẩu</a>| <a href="index.php?id=register" style="margin-left: 15px;"> Đăng ký tài khoản</a> </td>
                     </tr>
                 </table>
             </form>
             <center> <?php $acc->login();?> </center>
         </div>
     </div>
-<?php
-}
-else{
-    include 'profile.php';
-}?>
+<?php } else include 'profile.php'; ?>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once ('controller/DB_Connect.php');
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/phpFile/connect.php';
 class DataProvider
 {
     public static function executeQuery($query){

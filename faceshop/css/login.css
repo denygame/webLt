@@ -46,11 +46,12 @@
     border-style: none;
     background-color: #FF0033;
     color: white;
-    margin-left: 39px;
+    margin-left: -10px;
 }
 #sub{
     text-align: center;
 }
+
 #sub input:hover{
     opacity: 0.5;
 }

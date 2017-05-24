@@ -20,16 +20,13 @@
     });
     }
 </script>
-
-
-
 </head>
 
 <body>
-
     <?php require_once 'controller/CategoryController.php'; $cateController = new CategoryController();
     require_once 'controller/TypeController.php'; $typeController = new TypeController();
-    require_once'controller/ScController.php'; $sc = new ScController();?>
+    require_once'controller/ScController.php'; $sc = new ScController();
+    require_once 'others/constants.php';?>
 
     <div id="head">
         <div id="h1">
@@ -41,7 +38,7 @@
                 </div>
                 <div style="width:150px; float:right; margin-top: 20px; font-size: 18px;">
                     <p>Liên hệ<br/>
-                        <a href="#"> sales@anybooks.vn</a>
+                        <a href="#"> <?php echo constants::email; ?></a>
                     </p>
                 </div>
             </div>

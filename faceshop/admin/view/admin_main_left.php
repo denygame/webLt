@@ -8,25 +8,41 @@
 
 <body>
 <div id="admin_main_left">
-    <div id="manage_book">
-        <img id="icon" src="../img/logo/icon_book.png" width="30px;"/>
-        <a href="index.php?admin=manage_book">Quản lý sách</a>
+    <div id="manage">
+        <a href="./index.php?admin=manage_book">
+            <div id="icon"><img src="../img/logo/icon_book.ico" /> </div>
+            <div id="name_manage">Quản lý sách</div>
+        </a>
     </div>
-    <div id="manage_category">
-        <img id="icon" src="../img/logo/icon_category.png" width="30px;"/>
-        <a href="index.php?admin=manage_category">Quản lý category</a>
+    <div id="manage">
+        <a href="./index.php?admin=manage_category">
+            <div id="icon"><img src="../img/logo/icon_category.ico"/></div>
+            <div id="name_manage">Quản lý Category</div>
+        </a>
     </div>
-    <div id="manage_type">
-        <img id="icon" src=""/>
-        <a href="index.php?admin=manage_type">Quản lý type</a>
+    <div id="manage">
+        <a href="./index.php?admin=manage_type">
+            <div id="icon"><img src="../img/logo/icon_category.ico"/> </div>
+            <div id="name_manage">Quản lý Type</div>
+        </a>
     </div>
-    <div id="manage_account">
-        <img id="icon" src="../img/logo/account.png" width="30px;"/>
-        <a href="index.php?admin=manage_account">Quản lý tài khoản</a>
+    <div id="manage">
+        <a href="./index.php?admin=manage_account">
+            <div id="icon"><img src="../img/logo/icon_account_admin.png"/> </div>
+            <div id="name_manage">Quản lý tài khoản</div>
+        </a>
     </div>
-    <div id="manage_bill">
-        <img id="icon" src="../img/logo/bill.jpg" width="30px;"/>
-        <a href="index.php?admin=manage_bill">Quản lý hóa đơn</a>
+    <div id="manage">
+        <a href="./index.php?admin=manage_bill">
+            <div id="icon"><img src="../img/logo/bill.jpg"/> </div>
+            <div id="name_manage">Quản lý hóa đơn</div>
+        </a>
+    </div>
+    <div id="manage">
+        <a href="./index.php?idlogout=logout">
+            <div id="icon"><img src="../img/logo/icon_logout.png"/> </div>
+            <div id="name_manage">Đăng xuất</div>
+        </a>
     </div>
 </div>
 </body>

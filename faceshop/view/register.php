@@ -18,18 +18,20 @@
                 <h4 style="margin-top: 10px;">Thông tin đăng nhập</h4>
                 <table>
 
-                    <tr id="tEmailHave" class="t">
-                        <td></td>
-                        <td>Email đã có trong hệ thống!!!</td>
-                    </tr>
-
+                    
                     <tr>
                         <td id="k">
                             <label>Email (<font color="red">*</font>)</label>
                         </td>
                         <td>
-                            <input type="text" name="email" id="email" autocomplete="off"/>
+                            <input type="text" name="email" id="email" autocomplete='off' />
                         </td>
+                    </tr>
+
+
+                    <tr id="tEmailHave" class="t">
+                        <td></td>
+                        <td>Email đã có trong hệ thống!!!</td>
                     </tr>
 
                     <tr id="tEmail" class="t">

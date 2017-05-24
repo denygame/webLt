@@ -1,6 +1,8 @@
 <?php
-require_once 'model/TypeModel.php';
-require_once 'others/TestResult.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/model/TypeModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/others/TestResult.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/phpFile/connect.php';
+
 class TypeController
 {
     private $model;

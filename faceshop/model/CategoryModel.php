@@ -1,6 +1,6 @@
 <?php
-require_once 'DataProvider.php';
-require_once 'others/TestResult.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/model/DataProvider.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/others/TestResult.php';
 class CategoryModel
 {
     public function getListCategory()

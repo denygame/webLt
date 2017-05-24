@@ -1,7 +1,11 @@
 <?php
-require_once 'model/BookModel.php';
-require_once 'others/TestResult.php';
-require_once 'others/constants.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/model/BookModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/others/TestResult.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/others/constants.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/phpFile/connect.php';
+
+
+
 class BookController
 {
     private $model;

@@ -6,5 +6,6 @@
 </head>
 
 <body>
+quản lý type
 </body>
 </html>

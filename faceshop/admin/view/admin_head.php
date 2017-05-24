@@ -7,7 +7,11 @@
 
 <body>
 <div id="head">
-    <div id="logo"><a href="index.php"><img src="../img/logo/logo.jpg" alt="" width="150px;"/></a></div>
+    <div id="logo">
+    	<img src="../img/logo/logo.jpg" alt="" width="100px;"/>	
+        <a href="../index.php"><img src="../img/logo/icon_home.png" width="50px" /></a>
+    </div>
+
 </div>
 </body>
 </html>

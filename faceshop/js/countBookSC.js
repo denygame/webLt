@@ -1,27 +1,23 @@
+//hàm add book vào shoppingcart
+
 function doSomething(idbook) {
+
   $.ajax({
     async: false,
 
     method: 'get',
-    url: 'phpFile/addBookToSC.php',
-    data: {
-      idbook: idbook
+    url: 'controller/ScController.php',
+    data: { addbook : idbook }, 
+    success:function(data){
+      $('#count_book').html('<center>'+data+'</center>');
     }
   });
-
-  $.ajax({
-    async: false,
-
-    url: 'phpFile/countSCforJs.php',
-    success: function(data) {
-     $('#count_book').html('<center>'+data+'</center>');
-   }
- });
 }
 
 function loadDivSc(){
   $.ajax({
-    url: 'phpFile/countSCforJs.php',
+    url: 'controller/ScController.php',
+    data: {justCount : 'exists'},
     success: function(data) {
      $('#count_book').html('<center>'+data+'</center>');
    }

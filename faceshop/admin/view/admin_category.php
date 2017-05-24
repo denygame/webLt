@@ -6,5 +6,6 @@
 </head>
 
 <body>
+quản lý category
 </body>
 </html>

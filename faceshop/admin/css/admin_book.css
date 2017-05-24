@@ -1,0 +1,10 @@
+#manage_book{
+    width: 100%;
+    min-height: 500px;
+}
+#head_book{
+    min-height: 70px;
+    width: 100%;
+    line-height: 50px;
+    padding-top: 5px;
+}

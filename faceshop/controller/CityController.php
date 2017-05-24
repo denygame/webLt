@@ -1,5 +1,8 @@
 <?php
-require_once 'model/CityModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/model/CityModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/phpFile/connect.php';
+
+
 class CityController
 {
 	private $model;
@@ -10,6 +13,11 @@ class CityController
 	public function getCitys(){
 		$city=$this->model->showAllCity();
 		return $city;
+	}
+
+	public function getNameByID($id){
+		$city=$this->model->getNameCity($id);
+		return mysql_fetch_assoc($city)['name'];
 	}
 }
 ?>

@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/shoppingcart.css"/>
 
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/updateDeleteSC.js"></script>
+    <script src="js/deleteSC.js"></script>
     <script src="js/countBookSC.js"></script>
 
     <?php require_once 'controller/ScController.php'; $sc=new ScController(); 
@@ -17,7 +17,7 @@
     <?php if(isset($_POST['count'])&&isset($_GET['idbook'])){
        $count=$_POST['count'];
        $idbook=$_GET['idbook'];
-       $sc->addBookToSc($idbook,$count); 
+       $sc->updateSC($idbook,$count,0); 
        unset($_POST['count']);
        unset($_GET['idbook']);
        echo '<script type="text/javascript">','loadDivSc();','</script>';
@@ -58,7 +58,7 @@
 
 
                                 <td>
-                                    <button onclick="btnUpdate('<?php echo $d['count_book'] ?>');"><img src="img/logo/icon_update.png" width="17px;" /></button>
+                                    <button><img src="img/logo/icon_update.png" width="17px;" /></button>
                                 </td>
                             </form>
 

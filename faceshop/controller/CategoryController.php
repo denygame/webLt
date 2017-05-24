@@ -1,6 +1,10 @@
 <?php
-require_once 'model/CategoryModel.php';
-require_once 'others/TestResult.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/model/CategoryModel.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/others/TestResult.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/phpFile/connect.php';
+
+
+
 class CategoryController
 {
     private $model;

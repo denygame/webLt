@@ -1,5 +1,8 @@
 <?php
-require_once 'BookController.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/controller/BookController.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/phpFile/connect.php';
+
+
 class IndexController
 {
 	private $bookController;
@@ -31,7 +34,7 @@ class IndexController
 				case 'category': $this->showMainCategory(); break;
 				case 'login':  include 'view/login.php'; break;
 				case 'register': include 'view/register.php'; break;
-				case 'forgot_password': include 'forgot_password.php'; break;
+				case 'forgot_password': include 'view/forgot_password.php'; break;
 				case 'shoppingcart':include 'view/shoppingcart.php'; break;
 				default : echo'<div style="text-align:center; font-size:50px; height:63px;">Không có thông tin về trang này.</div>'; break;
 			}

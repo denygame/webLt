@@ -10,10 +10,7 @@
 <body>
 <?php 
 session_start();
-
-	require_once 'controller/DB_Connect.php'; $con=new DB_Connect(); 
-		$con->connect();
-		require_once 'controller/IndexController.php'; $index=new IndexController(); 
+require_once 'controller/IndexController.php'; $index=new IndexController(); 
 ?>
 
 <div id="container">

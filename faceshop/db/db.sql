@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2017 at 02:41 PM
+-- Generation Time: May 24, 2017 at 06:54 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -44,6 +44,7 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`email`, `pass`, `name`, `sex`, `tel`, `idcity`, `district`, `address`, `checkDelete`) VALUES
 ('1@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'tuan', 'Nam', 123, 19, 'tan phu', '123', 0),
+('2@gmail.com', '123456', 'tuan', 'nam', 123, 0, '', '', 1),
 ('abc@gmail.com', '123456', 'tuan', 'Male', 123, 3, 'Tân Phú', '86 Nguyễn Văn yến', 0);
 
 -- --------------------------------------------------------
@@ -136,7 +137,8 @@ CREATE TABLE `bill` (
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'họ tên khách',
   `date_bill` date NOT NULL,
   `sex` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `city` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `tel` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idcity` int(200) NOT NULL,
   `district` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -147,8 +149,8 @@ CREATE TABLE `bill` (
 -- Dumping data for table `bill`
 --
 
-INSERT INTO `bill` (`idbill`, `totalprice`, `email`, `name`, `date_bill`, `sex`, `city`, `district`, `address`, `status`, `checkDelete`) VALUES
-(1, 20000, 'abc@gmail.com', 'tuan', '2017-05-17', 'nam', '', '', '', 'Mới', 0);
+INSERT INTO `bill` (`idbill`, `totalprice`, `email`, `name`, `date_bill`, `sex`, `tel`, `idcity`, `district`, `address`, `status`, `checkDelete`) VALUES
+(1, 20000, '1@gmail.com', 'ád', '2017-05-10', 'nam', NULL, 2, '1', '1', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -593,6 +595,14 @@ CREATE TABLE `shoppingcart` (
   `idbook` int(11) NOT NULL,
   `count_book` int(11) NOT NULL DEFAULT '1' COMMENT 'số lượng'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='giỏ hàng';
+
+--
+-- Dumping data for table `shoppingcart`
+--
+
+INSERT INTO `shoppingcart` (`idbook`, `count_book`) VALUES
+(1, 1),
+(58, 3);
 
 --
 -- Indexes for dumped tables

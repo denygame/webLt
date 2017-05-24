@@ -11,7 +11,7 @@
 }
 #list_bill{
     width: 100%;
-    min-height: 700px;
+    min-height: 500px;
     margin-bottom: 200px;
     margin: auto;
     padding-left: 10px;
@@ -21,7 +21,7 @@
     line-height: 40px;
 }
 #list_bill td, th{
-    border-bottom: 1px solid #CCCCCC; 
+    border-bottom: 1px solid #CCCCCC;
 }
 #list_bill table td{
     text-align: center;
@@ -37,7 +37,7 @@
     width: 20%;
 }
 #status{
-    width: 10%;
+    width: 20%;
 }
 #show_detail{
     width: 20%;
@@ -48,4 +48,12 @@
 #show_detail a:hover{
     color: red;
     font-style: oblique;
+}
+
+#phantrang{
+    margin-top: 10px;
+}
+
+span{
+    color:red;
 }

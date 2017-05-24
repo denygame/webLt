@@ -7,26 +7,7 @@
 
 <body>
 <div id="admin_main_right">
-    <?php
-    if(!isset($_GET['admin'])){
-        include 'view/admin_book.php';
-    }
-    else{
-        $admin=$_GET['admin'];
-        switch ($admin)
-        {
-            case 'manage_book':include 'view/admin_book.php'; break;
-            case 'manage_account':
-                include 'view/admin_account.php'; break;
-            case 'manage_bill':
-                include 'view/admin_bill.php';break;
-            case 'manage_category':
-                include 'view/admin_category.php';break;
-            case 'manage_type':
-                include 'view/admin_type.php';break;
-        }
-    }
-    ?>
+
 
 </div>
 </body>

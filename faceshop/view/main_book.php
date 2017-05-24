@@ -38,8 +38,11 @@
            $.ajax({
                 async: false,
                 method: 'get',
-                url: 'phpFile/addBookScFromMainBook.php',
-                data: { idbook: idbook, count: document.getElementById('soluong').value }
+                url: 'controller/ScController.php',
+                data: { updatebook : idbook, count: document.getElementById('soluong').value },
+                success:function(){
+                    loadDivSc();
+                }
               });
         }
     </script>
