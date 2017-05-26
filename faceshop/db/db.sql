@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 25, 2017 lúc 10:14 CH
+-- Thời gian đã tạo: Th5 26, 2017 lúc 11:00 CH
 -- Phiên bản máy phục vụ: 10.1.21-MariaDB
 -- Phiên bản PHP: 5.6.30
 
@@ -201,7 +201,6 @@ INSERT INTO `author` (`idauthor`, `name`, `info`, `checkDelete`) VALUES
 
 CREATE TABLE `bill` (
   `idbill` int(11) NOT NULL,
-  `totalprice` double NOT NULL,
   `email` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL COMMENT 'họ tên khách',
   `date_bill` date NOT NULL,
@@ -211,6 +210,7 @@ CREATE TABLE `bill` (
   `district` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `ship` int(11) NOT NULL DEFAULT '0',
   `checkDelete` int(11) NOT NULL DEFAULT '0' COMMENT 'xóa thì thành 1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -218,8 +218,22 @@ CREATE TABLE `bill` (
 -- Đang đổ dữ liệu cho bảng `bill`
 --
 
-INSERT INTO `bill` (`idbill`, `totalprice`, `email`, `name`, `date_bill`, `sex`, `tel`, `idcity`, `district`, `address`, `status`, `checkDelete`) VALUES
-(1, 20000, '1@gmail.com', 'ad', '2017-05-10', 'nam', '01659121969', 2, '1', 'ăd ', 'chưa', 0);
+INSERT INTO `bill` (`idbill`, `email`, `name`, `date_bill`, `sex`, `tel`, `idcity`, `district`, `address`, `status`, `ship`, `checkDelete`) VALUES
+(1, '1@gmail.com', 'ad', '2017-05-10', 'nam', '01659121969', 2, '1', 'ăd ', 'chưa', 0, 0),
+(2, 'thanhhuy96.gtvt@gmail.com', 'ad', '2017-05-27', 'Nam', '5', 1, '5', '5', 'New', 30000, 0),
+(3, 'thanhhuy96.gtvt@gmail.com', 'as', '2017-05-27', 'Nam', '1', 2, '514', '56165', 'New', 30000, 0),
+(4, 'thanhhuy96.gtvt@gmail.com', 'ads', '2017-05-27', 'Nam', '55', 2, '51', '51', 'New', 30000, 0),
+(5, 'thanhhuy96.gtvt@gmail.com', 'das', '2017-05-27', 'Nam', '55', 1, '5', '55', 'New', 30000, 0),
+(6, 'thanhhuy96.gtvt@gmail.com', 'sd', '2017-05-27', 'Nữ', '165', 1, 'ds', '546', 'New', 30000, 0),
+(7, 'thanhhuy96.gtvt@gmail.com', 'a', '2017-05-27', 'Nữ', '5', 1, '5', '5', 'New', 30000, 0),
+(8, 'thanhhuy96.gtvt@gmail.com', 'sd', '2017-05-27', 'Nữ', '5', 2, '5', '5', 'New', 30000, 0),
+(9, 'thanhhuy96.gtvt@gmail.com', 'sd', '2017-05-27', 'Nam', '5', 2, '5', '5', 'New', 30000, 0),
+(10, 'thanhhuy96.gtvt@gmail.com', 'sd', '2017-05-27', 'Nam', '5', 2, '65', '5', 'New', 30000, 0),
+(11, 'thanhhuy96.gtvt@gmail.com', 'd', '2017-05-27', 'Nam', '5', 1, '5', '5', 'New', 30000, 0),
+(12, 'thanhhuy96.gtvt@gmail.com', 'da', '2017-05-27', 'Nữ', '5', 2, '5', '5', 'New', 30000, 0),
+(13, 'thanhhuy96.gtvt@gmail.com', 'fdg', '2017-05-27', 'Nam', '5', 2, '5', '5', 'New', 30000, 0),
+(14, 'thanhhuy96.gtvt@gmail.com', 'huy', '2017-05-27', 'Nam', '1', 2, '1', '1', 'New', 30000, 0),
+(15, 'thanhhuy96.gtvt@gmail.com', 's', '2017-05-27', 'Nam', '5', 1, '5', '5', 'New', 30000, 0);
 
 -- --------------------------------------------------------
 
@@ -241,7 +255,70 @@ CREATE TABLE `billinfo` (
 
 INSERT INTO `billinfo` (`idbillinfo`, `idbill`, `idbook`, `count`, `checkDelete`) VALUES
 (1, 1, 22, 2, 0),
-(2, 1, 50, 3, 0);
+(2, 1, 50, 3, 0),
+(3, 3, 277, 1, 0),
+(4, 3, 276, 1, 0),
+(5, 4, 6, 1, 0),
+(6, 4, 7, 1, 0),
+(7, 2, 278, 1, 0),
+(8, 3, 277, 1, 0),
+(9, 3, 276, 1, 0),
+(10, 3, 273, 1, 0),
+(11, 3, 274, 1, 0),
+(12, 3, 275, 1, 0),
+(13, 3, 2, 1, 0),
+(14, 3, 3, 1, 0),
+(15, 3, 4, 1, 0),
+(16, 4, 276, 1, 0),
+(17, 5, 278, 1, 0),
+(18, 6, 277, 1, 0),
+(19, 7, 278, 1, 0),
+(20, 7, 277, 1, 0),
+(21, 8, 276, 1, 0),
+(22, 8, 277, 1, 0),
+(23, 9, 277, 1, 0),
+(24, 9, 276, 1, 0),
+(25, 10, 277, 1, 0),
+(26, 10, 276, 1, 0),
+(27, 10, 278, 1, 0),
+(28, 11, 278, 1, 0),
+(29, 11, 277, 1, 0),
+(30, 11, 276, 1, 0),
+(31, 12, 277, 1, 0),
+(32, 12, 276, 1, 0),
+(33, 13, 277, 1, 0),
+(34, 13, 276, 1, 0),
+(35, 14, 1, 1, 0),
+(36, 14, 2, 1, 0),
+(37, 14, 3, 1, 0),
+(38, 14, 5, 1, 0),
+(39, 14, 6, 1, 0),
+(40, 14, 7, 1, 0),
+(41, 14, 31, 1, 0),
+(42, 14, 25, 1, 0),
+(43, 14, 22, 1, 0),
+(44, 14, 21, 1, 0),
+(45, 14, 17, 1, 0),
+(46, 14, 10, 1, 0),
+(47, 14, 38, 1, 0),
+(48, 14, 39, 1, 0),
+(49, 14, 40, 1, 0),
+(50, 14, 41, 1, 0),
+(51, 14, 42, 1, 0),
+(52, 14, 43, 1, 0),
+(53, 14, 273, 1, 0),
+(54, 14, 274, 1, 0),
+(55, 14, 275, 1, 0),
+(56, 14, 276, 1, 0),
+(57, 14, 277, 1, 0),
+(58, 14, 278, 1, 0),
+(59, 14, 284, 1, 0),
+(60, 14, 283, 1, 0),
+(61, 14, 282, 1, 0),
+(62, 14, 281, 1, 0),
+(63, 14, 280, 1, 0),
+(64, 14, 279, 1, 0),
+(65, 15, 277, 1, 0);
 
 -- --------------------------------------------------------
 
