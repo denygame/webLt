@@ -33,8 +33,8 @@ if(!isset($_GET['sort'])) $sort = "normal"; else $sort=$_GET['sort'];
 
     if(isset($_GET['search'])) {
       $search=$_GET['search'];
-      $listInfoPage = $bController->getInfoPageBook($search, 2);   
-      $start = $listInfoPage['start'];           
+      $listInfoPage = $bController->getInfoPageBook($search, 2);
+      $start = $listInfoPage['start'];
       $listBook=$bController->getListBookInSearch($search,$sort,$start);
       $str='search='.$search;
   }

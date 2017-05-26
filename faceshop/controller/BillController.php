@@ -17,6 +17,14 @@ class BillController
 		return TestResult::testResultController($r);
 	}
 
+	public function insert($email,$name,$sex,$tel,$idcity,$district,$address,$status,$ship){
+		$r=$this->model->getIdMax();
+		if($r!=null) $idbill=mysql_fetch_assoc($r)['max'] + 1;
+		else $idbill=1;
+		$this->model->insertBill($idbill,$email,$name,$sex,$tel,$idcity,$district,$address,$status,$ship);
+		return $idbill;
+	}
+
 
 	public function getInfoPageBill($email){
 		$getTotal=$this->model->getTotalBills($email);
@@ -50,4 +58,22 @@ class BillController
 		}
 	}
 }
+
+// lưu session ship vào khi click radio
+if(isset($_GET['priceShip'])){
+	$_SESSION['ship']=$_GET['priceShip'];
+}
+
+// lưu session thanh toán công ngân hàng vào khi click radio
+if(isset($_GET['payClick'])){
+	$_SESSION['payClick']=$_GET['payClick'];
+}
+
+// xóa session thanh toán công ngân hàng khi click radio khác cổng ngân hàng
+if(isset($_GET['unsetPayClick'])){
+	if(isset($_SESSION['payClick'])){
+		unset($_SESSION['payClick']);
+	}
+}
+
 ?>

@@ -1,0 +1,21 @@
+- $_SESSION['email'] (trong controller/AccountController) : đăng nhập
+
+- $_SESSION['cart'] (trong controller/ShoppingCart) : lưu thông tin ShoppingCart
+    + Là 1 array có 2 trường dữ liệu (list)
+    + Truy xuất như sau:
+         -> $_SESSION['cart'][row]['idbook'] : trường idbook trong ShoppingCart
+         -> $_SESSION['cart'][row]['soluong'] : trường số lượng trong ShoppingCart
+
+- $_SESSION['infoObj'] (trong controller/OrderController) : là 1 object GuestDTO
+    + Thông tin để insert bill nhưng chưa được tạo bill
+    + phải dùng serialize để lưu và unserialize để lấy
+
+- $_SESSION['ship'] (trong controller/BillController) : lưu giá ship
+
+- $_SESSION['total'] (trong view/order.php): lưu tạm biến tổng tiền
+
+- $_SESSION['payClick'] (trong controller/BillController) : lưu tạm biến thanh toán cổng ngân hàng
+    + Sẽ unset khi click radio khác
+
+
+=======>>>> trong view/order.php đã xét nếu submit thì unset $_SESSION['ship'] và $_SESSION['total'] và $_SESSION['payClick'] cũ, sau đó làm mới

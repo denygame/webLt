@@ -8,8 +8,7 @@
 </head>
 
 <body>
-<?php 
-session_start();
+<?php
 require_once 'controller/IndexController.php'; $index=new IndexController(); 
 ?>
 

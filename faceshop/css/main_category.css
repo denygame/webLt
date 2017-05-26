@@ -42,7 +42,7 @@ hr{ width:90%; margin:auto; margin-bottom: 25px;}
 	width: 100px;
 	height: 27px;
 	line-height: 27px;
-	font-size: 12px;
+	font-size: 14px;
 	margin: auto;
 	background-color: #39F;
 	position: absolute;
@@ -95,6 +95,7 @@ hr{ width:90%; margin:auto; margin-bottom: 25px;}
 	margin-left: 15px;
 	padding-top: 5px;
 	margin-top:5px;
+	overflow: hidden;
 }
 #gia2{
 	width: 100%;

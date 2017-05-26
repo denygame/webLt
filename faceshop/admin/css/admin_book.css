@@ -1,10 +1,150 @@
 #manage_book{
-    width: 100%;
-    min-height: 500px;
+    width: 95%;
+    margin-left: 15px;
+    margin-bottom: 200px;
+
 }
 #head_book{
-    min-height: 70px;
+    min-height: 20px;
     width: 100%;
     line-height: 50px;
-    padding-top: 5px;
+}
+#h1{
+    color: #3399FF;
+    height: 50px;
+}
+#h1 h1{
+    float: left;
+    font-size: 35px;
+    width: 300px;
+}
+#h1 #f1 button{
+    float: left;
+    background-color: #bbbbbb;
+    border-style: none;
+    font-size: 16px;
+    padding: 3px;
+    width: 70px;
+    height: 27px;
+    line-height: 18px;
+    cursor: pointer;
+    margin-top: 6px;
+}
+#h1 #f2 button{
+    background-color: #bbbbbb;
+    border-style: none;
+    font-size: 16px;
+    padding: 5px;
+    width: 70px;
+    height: 35px;
+    line-height: 20px;
+    cursor: pointer;
+    float: left;
+}
+#f2 input{
+    float: left;
+    height: 30px;
+    line-height: 20px;
+    font-size: 20px;
+    width: 300px;
+    margin-right: 15px;
+}
+#f2 {
+    float: right;
+    font-size: 20px;
+    line-height: 20px;
+    height: 35px;
+}
+#h2 {
+    clear: both;
+    height: 50px;
+    line-height: 50px;
+    height: 50px;
+    font-size: 20px;
+}
+#select_category{
+    float: left;
+    line-height: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin-right: 10px;
+}
+#select_category select{
+    line-height: 50px;
+    height: 30px;
+    font-size: 20px;
+}
+#select_type{
+    line-height: 50px;
+    height: 50px;
+    font-size: 20px;
+    float: left;
+    margin-right: 10px;
+}
+#select_type select{
+    line-height: 50px;
+    height: 30px;
+    font-size: 20px;
+}
+#h2 button{
+    cursor: pointer;
+    border-style: none;
+    margin-top:3px;
+}
+#main_manage_book{
+    max-height: 600px;
+    overflow: scroll;
+}
+#main_manage_book table{
+    width: 100%;
+    margin-bottom: 100px;
+}
+#main_manage_book td,th{
+    border-bottom: 1px solid #999999;
+    text-align: center;
+}
+#main_manage_book a{
+    color: #0e90d2;
+    text-decoration: none;
+}
+#main_manage_book a:hover{
+    color: red;
+}
+#main_manage_book a:visited{
+    color: #0e90d2;
+}
+#stt{
+    width: 30px;
+}
+#img_book{
+    width: 50px;
+}
+#name_book{
+    width: 400px;
+}
+#author{
+    width: 200px;
+    line-height: 20px;
+}
+#price{
+    width: 100px;
+}
+#delete{
+    width: 30px;
+}
+#save{
+    width: 70px;
+    font-size: 20px;
+    background-color: #FF0033;
+    margin: auto;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 10px;
+    margin-top: -45px;
+    padding: 5px;
+}
+#phantrang{
+    clear: both;
 }

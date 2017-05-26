@@ -23,9 +23,10 @@
 </head>
 
 <body>
-    <?php require_once 'controller/CategoryController.php'; $cateController = new CategoryController();
+    <?php
+    require_once 'controller/ShoppingCart.php'; $sc = new ShoppingCart();
+    require_once 'controller/CategoryController.php'; $cateController = new CategoryController();
     require_once 'controller/TypeController.php'; $typeController = new TypeController();
-    require_once'controller/ScController.php'; $sc = new ScController();
     require_once 'others/constants.php';?>
 
     <div id="head">
@@ -63,7 +64,7 @@
                     <form id="form" action="index.php" method="get" style="margin-top:12px;">
                         <label style="font-size:20px; margin-left:25px;">Bạn muốn tìm sách gì?</label>
                         <input id="search" name="search" type="text" value="<?php echo isset($_GET['search']) ? $_GET['search'] : '' ?>" style="font-size:20px; width:400px; margin-left:25px;" placeholder="Nhập từ khóa"/>
-                        <input type="submit" value="Tìm kiếm" onclick="submitForm();" style=" font-size:20px; float:right; margin-top:-12px; height:50px; background-color:#F03; color:#FFF; width:120px; border-style:none;"/>
+                        <input type="submit" value="Tìm kiếm" onclick="submitForm();" style=" cursor: pointer; font-size:20px; float:right; margin-top:-12px; height:50px; background-color:#F03; color:#FFF; width:120px; border-style:none;"/>
                     </form>
                 </div>
             </div>
@@ -80,7 +81,7 @@
                     <center><img src="img/logo/icon_giohang.png" width="40px" /><br />Giỏ<br /> hàng</center>
                 </div>
 
-                <div id="count_book"><center><?php $sc->writeCountBook(); ?></center></div>
+                <div id="count_book"><center><?php echo $sc->getCount(); ?></center></div>
             </a>
         </div>
     </body>

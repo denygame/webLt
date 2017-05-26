@@ -1,0 +1,125 @@
+#order{
+    width: 100%;
+    margin-bottom: 100px;
+    min-height: 500px;
+}
+fieldset{
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 20px;
+}
+legend{
+    text-align: center;
+    margin: auto;
+}
+h1{
+    font-size: 35px;
+}
+#order_left{
+    width: 60%;
+    margin-bottom: 100px;
+    padding-bottom: 100px;
+    border: 1px solid #bbbbbb;
+    float: left;
+    padding-left: 45px;
+    padding-top: 8px;
+}
+#order_left{
+    line-height: 40px;
+}
+#c1{
+    width: 0px;
+    height: 450px;
+    border: 1px solid #bbbbbb;
+    margin-bottom: -455px;
+    z-index: -1;
+    margin-left: -21px;
+}
+#p1{
+    width: 30px;
+    background-color: #FF0033;
+    color: #FFFFFF;
+    border-radius: 50%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-bottom: -35px;
+    font-size: 20px;
+    margin-left: -35px;
+}
+#order_left h4{
+    font-size: 20px;
+}
+#order_left input{
+    margin-left: 20px;
+}
+#order_left textarea{
+    width: 90%;
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    padding-left: 5px;
+}
+#order_left a{
+    width: 100px;
+    background-color: #3399FF;
+    color: #FFFFFF;
+    padding: 5px;
+    font-size: 20px;
+    margin-right: 5px;
+}
+#order_left a:hover{
+    opacity: 0.8;
+}
+#order_left button{
+    background-color: #3399FF;
+    color: #FFFFFF;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+#order_left button:hover{
+    opacity: 0.8;
+}
+#order_right{
+    width: 33%;
+    margin-left: 10px;
+    border: 1px solid #bbbbbb;
+    float: right;
+    min-height: 560px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+
+}
+#order_right h4{
+    font-size: 25px;
+    border-bottom: 1px solid #bbbbbb;
+    line-height: 40px;
+}
+#order_right table{
+    width: 100%;
+}
+#order_right th{
+    border-bottom: 1px solid #bbbbbb;
+}
+#order_right td{
+    border-bottom: 1px dotted #bbbbbb;
+}
+#name{
+    width: 75%;
+    line-height: 30px;
+    font-size: 18px;
+    text-align: left;
+}
+
+#price{
+    text-align: right;
+}
+
+.price{
+    text-align: right;
+}

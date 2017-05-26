@@ -118,12 +118,16 @@ hr{ width:90%; margin:auto; margin-top: 50px; margin-bottom: 50px;}
 	font-size: 22px;
 	text-align: center;
 	color: #000;
+	overflow: hidden;
+
 }
 #mota{
 	height: 75px;
 	width: 100%;
 	margin-left: 15px;
 	margin-top: 20px;
+	overflow: hidden;
+
 }
 #gia{
 	width: 100%;

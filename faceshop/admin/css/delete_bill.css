@@ -1,0 +1,58 @@
+form {
+    width: 100%;
+
+}
+table{
+    width: 100%;
+}
+th{
+    background-color: #999999;
+    color: #FFFFFF;
+}
+#save{
+    width: 100px;
+    font-size: 18px;
+    line-height: 20px;
+    border: none;
+    background-color: #3399FF;
+    padding: 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+a:hover{
+    color: red;
+}
+a:visited{
+    color: #000000;
+}
+table th,td{
+    text-align: center;
+    border-bottom: 1px solid #999999;
+    line-height: 30px;
+    min-height: 35px;
+}
+#check{
+    width: 20px;
+}
+#name{
+    width: 150px;
+}
+#email{
+    width: 200px;
+}
+#tel{
+    width: 100px;
+}
+#city{
+    width: 150px;
+}
+#district{
+    width: 150px;
+}
+#totalprice{
+    width: 150px;
+}

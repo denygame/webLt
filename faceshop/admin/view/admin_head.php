@@ -3,13 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
+    <link rel="stylesheet" type="text/css" href="css/admin_head.css"/>
 </head>
 
 <body>
-<div id="head">
-    <div id="logo">
-    	<img src="../img/logo/logo.jpg" alt="" width="100px;"/>	
-        <a href="../index.php"><img src="../img/logo/icon_home.png" width="50px" /></a>
+<div id="head" >
+    <div id="hover">
+        <div id="logo">
+            <a href="../index.php"><img src="../img/logo/icon_home.png" target="blank" width="40px" style="margin-top: 5px; margin-left: 10px;" /></a>
+        </div>
+        <div id="name_shop">
+            <a href="../index.php" style="color: #FFFFFF; text-decoration: none; margin-left: 15px; ">FACESHOP - T2HD</a>
+        </div>
     </div>
 
 </div>

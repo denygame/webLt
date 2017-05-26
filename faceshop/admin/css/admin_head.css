@@ -1,0 +1,22 @@
+#head{
+    width: 100%;
+}
+#hover{
+    width: 400px;
+
+}
+#logo{
+    width: 50px;
+    float: left
+}
+#name_shop{
+    float: left;
+    width: 200px;
+    margin-top: 24px;
+}
+#hover:hover #logo{
+    opacity: 0.8;
+}
+#hover:hover #name_shop{
+    opacity: 0.8;
+}

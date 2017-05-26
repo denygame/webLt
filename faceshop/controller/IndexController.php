@@ -36,6 +36,7 @@ class IndexController
 				case 'register': include 'view/register.php'; break;
 				case 'forgot_password': include 'view/forgot_password.php'; break;
 				case 'shoppingcart':include 'view/shoppingcart.php'; break;
+                case'order':include 'view/order.php';break;
 				default : echo'<div style="text-align:center; font-size:50px; height:63px;">Không có thông tin về trang này.</div>'; break;
 			}
 		}

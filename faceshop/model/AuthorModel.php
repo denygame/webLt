@@ -5,13 +5,13 @@ class AuthorModel
 {
     public function getName($idAuthor)
     {
-        $result = DataProvider::executeQuery('select `name` from `author` WHERE idauthor='.$idAuthor);
+        $result = DataProvider::executeQuery('select `name` from `author` WHERE idauthor='.$idAuthor.' AND checkDelete = 0');
         return TestResult::testResultModel($result);
     }
 
     public function getNameAndInfo($idAuthor)
     {
-        $result = DataProvider::executeQuery('select `name`, `info` from `author` WHERE idauthor='.$idAuthor);
+        $result = DataProvider::executeQuery('select `name`, `info` from `author` WHERE idauthor='.$idAuthor.' AND checkDelete = 0');
         return TestResult::testResultModel($result);
     }
 }

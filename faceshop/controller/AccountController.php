@@ -16,20 +16,22 @@ class AccountController
 		return TestResult::testResultController($result);
 	}
 
-	public function login(){
+//sc là 0, login là 1
+	public function login($path, $scOrLogin){
 		if(isset($_POST['btn_submit']))
 		{
 			// lấy thông tin người dùng
 			$email = $_POST["email"];
 			$password = $_POST["password"];
-			//làm sạch thông tin, xóa bỏ các tag html, ký tự đặc biệt 
+			//làm sạch thông tin, xóa bỏ các tag html, ký tự đặc biệt
 			//mà người dùng cố tình thêm vào để tấn công theo phương thức sql injection
 			$email = strip_tags($email);
 			$email = addslashes($email);
 			$password = strip_tags($password);
 			$password = addslashes($password);
 			if ($email == "" || $password =="") {
-				echo "Email hoặc Password bạn không được để trống!";
+				if($scOrLogin==1) echo "Email hoặc Password bạn không được để trống!";
+				else echo "<script language='javascript'>alert('Email hoặc Password bạn không được để trống!');</script>";
 			}
 			else{
 				$passEn = sha1($password);
@@ -38,16 +40,17 @@ class AccountController
             		//tiến hành lưu tên đăng nhập vào session để tiện xử lý sau này
 					$_SESSION['email'] = $email;
 					echo "<script language='javascript'>alert('Đăng Nhập Thành Công');";
-					echo "location.href='index.php';</script>";
+					echo "location.href='".$path."';</script>";
 				}
 				else
 				{
 					echo "<script language='javascript'>alert('Đăng Nhập Thất Bại');";
-					echo "location.href='index.php?id=login';</script>";
+					echo "location.href='".$path."';</script>";
 				}
 			}
 		}
 	}
+
 
 	public function existsEmail($email){
 		$result=$this->model->exEmail($email);
@@ -65,7 +68,7 @@ class AccountController
 		$validCharacters = "ABCDEFGHIJKLMNPQRSTUXYVWZ123456789";
 		$validCharNumber = strlen($validCharacters);
 		$result="";
-		for ($i = 0; $i < $lenght; $i++) 
+		for ($i = 0; $i < $lenght; $i++)
 		{
 			$index = mt_rand(0, $validCharNumber - 1);
 			$result .= $validCharacters[$index];
@@ -76,28 +79,28 @@ class AccountController
 
 	public function resetPass($email){
 		$mail = new PHPMailer;
-		$mail->isSMTP();                        
-		$mail->Host = 'smtp.gmail.com';             
-		$mail->SMTPAuth = true;                  
-		$mail->Username = constants::email; 
+		$mail->isSMTP();
+		$mail->Host = 'smtp.gmail.com';
+		$mail->SMTPAuth = true;
+		$mail->Username = constants::email;
 		$mail->Password = constants::passEmail;
 		$mail->SMTPSecure = 'tls';
-		$mail->Port = 587; 
+		$mail->Port = 587;
 
 		$mail->setFrom(constants::email, constants::name);
 		$mail->addReplyTo(constants::email, constants::name);
-		$mail->addAddress($email); 
+		$mail->addAddress($email);
     //$mail->addCC('cc@example.com');
     //$mail->addBCC('bcc@example.com');
 
-		$mail->isHTML(true); 
+		$mail->isHTML(true);
 
 		$rand_newPass = $this->getPassRandom(12);
 
 		$bodyContent = '<h1>T2HD</h1>';
 		$bodyContent .= '<p>New Password: <b>'.$rand_newPass.'</b></p>';
 
-		$mail->Subject = 'Reset Password';
+		$mail->Subject = 'T2HD - Reset Password';
 		$mail->Body    = $bodyContent;
 
 		if(!$mail->send()) {

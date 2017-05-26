@@ -11,49 +11,49 @@ class BookModel
     }
 
     public function get6BookHighlights(){
-        $result = DataProvider::executeQuery('select * from `book` ORDER BY highlights DESC LIMIT 6');
+        $result = DataProvider::executeQuery('select * from `book` where checkDelete = 0 ORDER BY highlights DESC LIMIT 6');
         return TestResult::testResultModel($result);
     }
 
     public function get12BookNew(){
-        $result = DataProvider::executeQuery('select * from `book` WHERE status LIKE \'Sách mới\' LIMIT 18;');
+        $result = DataProvider::executeQuery('select * from `book` WHERE status LIKE \'Sách mới\' AND checkDelete = 0 LIMIT 18;');
         return TestResult::testResultModel($result);
     }
 
     public function get6BookFuture(){
-        $result = DataProvider::executeQuery('select * from `book` WHERE  status LIKE  \'Sách mới\' LIMIT 6;');
+        $result = DataProvider::executeQuery('select * from `book` WHERE  status LIKE  \'Sách mới\' AND checkDelete = 0 LIMIT 6;');
         return TestResult::testResultModel($result);
     }
 
     public function getBookById($idBook){
-        $result = DataProvider::executeQuery('select * from book where idbook='.$idBook);
+        $result = DataProvider::executeQuery("select * from `book` where idbook=$idBook AND checkDelete = 0");
         return TestResult::testResultModel($result);
     }
 
     public function get6BookSameType($idType,$idBook){
-        $result = DataProvider::executeQuery("select * from `book` where idbook != $idBook and idtype = $idType ORDER BY RAND() LIMIT 0,6");
+        $result = DataProvider::executeQuery("select * from `book` where idbook != $idBook and idtype = $idType and checkDelete = 0 ORDER BY RAND() LIMIT 0,6");
         return TestResult::testResultModel($result);
     }
 
     public function getListBookInType($idtype,$start,$sort){
         switch ($sort) {
             case 'normal':
-            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype LIMIT $start,".constants::page_book);
+            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype and checkDelete = 0 LIMIT $start,".constants::page_book);
             break;
             case 'gia_giam':
-            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype ORDER BY (price - (price*saleoff/100)) DESC LIMIT $start,".constants::page_book);
+            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype and checkDelete = 0 ORDER BY (price - (price*saleoff/100)) DESC LIMIT $start,".constants::page_book);
             break;
             case 'gia_tang':
-            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype ORDER BY (price - (price*saleoff/100)) LIMIT $start,".constants::page_book);
+            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype and checkDelete = 0 ORDER BY (price - (price*saleoff/100)) LIMIT $start,".constants::page_book);
             break;
             case 'ban_chay':
-            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype ORDER BY (highlights) DESC LIMIT $start,".constants::page_book);
+            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype and checkDelete = 0 ORDER BY (highlights) DESC LIMIT $start,".constants::page_book);
             break;
             case 'giam_gia':
-            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype ORDER BY (saleoff) DESC LIMIT $start,".constants::page_book);
+            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype and checkDelete = 0 ORDER BY (saleoff) DESC LIMIT $start,".constants::page_book);
             break;
             case 'ten':
-            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype ORDER BY (name) LIMIT $start,".constants::page_book);
+            $result = DataProvider::executeQuery("select * from `book` where idtype=$idtype and checkDelete = 0 ORDER BY (name) LIMIT $start,".constants::page_book);
             break;
 
             default:
@@ -67,22 +67,22 @@ class BookModel
     public function getListBookInCate($listIdType,$start,$sort){
         switch ($sort) {
          case 'normal':
-         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') LIMIT '.$start.','.constants::page_book);
+         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') and checkDelete = 0 LIMIT '.$start.','.constants::page_book);
          break;
          case 'gia_giam':
-         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') ORDER BY (price - (price*saleoff/100)) DESC LIMIT '.$start.','.constants::page_book);
+         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') and checkDelete = 0 ORDER BY (price - (price*saleoff/100)) DESC LIMIT '.$start.','.constants::page_book);
          break;
          case 'gia_tang':
-         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') ORDER BY (price - (price*saleoff/100)) LIMIT '.$start.','.constants::page_book);
+         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') and checkDelete = 0 ORDER BY (price - (price*saleoff/100)) LIMIT '.$start.','.constants::page_book);
          break;
          case 'ban_chay':
-         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') ORDER BY (highlights) DESC LIMIT '.$start.','.constants::page_book);
+         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') and checkDelete = 0 ORDER BY (highlights) DESC LIMIT '.$start.','.constants::page_book);
          break;
          case 'giam_gia':
-         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') ORDER BY (saleoff) DESC LIMIT '.$start.','.constants::page_book);
+         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') and checkDelete = 0 ORDER BY (saleoff) DESC LIMIT '.$start.','.constants::page_book);
          break;
          case 'ten':
-         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') ORDER BY (name) LIMIT '.$start.','.constants::page_book);
+         $result = DataProvider::executeQuery('select * from `book` where idtype in('.implode(',', $listIdType).') and checkDelete = 0 ORDER BY (name) LIMIT '.$start.','.constants::page_book);
          break;
 
          default:
@@ -97,22 +97,22 @@ class BookModel
 public function getListBookSearch($search,$start,$sort){
         switch ($sort) {
             case 'normal':
-            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%' LIMIT ".$start.",".constants::page_book);
+            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%' and checkDelete = 0 LIMIT ".$start.",".constants::page_book);
             break;
             case 'gia_giam':
-            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%' ORDER BY (price - (price*saleoff/100)) DESC LIMIT ".$start.",".constants::page_book);
+            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%' and checkDelete = 0 ORDER BY (price - (price*saleoff/100)) DESC LIMIT ".$start.",".constants::page_book);
             break;
             case 'gia_tang':
-            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%' ORDER BY (price - (price*saleoff/100))LIMIT ".$start.",".constants::page_book);
+            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%' and checkDelete = 0 ORDER BY (price - (price*saleoff/100))LIMIT ".$start.",".constants::page_book);
             break;
             case 'ban_chay':
-            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%'ORDER BY (highlights) DESC LIMIT ".$start.",".constants::page_book);
+            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%' and checkDelete = 0 ORDER BY (highlights) DESC LIMIT ".$start.",".constants::page_book);
             break;
             case 'giam_gia':
-            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%'  ORDER BY (saleoff) DESC LIMIT ".$start.",".constants::page_book);
+            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%' and checkDelete = 0 ORDER BY (saleoff) DESC LIMIT ".$start.",".constants::page_book);
             break;
             case 'ten':
-            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%' ORDER BY (name) LIMIT ".$start.",".constants::page_book);
+            $result = DataProvider::executeQuery("select * from book where name like '%".$search."%' and checkDelete = 0 ORDER BY (name) LIMIT ".$start.",".constants::page_book);
             break;
 
             default:
@@ -130,23 +130,23 @@ public function getListBookSearch($search,$start,$sort){
  public function getTotalBook($id,$typeCateSearch){
     switch($typeCateSearch){
         case 0:
-        $listIdType=TestResult::testResultModel(DataProvider::executeQuery("select `idtype` from `db_type` where idcategory=$id"));
-        if ($listIdType == null) return null; 
+        $listIdType=TestResult::testResultModel(DataProvider::executeQuery("select `idtype` from `db_type` where idcategory=$id and checkDelete = 0"));
+        if ($listIdType == null) return null;
         else{
             $rows=array();//tạo một mảng
             while($d=mysql_fetch_assoc($listIdType)) array_push($rows, $d['idtype']); //qua mỗi dòng add vào mảng trường idtype
-            $result = DataProvider::executeQuery("select count(*) as count from `book` where idtype in(".implode(',', $rows).")");
+            $result = DataProvider::executeQuery("select count(*) as count from `book` where idtype in(".implode(',', $rows).") and checkDelete = 0");
             //return (int)mysql_fetch_assoc($result)['count'];
         }
         break;
-        case 1:  
-        $result = DataProvider::executeQuery("select count(*) as count from `book` where idtype = $id");
+        case 1:
+        $result = DataProvider::executeQuery("select count(*) as count from `book` where idtype = $id and checkDelete = 0");
         //return (int)mysql_fetch_assoc($result)['count'];
         break;
         case 2:
-        $result=DataProvider::executeQuery("select count(*) as count from `book` where name like '%$id%' ");
+        $result=DataProvider::executeQuery("select count(*) as count from `book` where name like '%$id%' and checkDelete = 0");
         break;
-        default: break; 
+        default: break;
     }
     return (int)mysql_fetch_assoc($result)['count'];
 }

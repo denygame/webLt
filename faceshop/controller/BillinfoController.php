@@ -12,6 +12,14 @@ class BillinfoController
 		$this->model=new BillinfoModel();
 	}
 
+	public function insert($idbill,$idbook,$count){
+		$r=$this->model->getIdMax();
+		if($r!=null) $idbillinfo=mysql_fetch_assoc($r)['max'] + 1;
+		else $idbillinfo=1;
+		$this->model->insert($idbillinfo,$idbill,$idbook,$count);
+	}
+
+
 	public function billInfos($idbill,$start){
 		$r=$this->model->getBillsInfo($idbill,$start);
 		return TestResult::testResultController($r);
@@ -30,7 +38,6 @@ class BillinfoController
 			return $result;
 		}
 	}
-
 
 
 	public function pageBills($str,$current_page,$total_page){

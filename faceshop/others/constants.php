@@ -14,5 +14,10 @@ class constants
     const email = 't2hd.faceshop@gmail.com';
     const passEmail = 't2hdlalala';
     const name = 'T2HD';
+
+//order
+    const priceShipFast = 30000;
+    const priceShipNormal = 15000;
+    const ttCongNganHang = 10000;
 }
 ?>

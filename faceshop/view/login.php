@@ -11,8 +11,9 @@
 <?php
 if(isset($_GET['logout'])){
     if(isset($_SESSION['email'])){
-        session_unset();
-        session_destroy();
+        //session_unset();
+        //session_destroy();
+        unset($_SESSION['email']);
     }
 }
 ?>
@@ -42,7 +43,7 @@ if(isset($_GET['logout'])){
                     </tr>
                 </table>
             </form>
-            <center> <?php $acc->login();?> </center>
+            <center> <?php $acc->login("index.php?id=login",1);?> </center>
         </div>
     </div>
 <?php } else include 'profile.php'; ?>
