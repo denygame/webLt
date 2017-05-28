@@ -11,12 +11,17 @@ class AccountController
 		$this->model=new AccountModel();
 	}
 
+	public function getCountNotDelete(){
+		$result=$this->model->getCountCheck0();
+		return TestResult::testResultController($result);
+	}
+
 	public function getAccByEmail($email){
 		$result=$this->model->getAcc($email);
 		return TestResult::testResultController($result);
 	}
 
-//sc là 0, login là 1
+	//sc là 0, login là 1
 	public function login($path, $scOrLogin){
 		if(isset($_POST['btn_submit']))
 		{
@@ -37,7 +42,7 @@ class AccountController
 				$passEn = sha1($password);
 				$kq = $this->model->checkLogin($email,$passEn);
 				if($kq!=null){
-            		//tiến hành lưu tên đăng nhập vào session để tiện xử lý sau này
+					//tiến hành lưu tên đăng nhập vào session để tiện xử lý sau này
 					$_SESSION['email'] = $email;
 					echo "<script language='javascript'>alert('Đăng Nhập Thành Công');";
 					echo "location.href='".$path."';</script>";
@@ -57,13 +62,32 @@ class AccountController
 		if($result) echo 'true'; else echo false;
 	}
 
+	public function returnExistsEmail($email){
+		$result=$this->model->exEmail($email);
+		if($result) return true; else return false;
+	}
+
+	// cho admin
+	public function getListAcc($start){
+		$result=$this->model->getList($start);
+		return TestResult::testResultController($result);
+	}
 
 	public function register($email,$pass,$idcity,$name,$sex,$tel,$address,$district){
 		$this->model->insert($email,$pass,$idcity,$name,$sex,$tel,$address,$district);
 	}
 
+	public function insertArr($array){
+		$ex=$this->returnExistsEmail($array[0]);
+		if(!$ex){
+			$this->model->insert($array[0],$array[1],$array[2],$array[3],$array[4],$array[5],$array[6],$array[7]);
+			echo 'true';
+		}
+		else echo 'false';
+	}
 
-//sinh ngẫu nhiên pass
+
+	//sinh ngẫu nhiên pass
 	private function getPassRandom($lenght){
 		$validCharacters = "ABCDEFGHIJKLMNPQRSTUXYVWZ123456789";
 		$validCharNumber = strlen($validCharacters);
@@ -81,6 +105,7 @@ class AccountController
 		$mail = new PHPMailer;
 		$mail->isSMTP();
 		$mail->Host = 'smtp.gmail.com';
+		$mail->CharSet = 'UTF-8';
 		$mail->SMTPAuth = true;
 		$mail->Username = constants::email;
 		$mail->Password = constants::passEmail;
@@ -90,8 +115,8 @@ class AccountController
 		$mail->setFrom(constants::email, constants::name);
 		$mail->addReplyTo(constants::email, constants::name);
 		$mail->addAddress($email);
-    //$mail->addCC('cc@example.com');
-    //$mail->addBCC('bcc@example.com');
+		//$mail->addCC('cc@example.com');
+		//$mail->addBCC('bcc@example.com');
 
 		$mail->isHTML(true);
 
@@ -104,13 +129,13 @@ class AccountController
 		$mail->Body    = $bodyContent;
 
 		if(!$mail->send()) {
-        /*echo 'Message could not be sent.';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;*/
-        echo 'false';
-	    } else {
-	    	$this->model->updateNewPass($email,sha1($rand_newPass));
-	    	echo 'true';
-	    }
+			/*echo 'Message could not be sent.';
+			echo 'Mailer Error: ' . $mail->ErrorInfo;*/
+			echo 'false';
+		} else {
+			$this->model->updateNewPass($email,sha1($rand_newPass));
+			echo 'true';
+		}
 	}
 
 	public function updateUser($email,$idcity,$name,$sex,$tel,$address,$district){
@@ -206,5 +231,11 @@ if(isset($_GET['emailReNewPass'])){
 
 	$acc=new AccountController();
 	$acc->renewPass($email,$old,$new,$renew);
+}
+
+if(isset($_GET['arrayInsertAcc'])){
+	//echo $_GET['arrayUpdate'][0];
+	$b=new AccountController();
+	$b->insertArr($_GET['arrayInsertAcc']);
 }
 ?>

@@ -293,3 +293,15 @@ hr{ width:90%; margin:auto; margin-bottom: 25px;}
 }
 #sach2 a{
     text-decoration:none;}
+fieldset{
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    margin-top: 50px;
+}
+legend{
+    text-align: center;
+    margin: auto;
+    font-size: 50px;
+    color: #1b2426;
+}

@@ -55,8 +55,10 @@
     border-style: none;
     background-color: #FF0000;
     margin-right: 10px;
-    font-size: 15px;
+    font-size: 18px;
     color: white;
+    font-family: Arial;
+    cursor: pointer;
 }
 #sub input :hover{
     opacity: 0.5;

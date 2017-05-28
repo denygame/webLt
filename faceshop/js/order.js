@@ -18,7 +18,7 @@ function shipClick(e){
   $.ajax({
     async: false,
     method: 'get',
-    url: 'controller/BillController.php',
+    url: 'controller/OrderController.php',
     data: { priceShip : e.value }
   });
   switch (e.id) {
@@ -44,7 +44,7 @@ function payClick(e){
     $.ajax({
       async: false,
       method: 'get',
-      url: 'controller/BillController.php',
+      url: 'controller/OrderController.php',
       data: { payClick : e.value }
     });
     break;
@@ -52,7 +52,7 @@ function payClick(e){
     $.ajax({
       async: false,
       method: 'get',
-      url: 'controller/BillController.php',
+      url: 'controller/OrderController.php',
       data: { unsetPayClick : 1 }
     });
     break;

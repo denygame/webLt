@@ -35,6 +35,10 @@
             <td id="values"><?php echo $d['email'] ?></td>
         </tr>
         <tr>
+            <td id="label">Giới tính:</td>
+            <td id="values"><?php echo $d['sex'] ?></td>
+        </tr>
+        <tr>
             <td id="label">Số điện thoại:</td>
             <td id="values"><?php echo $d['tel'] ?></td>
         </tr>
@@ -92,7 +96,9 @@
         <tr>
             <td colspan="6" style="text-align: right">Tổng tiền: <font style="color: #CC6600; font-size: 25 px;"><?php echo number_format($total); ?>đ</font> </td>
         </tr>
-
+        <tr>
+            <td colspan="6"><a href="index.php?admin=manage_bill"> << Quay lại</a> </td>
+        </tr>
         <?php
         }?>
 

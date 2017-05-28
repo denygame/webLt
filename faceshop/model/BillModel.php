@@ -7,7 +7,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/others/constants.php';
 class BillModel
 {
 	public function getBillsByEmail($email,$start){
-		return TestResult::testResultModel(DataProvider::executeQuery("select * from `bill` where email='$email'  AND checkDelete = 0 LIMIT $start,".constants::page_bill));
+		return TestResult::testResultModel(DataProvider::executeQuery("select * from `bill` where email='$email'  AND checkDelete = 0 ORDER BY idbill DESC LIMIT $start,".constants::page_bill));
 	}
 
 	public function getTotalBills($email){

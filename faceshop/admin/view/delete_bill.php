@@ -4,14 +4,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
     <link rel="stylesheet" type="text/css" href="css/delete_bill.css"/>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    function toggle(source) {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i] != source)
+            checkboxes[i].checked = source.checked;
+        }
+    }
+    </script>
 </head>
 
 <body>
-<form action="index.php?admin=manage_delete" method="post">
+<form action="index.php?admin=manage_delete&delete=bill" method="post">
     <input type="submit" value="Khôi phục" id="save" name="btnbill" />
     <table>
         <tr>
-            <th id="check"></th>
+            <th id="check"><input type="checkbox" onclick="toggle(this)" name=""></th>
             <th id="name">Tên đăng nhập</th>
             <th id="email">Email</th>
             <th id="tel">Số điện thoại</th>
@@ -21,11 +31,9 @@
             <th>Xem chi tiết</th>
         </tr>
         <?php
-        $i=0;
         $kq=mysql_query("select * from bill WHERE  checkDelete =1");
         while ($d=mysql_fetch_array($kq))
         {
-            $i++;
             ?>
             <tr>
                 <td id="check"><input type="checkbox"  name="restoreBi[]" value="<?php echo $d['idbill']?>"/></td>
@@ -61,9 +69,6 @@
                 <td><a href="index.php?admin=manage_bill_detail&idbill=<?php echo $d['idbill'] ?>">Xem chi tiết</a></td>
             </tr>
             <?php
-        }
-        if($i==0){
-            //echo "<script> alert('Không có danh mục nào trong thùng rác !!!')</script>";
         }
         ?>
 

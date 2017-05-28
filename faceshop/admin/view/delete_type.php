@@ -4,6 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
     <link rel="stylesheet" href="css/delete_type.css" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    function toggle(source) {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i] != source)
+            checkboxes[i].checked = source.checked;
+        }
+    }
+    </script>
 </head>
 
 <body>
@@ -11,7 +21,7 @@
     <input type="submit" value="Khôi phục" id="save" name="btntype" />
     <table>
         <tr>
-            <th id="check"></th>
+            <th id="check"><input type="checkbox" onclick="toggle(this)" name=""></th>
             <th id="id">ID thể loại</th>
             <th id="id2">Tên danh mục</th>
             <th id="name">Tên thể loại</th>

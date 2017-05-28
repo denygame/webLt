@@ -4,6 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
     <link rel="stylesheet" type="text/css" href="css/admin_bill.css"/>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/admin_book.js"></script>
+
+
+
     <?php
     function delete($idbill){
         mysql_query("update bill set checkDelete=1 WHERE idbill= $idbill");
@@ -13,10 +18,14 @@
         foreach ($_POST['delete'] as $value)
         {
             delete($value);
-            //echo  "<script> alert('Đã xóa thành công !'); </script>";
+            echo  "<script> alert('".$value."'); </script>";
         }
+
     }
     ?>
+    <script type="text/javascript">
+      
+    </script>
 </head>
 
 <body>
@@ -33,33 +42,28 @@
         <input type="submit" value="Xóa" name="save" id="save"/>
     <table width="100%">
         <tr id="tt">
-                   <th id="delete"></th>
-            <th id="stt">STT</td>
+            <th id="delete"><input type="checkbox" onclick="toggle(this)" name=""></th>
             <th id="name">Tên đăng nhập</th>
             <th id="email">Email</th>
             <th id="tel">Số điện thoại</th>
             <th id="city">Tỉnh/ Thành phố</th>
             <th id="district">Quận Huyện</th>
             <th id="totalprice">Tổng hóa đơn</th>
-            <th>Xem chi tiết</th> 
+            <th>Xem chi tiết</th>
         </tr>
     </table>
     <div id="main_manage_bill">
         <table>
-
                 <?php
                 $sql="select * from bill WHERE checkDelete=0";
                 $kq=mysql_query($sql);
-                $i=0;
                 while($d=mysql_fetch_array($kq)){?>
                     <tr>
-                     <td id="delete"><input type="checkbox" name="delete[]" value="<?php echo $idbill?>"/></td>
-                        <td id="stt"><?php echo ++$i;?></td>
+                        <td id="delete"><input type="checkbox" name="delete[]" value="<?php $idbill=$d['idbill']; echo $idbill?>"/></td>
                         <td id="name"><?php echo $d['name']; ?> </td>
                         <td id="email"><?php echo $d['email'] ?></td>
                         <td id="tel"><?php echo $d['tel'] ?></td>
                         <?php
-                        $i++;
                         $idcity = $d['idcity'];
                         $sqlcity = "select * from city WHERE idcity=$idcity";
                         $kqcity = mysql_query($sqlcity);
@@ -70,7 +74,7 @@
                         <td id="totalprice" style="font-size: 22px; color: #CC6600">
                         <?php
                         // tính tổng tiền của hóa đơn
-                        $idbill=$d['idbill'];
+
                         $total=0;
                         $kqinfo = mysql_query("select * from billinfo WHERE idbill=$idbill");
                         while ($dinfo = mysql_fetch_array($kqinfo)) {
@@ -83,12 +87,9 @@
                         echo number_format($total);
                             ?>đ
                         </td>
-                        <td><a href="index.php?admin=manage_bill_detail&idbill=<?php echo $d['idbill'] ?>">Xem chi tiết</a> </td>                       
+                        <td><a href="index.php?admin=manage_bill_detail&idbill=<?php echo $d['idbill'] ?>">Xem chi tiết</a> </td>
                     </tr>
                     <?php
-                }
-                if($i==0){
-                    echo"Không có đơn hàng nào.";
                 }
                 ?>
 

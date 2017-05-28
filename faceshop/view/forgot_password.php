@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/forgot_password.css"/>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script src="js/forgotPass.js"></script>
+    <?php require_once 'controller/OrderController.php'; $o = new OrderController(); $o->unsetSessionMoney(); ?>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
             <tr id="3">
                 <td colspan="2" align="center">
                     <button onclick="btnClick();" id="btn">Gửi mã</button>
-                    <button><a href="index.php?id=forgot_password" style="color:white;"> Hủy </a></button>
+                    <button><a href="index.php?id=login" style="color:white;"> Hủy </a></button>
                 </td>
             </tr>
             <tr id="tTB">

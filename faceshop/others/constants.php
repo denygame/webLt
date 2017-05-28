@@ -10,6 +10,9 @@ class constants
     const page_book = 30;
     const page_bill=10;
 
+    const page_managerBook = 10;
+    const page_managerAcc = 1;
+
 //info send email
     const email = 't2hd.faceshop@gmail.com';
     const passEmail = 't2hdlalala';

@@ -1,27 +1,32 @@
 @charset "utf-8";
 /* CSS Document */
 #btn_them {
-	background-color: #666666;
-	color: white;
+	background-color: #FFF;
+	color: grey;
 	padding: 5px 10px;
 	font-size: 15px;
 	cursor: pointer;
-	margin-top: 5px;
-	margin-left: 10%;float:left;
+	float:left;
+	border: thin solid #CCC;
+	margin-top:8px;
+	margin-left:5px;
 }
 #btn_them:hover {
-	background-color: #999999;
+	background-color: #00a0d2;
+	color:white;
 }
 .btn_xoa {
-background-color: #666666;
-	color: white;
+background-color: #FFF;
+	color: grey;
 	padding: 5px 10px;
 	font-size: 15px;
-	margin-top: 5px;
 	cursor: pointer;
-}
+	border: thin solid #CCC;
+	margin-top:8px;
+	margin-left:5px;}
 .btn_xoa:hover {
-	background-color: #999999;
+	background-color: #00a0d2;
+	color: white;
 }
 .btn_sua {
 	color: blue;

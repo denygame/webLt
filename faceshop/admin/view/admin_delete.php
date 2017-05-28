@@ -76,93 +76,110 @@
     <div id="h2">
         <form action="index.php?admin=manage_delete" method="post">
             <div id="select">
-                <select name="select">
-                    <?php
-                    if($_POST['select']=='book' || isset($_POST['btnbook']) && !isset($_POST['select']) )
-                    {?>
-                        <option value="book">SÁCH</option>
-                        <option value="account">TÀI KHOẢN</option>
-                        <option value="category">DANH MỤC</option>
-                        <option value="type">THỂ LOẠI</option>
-                        <option value="bill">HÓA ĐƠN</option>
-                    <?php
+                <script type="text/javascript">
+                    function myFunction() {
+                        var x= document.getElementById("select2").value;
+                        location.href="index.php?admin=manage_delete&delete="+x;
                     }
-                    if($_POST['select']=='account' || isset($_POST['btnaccount']) && !isset($_POST['select']) )
+                </script>
+                <?php
+                function getX(){
+                    $x= "<script> myFunction() </script>";
+                    return $x;
+                    echo $x;
+                }
+                ?>
+                <select  id="select2" onchange="myFunction()">
+                    <?php
+                    if($_GET['delete']=='book' && isset($_GET['delete']) || isset($_POST['btnbook']))
                     {?>
-                        <option value="account">TÀI KHOẢN</option>
                         <option value="book">SÁCH</option>
+                        <option value="account">TÀI KHOẢN</option>
                         <option value="category">DANH MỤC</option>
                         <option value="type">THỂ LOẠI</option>
                         <option value="bill">HÓA ĐƠN</option>
-                    <?php
+                        <?php
                     }
-                    if($_POST['select']=='category'|| isset($_POST['btncategory']) && !isset($_POST['select']) )
+                    if($_GET['delete']=='account' && isset($_GET['delete']) || isset($_POST['btnaccount']) )
                     {?>
-                        <option value="category">DANH MỤC</option>
-                        <option value="book">SÁCH</option>
                         <option value="account">TÀI KHOẢN</option>
+                        <option value="book">SÁCH</option>
+                        <option value="category">DANH MỤC</option>
                         <option value="type">THỂ LOẠI</option>
                         <option value="bill">HÓA ĐƠN</option>
-                    <?php
+                        <?php
                     }
-                    if($_POST['select']=='type' || isset($_POST['btntype']) && !isset($_POST['select']) )
+                    if($_GET['delete']=='category' && isset($_GET['delete']) || isset($_POST['btncategory']))
                     {?>
-                        <option value="type">THỂ LOẠI</option>
+                        <option value="category">DANH MỤC</option>
                         <option value="book">SÁCH</option>
                         <option value="account">TÀI KHOẢN</option>
-                        <option value="category">DANH MỤC</option>
+                        <option value="type">THỂ LOẠI</option>
                         <option value="bill">HÓA ĐƠN</option>
-                    <?php
+                        <?php
                     }
-                    if($_POST['select']=='bill' || isset($_POST['btnbill']) && !isset($_POST['select']) )
+                    if($_GET['delete']=='type'&& isset($_GET['delete'])|| isset($_POST['btntype'])  )
                     {?>
-                        <option value="bill">HÓA ĐƠN</option>
+                        <option value="type">THỂ LOẠI</option>
                         <option value="book">SÁCH</option>
                         <option value="account">TÀI KHOẢN</option>
                         <option value="category">DANH MỤC</option>
-                        <option value="type">THỂ LOẠI</option>
-                    <?php
+                        <option value="bill">HÓA ĐƠN</option>
+                        <?php
                     }
-                    if(!isset($_POST['select']) && !isset($_POST['btnbook']) && !isset($_POST['btncategory']) && !isset($_POST['btntype']) && !isset($_POST['btnbill']) && !isset($_POST['btnaccount']))
+                    if($_GET['delete']=='bill' && isset($_GET['delete']) || isset($_POST['btnbill']) )
+                    {?>
+                        <option value="bill">HÓA ĐƠN</option>
+                        <option value="book">SÁCH</option>
+                        <option value="account">TÀI KHOẢN</option>
+                        <option value="category">DANH MỤC</option>
+                        <option value="type">THỂ LOẠI</option>
+                        <?php
+                    }
+                    if(!isset($_GET['delete']) )
                     {?>
                         <option value="book">SÁCH</option>
                         <option value="account">TÀI KHOẢN</option>
                         <option value="category">DANH MỤC</option>
                         <option value="type">THỂ LOẠI</option>
                         <option value="bill">HÓA ĐƠN</option>
-                    <?php
+                        <?php
                     }
                     ?>
-
                 </select>
             </div>
-            <button name="btn" type="submit"><img src="../img/logo/icon_select.png" width="25px;"/> </button>
         </form>
-
-
     </div>
+    <div id="show">
     <?php
-    if(isset($_POST['btn']) && $_POST['select'] =='book' && !isset($_POST['btnbook']) || isset($_POST['btnbook']))
+    if(!isset($_GET['delete']) )
     {
-        include 'delete_book.php';
+        include "delete_book.php";
     }
-    if(isset($_POST['btn']) && $_POST['select'] =='account' && !isset($_POST['btnaccount']) || isset($_POST['btnaccount']))
-    {
-        include 'delete_account.php';
-    }
-    if(isset($_POST['btn']) && $_POST['select'] =='category' && !isset($_POST['btncategory']) || isset($_POST['btncategory']))
-    {
-        include 'delete_category.php';
-    }
-    if(isset($_POST['btn']) && $_POST['select'] =='type' && !isset($_POST['btntype']) || isset($_POST['btntype']))
-    {
-        include "delete_type.php";
-    }
-    if(isset($_POST['btn']) && $_POST['select'] =='bill' && !isset($_POST['btnbill'])|| isset($_POST['btnbill']))
-    {
-        include "delete_bill.php";
+    else{
+        if( isset($_GET['delete'])&& $_GET['delete']=='book' ){
+            include 'view/delete_book.php';
+            return;
+        }
+        if(isset($_GET['delete'])&& $_GET['delete']=='account' ){
+            include 'view/delete_account.php';
+            return;
+        }
+        if( isset($_GET['delete'])&& $_GET['delete']=='category' ){
+            include 'view/delete_category.php';
+            return;
+        }
+        if( isset($_GET['delete'])&& $_GET['delete']=='bill' ){
+            include 'view/delete_bill.php';
+            return;
+        }
+        if( isset($_GET['delete'])&& $_GET['delete']=='type' ){
+            include 'view/delete_type.php';
+            return;
+        }
     }
     ?>
+    </div>
     <div id="phantrang">
         <center><p>Phân trang</p></center>
     </div>

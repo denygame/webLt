@@ -1,20 +1,20 @@
 body {
 	font-family: "Times New Roman";
-		background-color: #000000;
+		background-color:rgb(35, 40, 45);
 
 }
 #admin_main_left {
 	width: 100%;
-	background-color: #000000;
+	background-color: rgb(35, 40, 45);
 }
 #manage {
 	clear: both;
 	width: 100%;
 	line-height: 50px;
-	font-size: 20px;
-	border: 1px solid #FFFFFF;
-		transition:all 0.5s;
+	font-size: 15px;
+	transition:all 0.5s;
 	transition-timing-function: ease-in-out;
+	z-index:-1;
 }
 #manage a {
 	text-decoration: none;
@@ -25,17 +25,21 @@ body {
 	float: left;
 	width: 40px;
 	height: 40px;
+	margin-left:15px;
+	margin-top:15px;
 }
 #icon img {
-	width: 40px;
+	width: 30px;
 	line-height: 50px;
 }
 #name_manage {
 	margin-left: 65px;
 	width: 250px;
 	color: #FFFFFF;
+	padding-top: 4px;
+	font-size: 20px;
 }
 #manage:hover {
 	margin-left: 30px;
-	background-color: blue;
+	background-color: #666666;
 }

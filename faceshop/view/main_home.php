@@ -16,13 +16,18 @@
 <body>
 <?php //libary
 require_once 'controller/BookController.php'; $bController = new BookController();
-require_once 'controller/AuthorController.php'; $authorController = new AuthorController(); ?>
+require_once 'controller/AuthorController.php'; $authorController = new AuthorController();
+require_once 'controller/OrderController.php'; $o = new OrderController(); $o->unsetSessionMoney(); ?>
 <div id="main_home">
     <div>
         <?php include 'slide.php'?>
     </div>
 <div id="sach_noibat">
-    <div id="tieude"><p>Sách nổi bật</p></div>
+    <fieldset>
+        <legend>
+            Sách nổi bật
+        </legend>
+    </fieldset>
     <div style="min-height: 1000px;">
         <?php  $result=$bController->load6BookHighlight(); if ($result!=null) while ($d = mysql_fetch_array($result)) { ?>
             <div id="sach">
@@ -51,7 +56,11 @@ require_once 'controller/AuthorController.php'; $authorController = new AuthorCo
 
 <hr/>
 <div id="sach_moi">
-    <div id="tieude"><p>Sách mới</p></div>
+    <fieldset>
+        <legend>
+            Sách mới
+        </legend>
+    </fieldset>
     <div id="sach_cungloai2">
         <?php $result=$bController->load12BookNew(); if ($result!=null) while ($d = mysql_fetch_array($result)) { ?>
             <div id="sach2">
@@ -73,7 +82,11 @@ require_once 'controller/AuthorController.php'; $authorController = new AuthorCo
 </div>
 <hr/>
 <div id="sach_sapra">
-    <div id="tieude"><p>Sách sắp ra mắt</p></div>
+    <fieldset>
+        <legend>
+            Sách sắp ra mắt
+        </legend>
+    </fieldset>
     <div style="min-height: 300px;">
         <?php $result=$bController->load6BookFuture(); if ($result!= null) while ($d= mysql_fetch_array($result)) { ?>
             <div id="sach2">
@@ -95,33 +108,6 @@ require_once 'controller/AuthorController.php'; $authorController = new AuthorCo
 </div>
 </div>
 
-<script>
-  var slideIndex = 1;
-  showSlides(slideIndex);
 
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
-
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-      }
-    </script>
   </body>
   </html>

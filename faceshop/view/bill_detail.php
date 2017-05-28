@@ -46,6 +46,9 @@
                         <?php } 
                     } else echo "<script language='javascript'>alert('Không có trang này!');</script>"; 
                 } ?>
+                <tr>
+                    <td colspan="4"><a href="index.php?id=login&idlogin=bill" style="color: #0e90d2">Quay lại</a> </td>
+                </tr>
             </table>
         </div>
         <center><div id="phantrang"><?php $bi->pageBills($str,$current_page,$total_page); ?></div></center>

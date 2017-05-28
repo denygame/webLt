@@ -11,11 +11,11 @@ $o = new OrderController();
 if(isset($_SESSION['total'])){
   $ttCongNganHang = 0;
   if(isset($_SESSION['payClick'])) $ttCongNganHang=$_SESSION['payClick'];
-  $total=$_SESSION['total'];
+  $total=$o->getTotalPrice();
   $priceShip = 0;
   if(isset($_SESSION['ship'])) $priceShip = $_SESSION['ship'];
   $endPrice = $total + $priceShip + $ttCongNganHang;
-  echo '<font style="color: #CC6600">'.$endPrice.' VNĐ</font>';
+  echo '<font style="color: #CC6600">'.number_format($endPrice).' VNĐ</font>';
 }
 
 ?>

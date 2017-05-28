@@ -4,72 +4,66 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
     <link type="text/css" rel="stylesheet" href="css/admin_account_insert.css"/>
-    <script type="text/javascript">
 
-    </script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/admin_account_insert.js"></script>
 </head>
 
 <body>
+
 <div id="admin_account_insert">
-    <form action="admin_account.php" method="post">
+    <form action="index.php?admin=manage_account_insert" method="post" id="frmInsert">
         <table>
             <h1>THÊM TÀI KHOẢN</h1>
             <tr>
                 <td id="label">Tên đăng nhập:</td>
-                <td id="valuse"><input type="text" name="name"/></td>
+                <td id="values"><input type="text" id="name"/></td>
             </tr>
             <tr>
                 <td id="label">Email:</td>
-                <td id="valuse"><input type="text" name="email"/></td>
+                <td id="values"><input type="text" id="email"/></td>
             </tr>
             <tr>
                 <td id="label">Password: </td>
-                <td id="valuse"><input type="password" name="pass"/></td>
+                <td id="values"><input type="password" id="password"/></td>
             </tr>
             <tr>
                 <td id="label">Giới tính:</td>
-                <td id="valuse"><input type="text" name="sex"/></td>
+                <td id="values"><input type="text" id="sex"/></td>
             </tr>
             <tr>
                 <td id="label">Số điện thoại:</td>
-                <td id="valuse"><input type="date" name="ngayxb"/></td>
+                <td id="values"><input type="text" id="tel"/></td>
             </tr>
             <tr>
                 <td id="label">Tỉnh/ Thành phố:</td>
-                <td id="valuse">
-                    <select name="city">
-                        <option >--chọn tỉnh/ thành phố--</option>
-                        <?php
-                            $sql="select * from city";
-                            $kq=mysql_query($sql);
-                            while ($d=mysql_fetch_array($kq)){
-                                ?>
-                                <option value="<?php echo $d['idcity']; ?>"><?php echo $d['name'] ?></option>
-                        <?php
-                            }
-                        ?>
-                    </select>
+                <td id="values">
+                    <select name="city" id="city">
+                      <option disabled selected hidden>-- Chọn tỉnh/thành phố-- </option>
+                      <?php require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/controller/CityController.php'; $city=new CityController();
+                      $result=$city->getCitys();
+                      while ($d=mysql_fetch_array(($result))) { ?>
+                        <option value="<?php echo $d['idcity'];?>"> <?php echo $d['name'];?> </option>
+                        <?php } ?>
+                      </select>
                 </td>
             </tr>
             <tr>
-                <td id="label">Địa chị:</td>
-                <td id="valuse"><input type="text" name="address"/></td>
+                <td id="label">Địa chỉ:</td>
+                <td id="values"><input type="text" id="address"/></td>
             </tr>
             <tr>
                 <td id="label">Quận/ Huyện:</td>
-                <td id="valuse"><input type="number" name="district"/></td>
+                <td id="values"><input type="text" id="district"/></td>
             </tr>
             <tr>
                 <td colspan="2" align="center" id="btn">
-                    <button type="submit" name="btn">Thêm</button>
+                    <button type="submit" name="btn"  onclick="insert();">Thêm</button>
                     <a href="index.php?admin=manage_account">Hủy</a>
                 </td>
             </tr>
         </table>
-
     </form>
-
-
 </div>
 </body>
 </html>

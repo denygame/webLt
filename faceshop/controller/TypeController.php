@@ -12,6 +12,16 @@ class TypeController
         $this->model = new TypeModel();
     }
 
+    public function getListType(){
+      $result = $this->model->getListType();
+      return TestResult::testResultController($result);
+    }
+
+    public function getListTypeNot($idtype){
+      $result = $this->model->getListTypeNot($idtype);
+      return TestResult::testResultController($result);
+    }
+
     public function loadTypeOfCategory($idCategory)
     {
         $result = $this->model->getListTypeByIdCategory($idCategory);

@@ -4,14 +4,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
     <link rel="stylesheet" type="text/css" href="css/delete_account.css"/>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+    function toggle(source) {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i] != source)
+            checkboxes[i].checked = source.checked;
+        }
+    }
+    </script>
 </head>
 
 <body>
-<form action="index.php?admin=manage_delete" method="post">
+<form action="index.php?admin=manage_delete&delete=account" method="post">
     <input type="submit" value="Khôi phục" id="save" name="btnaccount" />
     <table>
         <tr>
-            <th id="check"></th>
+            <th id="check"><input type="checkbox" onclick="toggle(this)" name=""></th>
             <th id="name">Tên đăng nhập</th>
             <th id="email">Email</th>
             <th id="sex">Giới tính</th>

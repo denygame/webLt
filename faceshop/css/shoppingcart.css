@@ -17,7 +17,7 @@
     float: left;
 }
 #list{
-    min-height: 200px;
+    min-height: 100px;
     max-height: 600px;
     overflow: scroll;
     border: 1px solid #CCCCCC;
@@ -184,10 +184,9 @@
     height: 25px;
     border: 1px solid #999999;
     font-size: 20px;
-    padding-left: 10px;
 }
 #info select{
-    width: 105.7%;
+    width: 101%;
     height: 25px;
     border: 1px solid #999999;
 }
@@ -206,7 +205,6 @@
     line-height: 30px;
     font-size: 20px;
     border: 1px solid #999999;
-    padding-left: 10px;
 }
 #info2 td{
     text-align: right;
@@ -230,9 +228,98 @@
 }
 
 #info2 select{
-    width: 102.4%;
+    width: 100.3%;
     line-height: 30px;
     font-size: 20px;
     border: 1px solid #999999;
-    padding-left: 10px;
+}
+
+
+#add_book{
+    width: 200px;
+    background-color: #0e90d2;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+    color: #FFFFFF;
+    margin-top: 10px;
+    padding:5px;
+    border-radius: 3px;
+    border: 1px solid #1b2426;
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+#add_book:hover{
+    opacity: 0.5;
+}
+#find_in{
+    display: none;
+}
+li{
+    list-style: none;
+    line-height: 30px;
+    font-size: 20px;
+}
+li a{
+    color: #006699;
+}
+li a:active{
+    color: red;
+}
+#find_in input{
+    line-height: 18px;
+    height: 25px;
+    border: 1px solid #a0a0a0;
+    border-radius: 3px;
+    width: 200px;
+}
+#find_in input:focus{
+    border: 1px solid #0e90d2;
+}
+#find_in button{
+    background-color: #ff8000;
+    border: none;
+    font-size: 18px;
+    height: 25px;
+    line-height: 18px;
+    color: #FFFFFF;
+    width: 100px;cursor: pointer;
+
+}
+
+.blink{
+    font-size: 15px;
+    color: orange;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    line-height: 18px;
+    margin-left: 10px;
+}
+
+@-webkit-keyframes example {
+    from {opacity: 1}
+    to {opacity: 0;}
+    0%   {color:red; left:0px; top:0px;}
+    25%  {color:yellow; left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:green; left:0px; top:200px;}
+    100% {color:red; left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    from {opacity: 1}
+    to {opacity: 0;}
+    0%   {color:red; left:0px; top:0px;}
+    25%  {color:yellow; left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:green; left:0px; top:200px;}
+    100% {color:red; left:0px; top:0px;}
 }

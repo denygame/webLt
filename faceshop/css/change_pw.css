@@ -22,7 +22,9 @@ a, p , h1 ,h2, h3 ,h4, h5, h6{
 }
 #label{
     width: 200px;
+    padding-left: 55px;
 }
+
 #values{
     color: #999999;
     font-style: oblique;
@@ -39,6 +41,9 @@ a, p , h1 ,h2, h3 ,h4, h5, h6{
     width: 50px;
     padding: 5px;
     font-size: 18px;
+    cursor: pointer;
+    font-family: Arial;
+
 }
 #huy{
     border-style: none;
@@ -47,4 +52,5 @@ a, p , h1 ,h2, h3 ,h4, h5, h6{
     width: 50px;
     padding: 5px;
     font-size: 18px;
+    font-family: Arial;
 }

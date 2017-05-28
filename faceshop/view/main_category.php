@@ -12,6 +12,8 @@ require_once 'controller/BookController.php'; $bController = new BookController(
 require_once 'controller/AuthorController.php'; $authorController = new AuthorController();
 require_once 'controller/CategoryController.php'; $cateController = new CategoryController();
 require_once 'controller/TypeController.php'; $typeController = new TypeController();
+require_once 'others/constants.php';
+require_once 'controller/OrderController.php'; $o = new OrderController(); $o->unsetSessionMoney();
 
 if(!isset($_GET['sort'])) $sort = "normal"; else $sort=$_GET['sort'];
 
@@ -19,7 +21,7 @@ if(!isset($_GET['sort'])) $sort = "normal"; else $sort=$_GET['sort'];
         $idtype = $_GET['idtype'];
         $listInfoPage = $bController->getInfoPageBook($idtype, 1);
         $start = $listInfoPage['start'];
-        $listBook = $bController->getListBookInType($idtype, $start, $sort);
+        $listBook = $bController->getListBookInType($idtype, $start, $sort, constants::page_book);
         $str='idtype='.$_GET["idtype"].''; //dùng gán cho sort
     }
 
@@ -27,7 +29,7 @@ if(!isset($_GET['sort'])) $sort = "normal"; else $sort=$_GET['sort'];
         $idcategory = $_GET['idcategory'];
         $listInfoPage = $bController->getInfoPageBook($idcategory, 0);
         $start = $listInfoPage['start'];
-        $listBook = $bController->getListBookInCate($idcategory, $start, $sort);
+        $listBook = $bController->getListBookInCate($idcategory, $start, $sort, constants::page_book);
         $str='idcategory='.$_GET["idcategory"].'';
     }
 
@@ -98,7 +100,11 @@ if(!isset($_GET['sort'])) $sort = "normal"; else $sort=$_GET['sort'];
     </div>
 
     <?php   if(!isset($search)){ ?>
-        <div id="tieude2"> <?php if (isset($_GET['idcategory'])) echo $cateController->getNameCate($idcategory)['name']; else echo $typeController->getNameType($idtype)['name']; ?></div>
+        <fieldset>
+            <legend>
+                <?php if (isset($_GET['idcategory'])) echo $cateController->getNameCate($idcategory)['name']; else echo $typeController->getNameType($idtype)['name']; ?>
+            </legend>
+        </fieldset>
     <?php } ?>
 
     <div id="sach_cungloai2">

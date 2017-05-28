@@ -47,6 +47,8 @@
     background-color: #FF0033;
     color: white;
     margin-left: -10px;
+    cursor: pointer;
+
 }
 #sub{
     text-align: center;

@@ -1,22 +1,46 @@
 #head{
     width: 100%;
 }
-#hover{
-    width: 400px;
-
+#hover_logo{
+	width:140px;height:32px;float:left;
 }
+#hover_logo:hover{background-color: #666666}
 #logo{
     width: 50px;
-    float: left
+    float: left;
+    padding-top:4px;
+    padding-left: 8px;
+    height:32px;
 }
 #name_shop{
     float: left;
-    width: 200px;
-    margin-top: 24px;
+    width: auto;
+    height:22px;
+  padding-top:10px;
+    font-size: 14px;  
+    opacity: 0.8;  
 }
-#hover:hover #logo{
-    opacity: 0.8;
+#mail{
+    width: auto;
+    height:22px;;
+    opacity: 0.8;  
+     padding-left: 10px;
+     padding-top: 8px;
+    line-height: 20px;
 }
-#hover:hover #name_shop{
-    opacity: 0.8;
+#mail a{text-decoration: none;color:#FFF;float:left;padding-left: 3px;font-size: 15.5px;padding-top: 1px;}
+#mail::before{
+	background-image: url('mail.ico');
+	 background-size: 23px 23px;
+    display: block;
+    width: 23px; 
+    height: 23px;
+    content:"";
+    float:left;
+    cursor:pointer;
+
+}
+#hover_mail{width:85px;height:32px;float:left;}
+#hover_mail:hover{
+	background-color: #666666
 }

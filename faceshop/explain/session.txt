@@ -5,6 +5,7 @@
     + Truy xuất như sau:
          -> $_SESSION['cart'][row]['idbook'] : trường idbook trong ShoppingCart
          -> $_SESSION['cart'][row]['soluong'] : trường số lượng trong ShoppingCart
+         -> các trang khác truy xuất session nên gọi hàm show trong ShoppingCart trả về list
 
 - $_SESSION['infoObj'] (trong controller/OrderController) : là 1 object GuestDTO
     + Thông tin để insert bill nhưng chưa được tạo bill

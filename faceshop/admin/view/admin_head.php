@@ -8,14 +8,20 @@
 
 <body>
 <div id="head" >
-    <div id="hover">
+		<div id="hover_logo">
         <div id="logo">
-            <a href="../index.php"><img src="../img/logo/icon_home.png" target="blank" width="40px" style="margin-top: 5px; margin-left: 10px;" /></a>
+            <a href="../index.php" style="display: block;height: 100%;width:100%" target="blank" ><img src="home.png" width="24px" height="24px" style="margin-left: 10px;" /></a>
         </div>
         <div id="name_shop">
-            <a href="../index.php" style="color: #FFFFFF; text-decoration: none; margin-left: 15px; ">FACESHOP - T2HD</a>
+            <a href="../index.php" style="color: #FFF; text-decoration: none;margin-left:-8px; "  target="blank">FACESHOP</a>
         </div>
-    </div>
+        </div>
+        <div id=hover_mail>
+        <div id="mail">
+        <a href="https://mail.google.com/" target="blank">Gmail</a>
+        </div>
+        </div>
+
 
 </div>
 </body>

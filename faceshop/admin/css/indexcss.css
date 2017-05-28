@@ -9,10 +9,12 @@ body{
 #container{
 	width: 100%;
 	min-height: 500px;
+	background-color: rgb(35, 40, 45);;
 }
 #login{
 	width: 100%;
 	min-height: 500px;
+	background-color: #FFFFFF;
 }
 #head_login{
 	width:100%;
@@ -60,27 +62,28 @@ body{
 
 #head{
 	width: 100%;
-	height: 50px;
-	background-color: #000000;
+	height: 32px;
+	background-color: rgb(35, 40, 45);
 	position: fixed;
 }
 #main{
 	width: 100%;
 	clear: both;
 	min-height: 500px;
-	background-color: #000000;
+	background-color: rgb(35, 40, 45);
 }
 #main_left{
-	width: 20%;
-	margin-top: 50px;
+	width: 19%;
+	margin-top: 34px;
 	float: left;
-	background-color: #000000;
+	background-color: rgb(35, 40, 45);
+	border-top: 1px solid grey;
 }
 #main_right{
 	width: 80%;
 	float: left;
-	margin-top: 50px;
-	background-color: #FFFFFF;
+	margin-top: 34px;
+	background-color: #f1f1f1;
 	padding-bottom: 100px;
 
 }

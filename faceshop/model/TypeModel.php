@@ -19,5 +19,15 @@ class TypeModel
         $result = DataProvider::executeQuery("select `idtype` from `db_type` where idcategory=$idcategory and checkDelete = 0");
         return TestResult::testResultModel($result);
     }
+
+    public function getListTypeNot($idtype){
+      $result = DataProvider::executeQuery("select * from `db_type` where idtype != $idtype and checkDelete = 0");
+      return TestResult::testResultModel($result);
+    }
+
+    public function getListType(){
+      $result = DataProvider::executeQuery("select * from `db_type` where checkDelete = 0");
+      return TestResult::testResultModel($result);
+    }
 }
 ?>

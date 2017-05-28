@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Untitled Document</title>
   <link rel="stylesheet" type="text/css" href="css/register.css">
-
+<?php require_once 'controller/OrderController.php'; $o = new OrderController(); $o->unsetSessionMoney(); ?>
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   <script src="js/register.js"></script>
 

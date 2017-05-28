@@ -39,24 +39,23 @@ class BillinfoController
 		}
 	}
 
-
-	public function pageBills($str,$current_page,$total_page){
+public function pageBills($str,$current_page,$total_page){
 
 		if ($current_page > 1 && $total_page > 1){
-			echo '<a href="index.php?'.$str.'&page='.($current_page-1).'"> Prev </a>     ';
+			echo '<a class="phantrang" href="index.php?'.$str.'&page='.($current_page-1).'"> Prev </a>     ';
 		}
 
 		for ($i = 1; $i <= $total_page; $i++){
 			if ($i == $current_page){
-				echo '<span>'. $i .'</span>     ';
+				echo '<span class="selected">'. $i .'</span>     ';
 			}
 			else{
-				echo '<a href="index.php?'.$str.'&page='.$i.'">'. $i .'</a>     ';
+				echo '<a class="phantrang" href="index.php?'.$str.'&page='.$i.'">'. $i .'</a>     ';
 			}
 		}
 
 		if ($current_page < $total_page && $total_page > 1){
-			echo '<a href="index.php?'.$str.'&page='. ($current_page+1) .'"> Next </a>      ';
+			echo '<a class="phantrang" href="index.php?'.$str.'&page='. ($current_page+1) .'"> Next </a>      ';
 		}
 	}
 }

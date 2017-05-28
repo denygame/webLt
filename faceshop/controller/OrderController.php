@@ -15,6 +15,30 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/faceshop/controller/BookController.php'
 
 class OrderController
 {
+  //xóa các session ảnh hưởng tiền trong order.php khi hủy giao tác lưu bill, các trang ngoại trừ order đều phải sử dụng ?
+  public function unsetSessionMoney(){
+    if(isset($_SESSION['infoObj'])) unset($_SESSION['infoObj']);
+    if(isset($_SESSION['ship'])) unset($_SESSION['ship']);
+    if(isset($_SESSION['total'])) unset($_SESSION['total']);
+    if(isset($_SESSION['payClick'])) unset($_SESSION['payClick']);
+  }
+
+  public function getTotalPrice(){
+    if(isset($_SESSION['cart'])){
+      $totalPrice = 0;
+      $sc=new ShoppingCart();
+      $list = $sc->show();
+      $b=new BookController();
+      for($i=0;$i<count($list);$i++){
+        $price1Book = 0;
+        $book = $b->getBookById($list[$i]['idbook']);
+        if($book!=null) $price1Book=$book['price'] * (1 - (($book['saleoff']) / 100));
+        $totalPrice = $totalPrice + $price1Book * $list[$i]['soluong'];
+      }
+      return $totalPrice;
+    }
+  }
+
   public function saveObject($name,$email,$tel,$address,$district,$idcity,$sex){
     $info = new GuestDTO($name,$email,$tel,$address,$district,$idcity,$sex);
     $_SESSION['infoObj']=serialize($info);
@@ -52,6 +76,7 @@ class OrderController
     if(isset($_SESSION['cart'])){
       $mail = new PHPMailer;
       $mail->isSMTP();
+      $mail->CharSet = 'UTF-8';
       $mail->Host = 'smtp.gmail.com';
       $mail->SMTPAuth = true;
       $mail->Username = constants::email;
@@ -71,18 +96,38 @@ class OrderController
       date_default_timezone_set('Asia/Ho_Chi_Minh');
       $date = date('m/d/Y h:i:s a', time());
 
-      $bodyContent = '<h1>Bạn đã đăng ký mua sách của chúng tôi vào lúc: '.$date.'</h1><br/><br/>';
-      $bodyContent .= '<h2>Đơn hàng gồm: </h2><br/>';
 
+      // region - Nội dung mail
+      $bodyContent = '<h1>Bạn đã đăng ký mua sách của chúng tôi!<br/> Vào lúc: <font style="color:red">'.$date.'</font></h1><br/><br/>';
+      $bodyContent .= '<h3>ĐƠN HÀNG GỒM: </h3><br/>';
 
       $sc=new ShoppingCart();
+      $list = $sc->show();
       $b=new BookController();
-      for($i=0;$i<$sc->getCount();$i++){
-        $book=$b->getBookById($_SESSION['cart'][$i]['idbook']);
-        if($book!=null){
-          $bodyContent .= "<p> - ".$book['name']." x ".$_SESSION['cart'][$i]['soluong']." = ".number_format($book['price'] * (1 - (($book['saleoff']) / 100)))."</p>";
-        }
+
+      for($i=0;$i<count($list);$i++){
+        $book = $b->getBookById($list[$i]['idbook']);
+        $price1Book = 0;
+        if($book!=null) $price1Book=$book['price'] * (1 - (($book['saleoff']) / 100));
+
+        $bodyContent .= "<p> - ".$book['name']." x ".$list[$i]['soluong']." = ".number_format($list[$i]['soluong'] * $price1Book)." VNĐ</p>";
       }
+
+      switch ($_SESSION['ship']) {
+        case constants::priceShipFast:
+        $bodyContent .= "<br/><h3>Vận chuyển nhanh (1-3 ngày làm việc): ".number_format(constants::priceShipFast)." VNĐ</h3>";
+        break;
+        case constants::priceShipNormal:
+        $bodyContent .= "<br/><h3>Vận chuyển thường (4-7 ngày làm việc): ".number_format(constants::priceShipNormal)." VNĐ</h3>";
+        break;
+        default:break;
+      }
+
+      if(isset($_SESSION['payClick'])) $bodyContent .= "<br/><h3>Thanh toán bằng thẻ tín dụng : + ".number_format(constants::ttCongNganHang)." VNĐ</h3>";
+
+      $bodyContent .= "<br/><br/><h2>TỔNG CỘNG: ".number_format($this->getTotalPrice())." VNĐ</h2>";
+      //endRegion - Nội dung mail
+
 
       $mail->Subject = 'T2HD - BILL';
       $mail->Body    = $bodyContent;
@@ -150,5 +195,23 @@ if(isset($_GET['unsetSESSION_Order'])){
   //unset luôn các input radio
   if(isset($_POST['ship'])) unset($_POST['ship']);
   if(isset($_POST['co'])) unset($_POST['co']);
+}
+
+
+// lưu session ship vào khi click radio
+if(isset($_GET['priceShip'])){
+  $_SESSION['ship']=$_GET['priceShip'];
+}
+
+// lưu session thanh toán công ngân hàng vào khi click radio
+if(isset($_GET['payClick'])){
+  $_SESSION['payClick']=$_GET['payClick'];
+}
+
+// xóa session thanh toán công ngân hàng khi click radio khác cổng ngân hàng
+if(isset($_GET['unsetPayClick'])){
+  if(isset($_SESSION['payClick'])){
+    unset($_SESSION['payClick']);
+  }
 }
 ?>

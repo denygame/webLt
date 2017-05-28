@@ -1,27 +1,30 @@
 @charset "utf-8";
 /* CSS Document */
 #btn_them {
-	background-color: #666666;
-	color: white;
+	background-color: #FFF;
+	color: grey;
 	padding: 5px 10px;
 	font-size: 15px;
 	cursor: pointer;
 	margin-top: 5px;
-	margin-left: 10%;
+	margin-left: 10px;
 	float:left;
+		border: thin solid #CCC;
 }
 #btn_them:hover {
-	background-color: #999999;
+	background-color: #00a0d2;
 }
 .btn_xoa {
-background-color: #666666;
-	color: white;
+background-color: #FFF;
+	color: grey;
 	padding: 5px 10px;
 	font-size: 15px;
 	cursor: pointer;
 	margin-top: 5px;
+	margin-left: 10px;
+		border: thin solid #CCC;
 }
-.btn_xoa:hover{	background-color: #999999;}
+.btn_xoa:hover{	background-color: #00a0d2;}
 .btn_them {
 background-color: #666666;
 	color: white;
@@ -30,7 +33,6 @@ background-color: #666666;
 	cursor: pointer;
 	margin-top: 5px;
 }
-.btn_them:hover{	background-color: #999999;}
 .btn_sua {
 	color: blue;
 	text-decoration: none;
@@ -90,7 +92,6 @@ background-color: #666666;
 	transition: 0.3s;
 	cursor: pointer;
 }
-.dong{height:30px;border-bottom:1px solid #000;font-weight: normal;}
 @keyframes fade {
 	from {opacity: 0.1} 
 	to {opacity: 1}

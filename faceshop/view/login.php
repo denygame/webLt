@@ -9,6 +9,7 @@
 
 
 <?php
+require_once 'controller/OrderController.php'; $o = new OrderController(); $o->unsetSessionMoney();
 if(isset($_GET['logout'])){
     if(isset($_SESSION['email'])){
         //session_unset();

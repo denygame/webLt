@@ -39,3 +39,40 @@ a, p , h1 ,h2, h3 ,h4, h5, h6{
 span{
     color:red;
 }
+.selected{
+    background-color: #ed1d25;
+    color: #fff;
+    border-color: #ed1d25;
+    font-size: 15px;
+    height: 30px;
+    width: 30px;
+    line-height: 26px;  
+    border-radius: 5px;
+    margin: 0 2px;
+    display: inline-block;
+    border: 1px solid #eaeaea;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 2px;
+}
+.phantrang{
+  background-color: #CCCCCC;
+  color: #333333;
+  font-size: 15px;
+  height: 30px;
+  width: 30px;
+  line-height: 26px;  
+  border-radius: 5px;
+  margin: 0 2px;
+  display: inline-block;
+  border: 1px solid #eaeaea;
+  text-decoration: none;
+  text-align: center;
+  padding-top: 2px;
+}
+.phantrang:hover{
+    background:#FE9003;
+    border-color: #FE9003;
+    color:#fff
+}
+

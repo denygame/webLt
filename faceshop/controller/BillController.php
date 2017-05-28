@@ -38,42 +38,26 @@ class BillController
 			return $result;
 		}
 	}
-
 	public function pageBills($current_page,$total_page){
 		if ($current_page > 1 && $total_page > 1){
-			echo '<a href="index.php?id=login&idlogin=bill&page='.($current_page-1).'"> Prev </a>     ';
+			echo '<a class="phantrang" href="index.php?id=login&idlogin=bill&page='.($current_page-1).'"> &#10094 </a>     ';
 		}
-
+		
 		for ($i = 1; $i <= $total_page; $i++){
 			if ($i == $current_page){
-				echo '<span>'. $i .'</span>     ';
+				echo '<span class="selected" >'. $i .'</span>     ';
 			}
 			else{
-				echo '<a href="index.php?id=login&idlogin=bill&page='.$i.'">'. $i .'</a>     ';
+				echo '<a class="phantrang" href="index.php?id=login&idlogin=bill&page='.$i.'">'. $i .'</a>     ';
 			}
 		}
 
 		if ($current_page < $total_page && $total_page > 1){
-			echo '<a href="index.php?id=login&idlogin=bill&page='. ($current_page+1) .'"> Next </a>      ';
+			echo '<a class="phantrang" href="index.php?id=login&idlogin=bill&page='. ($current_page+1) .'"> &#10095; </a>      ';
 		}
 	}
 }
 
-// lưu session ship vào khi click radio
-if(isset($_GET['priceShip'])){
-	$_SESSION['ship']=$_GET['priceShip'];
-}
 
-// lưu session thanh toán công ngân hàng vào khi click radio
-if(isset($_GET['payClick'])){
-	$_SESSION['payClick']=$_GET['payClick'];
-}
-
-// xóa session thanh toán công ngân hàng khi click radio khác cổng ngân hàng
-if(isset($_GET['unsetPayClick'])){
-	if(isset($_SESSION['payClick'])){
-		unset($_SESSION['payClick']);
-	}
-}
 
 ?>

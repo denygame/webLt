@@ -29,11 +29,19 @@ a:hover{
 a:visited{
     color: #000000;
 }
-table th,td{
+table td{
     text-align: center;
     border-bottom: 1px solid #999999;
     line-height: 30px;
     min-height: 35px;
+}
+th{
+    text-align: center;
+    border-bottom: 1px solid #999999;
+    line-height: 30px;
+    min-height: 35px;
+    color: #1b2426;
+    background-color: #CCCCCC;
 }
 #check{
     width: 20px;

@@ -10,7 +10,11 @@
   <?php require_once 'controller/ShoppingCart.php'; $sc = new ShoppingCart();
   require_once 'controller/BookController.php'; $bController = new BookController();
   require_once 'controller/OrderController.php'; $o = new OrderController();
-  require_once 'others/constants.php'; ?>
+  require_once 'others/constants.php';
+
+//khi load lại trang nếu tồn tại session click radio thì unset
+  if(isset($_SESSION['ship'])) unset($_SESSION['ship']);
+  if(isset($_SESSION['payClick'])) unset($_SESSION['payClick']); ?>
 </head>
 <body>
   <div id="order">
@@ -45,38 +49,41 @@
       </div>
       <div id="order_right">
         <h4>Thông tin đơn hàng</h4>
-        <table>
-          <tr>
-            <th id="name">Tên sách</th>
-            <th id="price">Tổng</th>
-          </tr>
-          <?php
-          $list = $sc->show();
-          for($i=0;$i<count($list);$i++){
-            $idbook = $list[$i]['idbook']
-            ?>
-            <tr>
-              <td id="name">
-                <?php $kq_book = $bController->getBookById($idbook);
-                if ($kq_book != null) $dbook = $kq_book;
-                echo $dbook['name']; ?>
-              </td>
-              <td id="price">
-                <?php
-                $price= $dbook['price']*(1-$dbook['saleoff']/100);
-                $total=$total+$price;
-                echo $list[$i]['soluong']." x "; echo number_format($price); ?> đ</td>
+          <table>
+              <tr>
+                  <th id="name">Tên sách</th>
+                  <th id="price" style="padding-right: 17px">Tổng</th>
               </tr>
+          </table>
+          <div id="book">
+              <table>
+                  <?php
+                  $list = $sc->show();
+                  for($i=0;$i<count($list);$i++){
+                      $idbook = $list[$i]['idbook']
+                      ?>
+                      <tr>
+                          <td id="name">
+                              <?php $kq_book = $bController->getBookById($idbook);
+                              if ($kq_book != null) $dbook = $kq_book;
+                              echo $dbook['name']; ?>
+                          </td>
+                          <td id="price">
+                              <?php
+                              $price= $dbook['price']*(1-$dbook['saleoff']/100);
+                              $total=$total+$price;
+                              echo $list[$i]['soluong']." x "; echo number_format($price); ?> đ</td>
+                      </tr>
 
-              <?php }
-              //lưu tổng tiền vào session
-              $_SESSION['total']=$total; ?>
-            </table>
-
+                  <?php }
+                  //lưu tổng tiền vào session
+                  $_SESSION['total']=$total; ?>
+              </table>
+          </div>
             <table style="background-color: #96daff">
               <tr>
                 <td id="name">Tổng giá trị sách</td>
-                <td id="price"><?php echo number_format($total) ?> đ</td>
+                <td id="price"><?php echo number_format($o->getTotalPrice()); ?> đ</td>
               </tr>
               <tr>
                 <td id="name">Chuyển nhanh (1-3 ngày làm  việc)</td>
@@ -88,7 +95,7 @@
               </tr>
               <tr>
                 <td id="name"><b>Số tiền bạn cần thanh toán</b></td>
-                <td id="endPrice" class="price"><font style="color: #CC6600"><?php echo $total;?> VNĐ</font>
+                <td id="endPrice" class="price"><font style="color: #CC6600"><?php echo number_format($o->getTotalPrice()); ?> VNĐ</font>
                 </td>
               </tr>
             </table>

@@ -7,7 +7,8 @@
 
 
   <?php require_once 'controller/BookController.php'; $bookController = new BookController();
-  require_once 'controller/AuthorController.php'; $authorController = new AuthorController();?>
+  require_once 'controller/AuthorController.php'; $authorController = new AuthorController();
+  require_once 'controller/OrderController.php'; $o = new OrderController(); $o->unsetSessionMoney();?>
 
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   <script src="js/countBookSC.js"></script>
@@ -183,7 +184,11 @@
       <hr />
 
 
-      <div id="tieude2">Sách cùng thể loại</div>
+  <fieldset>
+      <legend>
+          Sách cùng thể loại
+      </legend>
+  </fieldset>
       <div id="sach_cungloai2">
         <?php $result = $bookController->get6BookSameType($idBook,$idtype);if($result!=null) while($d=mysql_fetch_array($result)){?>
           <div id="sach2">
